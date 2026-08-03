@@ -850,34 +850,64 @@
         </div>
       </section>
 
-      <!-- SLIDE 20: Interactive Evaluation Quiz -->
+      <!-- SLIDE 20: Interactive Evaluation Quiz (Part I & Part II Colossal 2-Column Screen Layout) -->
       <section class="slide" data-slide="20">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Short Assessment</div>
             <h2 class="slide-title">15-Item Logic Gates Quiz</h2>
           </div>
-          <div class="slide-subtitle">Select the correct answers for Part I & fill in Truth Table outputs for Part II</div>
         </div>
         <div class="slide-body">
-          <div id="quiz-questions-box"></div>
+          <div class="grid-2" style="gap: 36px; height: 100%; align-items: stretch;">
+            
+            <!-- Left Column: Part I Multiple Choice Question & Navigation -->
+            <div id="quiz-questions-box" style="height: 100%; display: flex; flex-direction: column;"></div>
 
-          <div class="feature-card" style="margin-top: 10px;">
-            <h4 style="color:var(--accent-cyan); font-size:1.8rem; margin-bottom:20px;">Part II: Truth Table Completion (Enter 0 or 1)</h4>
-            <div class="grid-3" style="gap: 24px;">
-              <div style="font-size:1.6rem;">AND (A=1, B=1) Y = <input type="number" id="tt-q-AND" min="0" max="1" style="width:80px; padding:12px; font-family:var(--font-code); font-size:1.6rem; border-radius:10px; border:2px solid #64748b;"></div>
-              <div style="font-size:1.6rem;">OR (A=0, B=1) Y = <input type="number" id="tt-q-OR" min="0" max="1" style="width:80px; padding:12px; font-family:var(--font-code); font-size:1.6rem; border-radius:10px; border:2px solid #64748b;"></div>
-              <div style="font-size:1.6rem;">NOT (A=1) Y = <input type="number" id="tt-q-NOT" min="0" max="1" style="width:80px; padding:12px; font-family:var(--font-code); font-size:1.6rem; border-radius:10px; border:2px solid #64748b;"></div>
-              <div style="font-size:1.6rem;">NAND (A=1, B=1) Y = <input type="number" id="tt-q-NAND" min="0" max="1" style="width:80px; padding:12px; font-family:var(--font-code); font-size:1.6rem; border-radius:10px; border:2px solid #64748b;"></div>
-              <div style="font-size:1.6rem;">NOR (A=0, B=0) Y = <input type="number" id="tt-q-NOR" min="0" max="1" style="width:80px; padding:12px; font-family:var(--font-code); font-size:1.6rem; border-radius:10px; border:2px solid #64748b;"></div>
+            <!-- Right Column: Part II Truth Table Completion -->
+            <div class="feature-card" style="border-color: var(--accent-green); justify-content: space-around; height: 100%; padding: 40px;">
+              <div>
+                <h3 style="color: var(--accent-green); font-size: 2.8rem; font-weight: 900; margin-bottom: 8px;">
+                  Part II: Truth Table Completion
+                </h3>
+                <p style="color: var(--text-muted); font-size: 1.6rem;">Enter binary output (0 or 1) for each gate scenario:</p>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
+                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">AND Gate (A=1, B=1) ➔ Y =</span>
+                  <input type="number" id="tt-q-AND" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
+                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">OR Gate (A=0, B=1) ➔ Y =</span>
+                  <input type="number" id="tt-q-OR" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
+                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">NOT Gate (Input A=1) ➔ Y =</span>
+                  <input type="number" id="tt-q-NOT" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
+                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">NAND Gate (A=1, B=1) ➔ Y =</span>
+                  <input type="number" id="tt-q-NAND" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
+                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">NOR Gate (A=0, B=0) ➔ Y =</span>
+                  <input type="number" id="tt-q-NOR" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
+                </div>
+              </div>
+
+              <button class="nav-btn" onclick="submitQuiz()" style="font-size: 1.8rem; padding: 20px 48px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none; border-radius: 16px;">
+                📝 Submit Evaluation Quiz
+              </button>
+
+              <div id="quiz-results-banner" style="display: none; text-align: center; background: rgba(52, 211, 153, 0.15); border: 2px solid var(--accent-green); border-radius: 16px; padding: 20px;"></div>
             </div>
+
           </div>
-
-          <button class="nav-btn" onclick="submitQuiz()" style="margin-top:20px; align-self:center; font-size:1.6rem; padding:18px 48px;">
-            📝 Submit Evaluation Quiz
-          </button>
-
-          <div id="quiz-results-banner" class="feature-card" style="display:none; text-align:center; margin-top:15px;"></div>
         </div>
       </section>
 
