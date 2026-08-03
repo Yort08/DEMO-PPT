@@ -139,6 +139,56 @@ const SymbolGame = {
   ]
 };
 
+// Returns SVG inner paths for a given gate type
+function gateSVG(type, color) {
+  const c = color;
+  const fill = `${c}33`;
+  switch(type) {
+    case 'AND':
+      return `<path d="M 40,20 L 100,20 A 40,40 0 0,1 100,100 L 40,100 Z" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <line x1="10" y1="40" x2="40" y2="40" stroke="${c}" stroke-width="4"/>
+              <line x1="10" y1="80" x2="40" y2="80" stroke="${c}" stroke-width="4"/>
+              <line x1="140" y1="60" x2="190" y2="60" stroke="${c}" stroke-width="4"/>`;
+    case 'OR':
+      return `<path d="M 40,20 Q 65,60 40,100 Q 100,100 150,60 Q 100,20 40,20 Z" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <line x1="10" y1="38" x2="55" y2="38" stroke="${c}" stroke-width="4"/>
+              <line x1="10" y1="82" x2="55" y2="82" stroke="${c}" stroke-width="4"/>
+              <line x1="150" y1="60" x2="190" y2="60" stroke="${c}" stroke-width="4"/>`;
+    case 'NOT':
+      return `<path d="M 40,20 L 40,100 L 140,60 Z" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <circle cx="150" cy="60" r="10" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <line x1="10" y1="60" x2="40" y2="60" stroke="${c}" stroke-width="4"/>
+              <line x1="160" y1="60" x2="190" y2="60" stroke="${c}" stroke-width="4"/>`;
+    case 'NAND':
+      return `<path d="M 40,20 L 100,20 A 40,40 0 0,1 100,100 L 40,100 Z" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <circle cx="150" cy="60" r="10" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <line x1="10" y1="40" x2="40" y2="40" stroke="${c}" stroke-width="4"/>
+              <line x1="10" y1="80" x2="40" y2="80" stroke="${c}" stroke-width="4"/>
+              <line x1="160" y1="60" x2="190" y2="60" stroke="${c}" stroke-width="4"/>`;
+    case 'NOR':
+      return `<path d="M 40,20 Q 65,60 40,100 Q 100,100 150,60 Q 100,20 40,20 Z" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <circle cx="160" cy="60" r="10" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <line x1="10" y1="38" x2="55" y2="38" stroke="${c}" stroke-width="4"/>
+              <line x1="10" y1="82" x2="55" y2="82" stroke="${c}" stroke-width="4"/>
+              <line x1="170" y1="60" x2="190" y2="60" stroke="${c}" stroke-width="4"/>`;
+    case 'EXOR':
+      return `<path d="M 40,20 Q 65,60 40,100 Q 100,100 150,60 Q 100,20 40,20 Z" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <path d="M 28,20 Q 53,60 28,100" fill="none" stroke="${c}" stroke-width="5"/>
+              <line x1="10" y1="38" x2="50" y2="38" stroke="${c}" stroke-width="4"/>
+              <line x1="10" y1="82" x2="50" y2="82" stroke="${c}" stroke-width="4"/>
+              <line x1="150" y1="60" x2="190" y2="60" stroke="${c}" stroke-width="4"/>`;
+    case 'EXNOR':
+      return `<path d="M 40,20 Q 65,60 40,100 Q 100,100 150,60 Q 100,20 40,20 Z" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <path d="M 28,20 Q 53,60 28,100" fill="none" stroke="${c}" stroke-width="5"/>
+              <circle cx="160" cy="60" r="10" fill="${fill}" stroke="${c}" stroke-width="5"/>
+              <line x1="10" y1="38" x2="50" y2="38" stroke="${c}" stroke-width="4"/>
+              <line x1="10" y1="82" x2="50" y2="82" stroke="${c}" stroke-width="4"/>
+              <line x1="170" y1="60" x2="190" y2="60" stroke="${c}" stroke-width="4"/>`;
+    default:
+      return '';
+  }
+}
+
 function startSymbolGame() {
   SymbolGame.currentRound = 0;
   SymbolGame.score = 0;
@@ -157,7 +207,19 @@ function loadSymbolRound() {
   if (titleElem) titleElem.textContent = `Round ${SymbolGame.currentRound + 1}: Identify the correct ${roundData.target}`;
 
   const feedbackElem = document.getElementById('symbol-feedback');
-  if (feedbackElem) feedbackElem.textContent = 'Select Symbol 1 or Symbol 2 within 10 seconds!';
+  if (feedbackElem) { feedbackElem.textContent = 'Select Symbol 1 or Symbol 2 within 10 seconds!'; feedbackElem.style.color = 'var(--accent-cyan)'; }
+
+  // Inject correct SVG shapes
+  const svg1 = document.getElementById('sym-svg-1');
+  const svg2 = document.getElementById('sym-svg-2');
+  if (svg1) svg1.innerHTML = gateSVG(roundData.sym1, '#38bdf8');
+  if (svg2) svg2.innerHTML = gateSVG(roundData.sym2, '#a78bfa');
+
+  // Reset card borders
+  const card1 = document.getElementById('sym-card-1');
+  const card2 = document.getElementById('sym-card-2');
+  if (card1) { card1.style.borderColor = 'var(--accent-cyan)'; card1.style.opacity = '1'; }
+  if (card2) { card2.style.borderColor = 'var(--accent-purple)'; card2.style.opacity = '1'; }
 
   SymbolGame.timer = 10;
   const timerElem = document.getElementById('symbol-timer-num');
@@ -198,6 +260,7 @@ function selectSymbolChoice(choiceNum) {
     loadSymbolRound();
   }, 1500);
 }
+
 
 function showSymbolGameResults() {
   const container = document.getElementById('symbol-game-box');
