@@ -29,17 +29,15 @@ const QuizData = {
     }
   ],
   truthTableQuestions: [
-    // AND Gate Truth Table (4 pts)
-    { id: 'tt-and-00', gate: 'AND', a: 0, b: 0, correct: 0 },
+    // AND Gate Truth Table (3 input questions, Row 1 is hint)
     { id: 'tt-and-01', gate: 'AND', a: 0, b: 1, correct: 0 },
     { id: 'tt-and-10', gate: 'AND', a: 1, b: 0, correct: 0 },
     { id: 'tt-and-11', gate: 'AND', a: 1, b: 1, correct: 1 },
-    // OR Gate Truth Table (4 pts)
+    // OR Gate Truth Table (3 input questions, Row 3 is hint)
     { id: 'tt-or-00', gate: 'OR', a: 0, b: 0, correct: 0 },
     { id: 'tt-or-01', gate: 'OR', a: 0, b: 1, correct: 1 },
-    { id: 'tt-or-10', gate: 'OR', a: 1, b: 0, correct: 1 },
     { id: 'tt-or-11', gate: 'OR', a: 1, b: 1, correct: 1 },
-    // NOT Gate Truth Table (2 pts)
+    // NOT Gate Truth Table (2 input questions, no hint)
     { id: 'tt-not-0', gate: 'NOT', a: 0, b: null, correct: 1 },
     { id: 'tt-not-1', gate: 'NOT', a: 1, b: null, correct: 0 }
   ]
@@ -156,8 +154,8 @@ function submitPart2() {
       <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:3.5rem; font-weight:900;">Evaluation Quiz Submitted! 🎉</h2>
       <p style="font-size:2.5rem; color:#fff; margin-top:10px;">
         Part I: <strong style="color:var(--accent-cyan);">${part1Score} / 5</strong> &nbsp;|&nbsp; 
-        Part II: <strong style="color:var(--accent-green);">${score} / 10</strong> &nbsp;|&nbsp; 
-        Total: <strong style="color:var(--accent-amber); font-size:3.2rem;">${totalScore} / 15</strong>
+        Part II: <strong style="color:var(--accent-green);">${score} / 8</strong> &nbsp;|&nbsp; 
+        Total: <strong style="color:var(--accent-amber); font-size:3.2rem;">${totalScore} / 13</strong>
       </p>
     `;
   }
