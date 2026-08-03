@@ -100,35 +100,53 @@
         </div>
       </section>
 
-      <!-- SLIDE 3: Classroom Rules -->
+      <!-- SLIDE 3: Classroom Rules (Interactive Click-to-Reveal Animation) -->
       <section class="slide" data-slide="3">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Classroom Management</div>
             <h2 class="slide-title">Be a T.R.O.Y. Student!</h2>
           </div>
+          <div style="font-size: 1.8rem; color: var(--accent-cyan); font-weight: 700;">
+            👉 Click each letter card to reveal its rule meaning!
+          </div>
         </div>
         <div class="slide-body">
           <div class="grid-4">
-            <div class="feature-card troy-card letter-t">
+            <div class="feature-card troy-card letter-t" onclick="revealTroyCard(this)">
               <div class="troy-letter">T</div>
-              <h3>Try Your Best</h3>
-              <p>Give your full effort in every lesson, discussion, and interactive activity.</p>
+              <div class="troy-content">
+                <h3>Try Your Best</h3>
+                <p>Give your full effort in every lesson, discussion, and interactive activity.</p>
+              </div>
+              <div class="troy-hint">Click to Reveal ✨</div>
             </div>
-            <div class="feature-card troy-card letter-r">
+
+            <div class="feature-card troy-card letter-r" onclick="revealTroyCard(this)">
               <div class="troy-letter">R</div>
-              <h3>Raise Others Up</h3>
-              <p>Speak kindly, collaborate, and support your classmates during discussions.</p>
+              <div class="troy-content">
+                <h3>Raise Others Up</h3>
+                <p>Speak kindly, collaborate, and support your classmates during discussions.</p>
+              </div>
+              <div class="troy-hint">Click to Reveal ✨</div>
             </div>
-            <div class="feature-card troy-card letter-o">
+
+            <div class="feature-card troy-card letter-o" onclick="revealTroyCard(this)">
               <div class="troy-letter">O</div>
-              <h3>Open Your Mind</h3>
-              <p>Stay curious, listen carefully, and welcome new ideas in technology.</p>
+              <div class="troy-content">
+                <h3>Open Your Mind</h3>
+                <p>Stay curious, listen carefully, and welcome new ideas in technology.</p>
+              </div>
+              <div class="troy-hint">Click to Reveal ✨</div>
             </div>
-            <div class="feature-card troy-card letter-y">
+
+            <div class="feature-card troy-card letter-y" onclick="revealTroyCard(this)">
               <div class="troy-letter">Y</div>
-              <h3>Your Actions Matter</h3>
-              <p>Take responsibility for your behavior, choices, and keep our learning space clean.</p>
+              <div class="troy-content">
+                <h3>Your Actions Matter</h3>
+                <p>Take responsibility for your behavior, choices, and keep our learning space clean.</p>
+              </div>
+              <div class="troy-hint">Click to Reveal ✨</div>
             </div>
           </div>
         </div>

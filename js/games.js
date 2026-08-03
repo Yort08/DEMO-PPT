@@ -1,5 +1,13 @@
 /* Interactive Games Module: Mystery Boxes & Pick Symbol Activity */
 
+// Interactive T.R.O.Y. Rules Card Reveal Handler
+function revealTroyCard(card) {
+  if (!card.classList.contains('revealed')) {
+    card.classList.add('revealed');
+    if (window.playAudioTone) window.playAudioTone(880, 0.15);
+  }
+}
+
 // Motivation Mystery Boxes State
 const MysteryState = {
   box1: { a: 0, b: 0, unlocked: false, letter: 'L' },
