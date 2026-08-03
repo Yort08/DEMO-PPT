@@ -2,7 +2,7 @@
 
 // Slide State
 let currentSlide = 1;
-const totalSlides = 21;
+const totalSlides = 22;
 let timerSeconds = 0;
 let timerInterval = null;
 
@@ -189,10 +189,14 @@ const TeacherNotesDB = {
     student: "Students participate in the 5-round symbol challenge."
   },
   20: {
-    speech: "“Please prepare for our 15-item evaluation quiz and Truth Table completion on screen!”",
-    student: "Students complete the interactive quiz and submit answers."
+    speech: "“Part I Quiz: Please answer the 5 multiple choice questions on screen!”",
+    student: "Students select answers for Questions 1 to 5."
   },
   21: {
+    speech: "“Part II Quiz: Now complete the 10-point Truth Table outputs on screen!”",
+    student: "Students fill in the missing 0 and 1 output values across the truth tables."
+  },
+  22: {
     speech: "“For our next hands-on activity, please bring a printed picture of your chosen gate symbol, 1/8 illustration board, and a marker. Goodbye class!”",
     student: "“Goodbye and thank you, sir!”"
   }

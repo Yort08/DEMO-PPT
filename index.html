@@ -850,69 +850,107 @@
         </div>
       </section>
 
-      <!-- SLIDE 20: Interactive Evaluation Quiz (Part I & Part II Colossal 2-Column Screen Layout) -->
+      <!-- SLIDE 20: DEDICATED PART I QUIZ SLIDE (Multiple Choice - 100% Screen Colossal Layout) -->
       <section class="slide" data-slide="20">
         <div class="slide-header">
           <div>
-            <div class="slide-tag">Evaluate • Short Assessment</div>
-            <h2 class="slide-title">15-Item Logic Gates Quiz</h2>
+            <div class="slide-tag">Evaluate • Part I of II</div>
+            <h2 class="slide-title">Quiz Part I: Multiple Choice</h2>
           </div>
         </div>
-        <div class="slide-body">
-          <div class="grid-2" style="gap: 36px; height: 100%; align-items: stretch;">
-            
-            <!-- Left Column: Part I Multiple Choice Question & Navigation -->
-            <div id="quiz-questions-box" style="height: 100%; display: flex; flex-direction: column;"></div>
+        <div class="slide-body" style="height: 100%; justify-content: space-around;">
+          
+          <div id="quiz-questions-box" style="height: 100%; display: flex; flex-direction: column; justify-content: space-around;"></div>
 
-            <!-- Right Column: Part II Truth Table Completion -->
-            <div class="feature-card" style="border-color: var(--accent-green); justify-content: space-around; height: 100%; padding: 40px;">
-              <div>
-                <h3 style="color: var(--accent-green); font-size: 2.8rem; font-weight: 900; margin-bottom: 8px;">
-                  Part II: Truth Table Completion
-                </h3>
-                <p style="color: var(--text-muted); font-size: 1.6rem;">Enter binary output (0 or 1) for each gate scenario:</p>
-              </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px;">
+            <button class="nav-btn" onclick="submitPart1()" style="font-size: 1.8rem; padding: 20px 48px; background: rgba(56, 189, 248, 0.2); border-color: var(--accent-cyan);">
+              Check Part I Answers
+            </button>
 
-              <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
-                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">AND Gate (A=1, B=1) ➔ Y =</span>
-                  <input type="number" id="tt-q-AND" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
-                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">OR Gate (A=0, B=1) ➔ Y =</span>
-                  <input type="number" id="tt-q-OR" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
-                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">NOT Gate (Input A=1) ➔ Y =</span>
-                  <input type="number" id="tt-q-NOT" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
-                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">NAND Gate (A=1, B=1) ➔ Y =</span>
-                  <input type="number" id="tt-q-NAND" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 16px 24px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.15);">
-                  <span style="font-family: var(--font-code); font-size: 1.9rem; font-weight: 700; color: #fff;">NOR Gate (A=0, B=0) ➔ Y =</span>
-                  <input type="number" id="tt-q-NOR" min="0" max="1" placeholder="?" style="width: 90px; height: 60px; text-align: center; font-family: var(--font-code); font-size: 2.4rem; font-weight: 900; border-radius: 12px; border: 3px solid var(--accent-cyan); background: #0f172a; color: var(--accent-cyan);">
-                </div>
-              </div>
-
-              <button class="nav-btn" onclick="submitQuiz()" style="font-size: 1.8rem; padding: 20px 48px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none; border-radius: 16px;">
-                📝 Submit Evaluation Quiz
-              </button>
-
-              <div id="quiz-results-banner" style="display: none; text-align: center; background: rgba(52, 211, 153, 0.15); border: 2px solid var(--accent-green); border-radius: 16px; padding: 20px;"></div>
-            </div>
-
+            <button class="nav-btn" onclick="showSlide(21)" style="font-size: 1.8rem; padding: 20px 56px; background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">
+              Proceed to Part II ▶
+            </button>
           </div>
+
+          <div id="part1-results-banner" style="display: none; text-align: center; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--accent-cyan); border-radius: 20px; padding: 24px; margin-top: 16px;"></div>
+
         </div>
       </section>
 
-      <!-- SLIDE 21: Assignment & Conclusion -->
+      <!-- SLIDE 21: DEDICATED PART II QUIZ SLIDE (10-Point Full Truth Table Completion) -->
       <section class="slide" data-slide="21">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Evaluate • Part II of II (10 Points)</div>
+            <h2 class="slide-title">Quiz Part II: Truth Table Completion</h2>
+          </div>
+          <div class="slide-subtitle">Fill in all missing output values (Y) for the AND, OR, and NOT gate tables!</div>
+        </div>
+        <div class="slide-body" style="height: 100%; justify-content: space-around;">
+          
+          <div class="grid-3" style="gap: 36px; height: 100%; align-items: stretch;">
+            
+            <!-- Table 1: AND Gate Truth Table (4 pts) -->
+            <div class="truth-table-card" style="border-color: var(--accent-cyan); padding: 32px;">
+              <div class="truth-table-title" style="font-size: 2.4rem;">1. AND Gate (4 pts)</div>
+              <table class="truth-table">
+                <thead>
+                  <tr><th>A</th><th>B</th><th>Output Y</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>0</td><td>0</td><td><input type="number" id="tt-and-00" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td></tr>
+                  <tr><td>0</td><td>1</td><td><input type="number" id="tt-and-01" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td></tr>
+                  <tr><td>1</td><td>0</td><td><input type="number" id="tt-and-10" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td></tr>
+                  <tr><td>1</td><td>1</td><td><input type="number" id="tt-and-11" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Table 2: OR Gate Truth Table (4 pts) -->
+            <div class="truth-table-card" style="border-color: var(--accent-purple); padding: 32px;">
+              <div class="truth-table-title" style="font-size: 2.4rem; color: var(--accent-purple);">2. OR Gate (4 pts)</div>
+              <table class="truth-table">
+                <thead>
+                  <tr><th style="color:var(--accent-purple);">A</th><th style="color:var(--accent-purple);">B</th><th style="color:var(--accent-purple);">Output Y</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>0</td><td>0</td><td><input type="number" id="tt-or-00" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td></tr>
+                  <tr><td>0</td><td>1</td><td><input type="number" id="tt-or-01" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td></tr>
+                  <tr><td>1</td><td>0</td><td><input type="number" id="tt-or-10" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td></tr>
+                  <tr><td>1</td><td>1</td><td><input type="number" id="tt-or-11" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Table 3: NOT Gate Truth Table (2 pts) -->
+            <div class="truth-table-card" style="border-color: var(--accent-green); padding: 32px;">
+              <div class="truth-table-title" style="font-size: 2.4rem; color: var(--accent-green);">3. NOT Gate (2 pts)</div>
+              <table class="truth-table">
+                <thead>
+                  <tr><th style="color:var(--accent-green);">Input A</th><th style="color:var(--accent-green);">Output Y</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>0</td><td><input type="number" id="tt-not-0" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-green); background:#0f172a; color:var(--accent-green);"></td></tr>
+                  <tr><td>1</td><td><input type="number" id="tt-not-1" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-green); background:#0f172a; color:var(--accent-green);"></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+          <div style="display:flex; justify-content:center; margin-top:20px;">
+            <button class="nav-btn" onclick="submitPart2()" style="font-size: 2.2rem; padding: 24px 64px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none; border-radius: 18px;">
+              📝 Submit Complete 15-Item Evaluation Quiz
+            </button>
+          </div>
+
+          <div id="part2-results-banner" style="display: none; text-align: center; background: rgba(52, 211, 153, 0.15); border: 3px solid var(--accent-green); border-radius: 24px; padding: 32px; margin-top: 20px;"></div>
+
+        </div>
+      </section>
+
+      <!-- SLIDE 22: Assignment & Conclusion -->
+      <section class="slide" data-slide="22">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Extend • Next Meeting Assignment</div>
@@ -955,7 +993,7 @@
         <div class="progress-bar-bg">
           <div class="progress-bar-fill" id="progress-bar-fill"></div>
         </div>
-        <span class="slide-counter" id="slide-counter">SLIDE 1 / 21</span>
+        <span class="slide-counter" id="slide-counter">SLIDE 1 / 22</span>
       </div>
 
       <div class="nav-buttons">
@@ -1012,8 +1050,9 @@
         <div class="thumb-card" onclick="showSlide(17); toggleSlideOverview();"><div class="thumb-num">SLIDE 17</div><div class="thumb-title">Generalization</div></div>
         <div class="thumb-card" onclick="showSlide(18); toggleSlideOverview();"><div class="thumb-num">SLIDE 18</div><div class="thumb-title">1-Min Reflection</div></div>
         <div class="thumb-card" onclick="showSlide(19); toggleSlideOverview();"><div class="thumb-num">SLIDE 19</div><div class="thumb-title">Pick Symbol Activity</div></div>
-        <div class="thumb-card" onclick="showSlide(20); toggleSlideOverview();"><div class="thumb-num">SLIDE 20</div><div class="thumb-title">15-Item Quiz</div></div>
-        <div class="thumb-card" onclick="showSlide(21); toggleSlideOverview();"><div class="thumb-num">SLIDE 21</div><div class="thumb-title">Assignment & Goodbye</div></div>
+        <div class="thumb-card" onclick="showSlide(20); toggleSlideOverview();"><div class="thumb-num">SLIDE 20</div><div class="thumb-title">Quiz Part I (Multiple Choice)</div></div>
+        <div class="thumb-card" onclick="showSlide(21); toggleSlideOverview();"><div class="thumb-num">SLIDE 21</div><div class="thumb-title">Quiz Part II (Truth Tables)</div></div>
+        <div class="thumb-card" onclick="showSlide(22); toggleSlideOverview();"><div class="thumb-num">SLIDE 22</div><div class="thumb-title">Assignment & Goodbye</div></div>
       </div>
     </div>
   </div>
