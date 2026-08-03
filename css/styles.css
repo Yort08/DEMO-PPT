@@ -1,4 +1,4 @@
-/* True Edge-to-Edge Fullscreen Presentation Stylesheet - Massive Screen-Occupying Fonts */
+/* True Edge-to-Edge Fullscreen Presentation Stylesheet - Maximum Colossal Fonts for Classroom Visibility */
 :root {
   --bg-dark: #0f172a;           /* Eye-safe Slate 900 */
   --bg-card: #0f172a;           /* Seamless Dark Slate background */
@@ -164,7 +164,7 @@ header.top-bar {
   transform: scale(1);
 }
 
-/* Slide Header */
+/* Slide Header - Scaled Up */
 .slide-header {
   margin-bottom: 16px;
   display: flex;
@@ -176,7 +176,7 @@ header.top-bar {
 
 .slide-tag {
   font-family: var(--font-code);
-  font-size: 1.6rem;
+  font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--accent-cyan);
@@ -185,14 +185,14 @@ header.top-bar {
 
 .slide-title {
   font-family: var(--font-heading);
-  font-size: 5rem;
+  font-size: 5.6rem;
   font-weight: 900;
   color: #fff;
   line-height: 1.05;
 }
 
 .slide-subtitle {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--text-muted);
 }
 
@@ -271,7 +271,7 @@ footer.bottom-bar {
   border-radius: 14px;
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -305,13 +305,13 @@ footer.bottom-bar {
   padding: 14px 44px;
   border-radius: 40px;
   font-family: var(--font-code);
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 
 .main-title {
   font-family: var(--font-heading);
-  font-size: 7.2rem;
+  font-size: 7.5rem;
   font-weight: 900;
   line-height: 1.05;
   color: #fff;
@@ -329,13 +329,13 @@ footer.bottom-bar {
 }
 
 .presenter-name {
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   font-weight: 800;
   color: var(--accent-green);
 }
 
 .presenter-meta {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--text-muted);
 }
 
@@ -346,8 +346,8 @@ footer.bottom-bar {
 
 .feature-card {
   background: rgba(255, 255, 255, 0.04);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
   padding: 48px;
   transition: all 0.2s ease;
   display: flex;
@@ -362,23 +362,24 @@ footer.bottom-bar {
 }
 
 .feature-card .card-icon {
-  font-size: 5rem;
+  font-size: 6.5rem;
   margin-bottom: 20px;
   color: var(--accent-cyan);
 }
 
 .feature-card h3 {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 3.8rem;
   margin-bottom: 20px;
   color: #fff;
   font-weight: 900;
+  line-height: 1.15;
 }
 
 .feature-card p {
-  font-size: 2rem;
+  font-size: 2.6rem;
   color: var(--text-muted);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 /* Classroom Rules (T.R.O.Y.) */
@@ -390,7 +391,7 @@ footer.bottom-bar {
 
 .troy-letter {
   font-family: var(--font-heading);
-  font-size: 7.5rem;
+  font-size: 8rem;
   font-weight: 900;
   line-height: 1;
   margin-bottom: 16px;
@@ -533,7 +534,7 @@ footer.bottom-bar {
 
 .truth-table-title {
   font-family: var(--font-heading);
-  font-size: 3.8rem;
+  font-size: 4.5rem;
   color: var(--accent-cyan);
   font-weight: 900;
   line-height: 1.1;
@@ -549,16 +550,16 @@ table.truth-table {
 table.truth-table th {
   background: rgba(56, 189, 248, 0.25);
   color: var(--accent-cyan);
-  padding: 30px;
-  font-size: 3.2rem;
+  padding: 32px;
+  font-size: 4rem;
   font-weight: 900;
   border-bottom: 4px solid var(--bg-card-border);
 }
 
 table.truth-table td {
-  padding: 30px;
-  font-size: 3.2rem;
-  font-weight: 700;
+  padding: 32px;
+  font-size: 4rem;
+  font-weight: 800;
   border-bottom: 2px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -637,7 +638,7 @@ table.truth-table tr.active-row {
 
 .timer-ring {
   font-family: var(--font-code);
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 900;
   color: var(--accent-amber);
 }
@@ -666,7 +667,7 @@ table.truth-table tr.active-row {
   background: rgba(56, 189, 248, 0.2);
 }
 
-/* Quiz Options */
+/* Quiz Option Cards - Colossal Screen-Filling Text */
 .quiz-container {
   display: flex;
   flex-direction: column;
@@ -675,23 +676,32 @@ table.truth-table tr.active-row {
 
 .quiz-option {
   background: rgba(255, 255, 255, 0.04);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 20px;
-  padding: 28px 36px;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  border-radius: 28px;
+  padding: 40px 48px;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #fff;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 140px;
 }
 
 .quiz-option:hover {
-  background: rgba(56, 189, 248, 0.2);
+  background: rgba(56, 189, 248, 0.25);
   border-color: var(--accent-cyan);
+  transform: scale(1.02);
 }
 
 .quiz-option.selected {
-  background: rgba(56, 189, 248, 0.3);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(2, 132, 199, 0.4));
   border-color: var(--accent-cyan);
-  font-weight: 800;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
 }
 
 /* Speaker Notes Drawer */

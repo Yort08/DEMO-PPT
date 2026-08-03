@@ -1,4 +1,4 @@
-/* Interactive Evaluation Quiz Module - Dedicated Part I & Part II Slides */
+/* Interactive Evaluation Quiz Module - Colossal Screen-Filling Fonts */
 
 const QuizData = {
   mcQuestions: [
@@ -19,7 +19,7 @@ const QuizData = {
     },
     {
       q: "4. An XOR (Exclusive OR) gate outputs a 1 when:",
-      options: ["a) Both inputs are 1", "b) Both inputs are 0", "c) The inputs are DIFFERENT", "d) The inputs are IDENTICAL"],
+      options: ["a) Both inputs are 1", "b) Both inputs are 0", "c) Inputs are DIFFERENT", "d) Inputs are IDENTICAL"],
       correct: 2
     },
     {
@@ -29,11 +29,11 @@ const QuizData = {
     }
   ],
   truthTableQuestions: [
-    // AND Gate Truth Table (3 input questions, Row 1 is hint)
+    // AND Gate Truth Table (3 input questions, Row 1 is hint 0)
     { id: 'tt-and-01', gate: 'AND', a: 0, b: 1, correct: 0 },
     { id: 'tt-and-10', gate: 'AND', a: 1, b: 0, correct: 0 },
     { id: 'tt-and-11', gate: 'AND', a: 1, b: 1, correct: 1 },
-    // OR Gate Truth Table (3 input questions, Row 3 is hint)
+    // OR Gate Truth Table (3 input questions, Row 3 is hint 1)
     { id: 'tt-or-00', gate: 'OR', a: 0, b: 0, correct: 0 },
     { id: 'tt-or-01', gate: 'OR', a: 0, b: 1, correct: 1 },
     { id: 'tt-or-11', gate: 'OR', a: 1, b: 1, correct: 1 },
@@ -54,21 +54,21 @@ function renderQuizPart1() {
 
   let html = `
     <!-- Top Question Tabs -->
-    <div style="display:flex; justify-content:center; gap:20px; margin-bottom:28px;">
+    <div style="display:flex; justify-content:center; gap:24px; margin-bottom:28px;">
   `;
 
   QuizData.mcQuestions.forEach((_, idx) => {
     const isCurrent = idx === currentQIdx;
     const isAnswered = userMCAnswers[idx] !== null;
-    let btnStyle = "background: rgba(255, 255, 255, 0.08); border: 2px solid rgba(255, 255, 255, 0.2); color: #fff;";
+    let btnStyle = "background: rgba(255, 255, 255, 0.08); border: 3px solid rgba(255, 255, 255, 0.25); color: #fff;";
     if (isCurrent) {
-      btnStyle = "background: var(--accent-cyan); border: 2px solid var(--accent-cyan); color: #0f172a; font-weight:900;";
+      btnStyle = "background: var(--accent-cyan); border: 3px solid var(--accent-cyan); color: #0f172a; font-weight:900;";
     } else if (isAnswered) {
-      btnStyle = "background: rgba(52, 211, 153, 0.25); border: 2px solid var(--accent-green); color: var(--accent-green);";
+      btnStyle = "background: rgba(52, 211, 153, 0.25); border: 3px solid var(--accent-green); color: var(--accent-green);";
     }
 
     html += `
-      <button onclick="switchQuizQ(${idx})" style="${btnStyle} font-family:var(--font-heading); font-size:1.8rem; padding:14px 36px; border-radius:16px; cursor:pointer;">
+      <button onclick="switchQuizQ(${idx})" style="${btnStyle} font-family:var(--font-heading); font-size:2.2rem; padding:16px 44px; border-radius:18px; cursor:pointer;">
         Q${idx + 1} ${isAnswered ? '✓' : ''}
       </button>
     `;
@@ -76,19 +76,19 @@ function renderQuizPart1() {
 
   html += `</div>
 
-    <!-- Active Question Card (Fills 100% Screen) -->
+    <!-- Active Question Card (Colossal 4.2rem Question & 3.8rem Option Boxes) -->
     <div class="feature-card" style="padding:48px; border-color:var(--accent-cyan); height:100%; justify-content:space-around;">
-      <h3 style="color:var(--accent-cyan); font-size:3.2rem; font-weight:900; line-height:1.2; margin-bottom:28px;">
+      <h2 style="color:var(--accent-cyan); font-size:4.2rem; font-weight:900; line-height:1.15; text-align:center; margin-bottom:32px;">
         ${currentQ.q}
-      </h3>
+      </h2>
 
-      <div class="grid-2" style="gap:28px;">
+      <div class="grid-2" style="gap:36px; flex:1;">
   `;
 
   currentQ.options.forEach((opt, oIdx) => {
     const isSelected = userMCAnswers[currentQIdx] === oIdx;
     html += `
-      <div class="quiz-option ${isSelected ? 'selected' : ''}" onclick="selectQuizAnswer(${currentQIdx}, ${oIdx})" style="padding:32px 40px; font-size:2.6rem; font-weight:700; border-radius:24px; min-height:120px; display:flex; align-items:center;">
+      <div class="quiz-option ${isSelected ? 'selected' : ''}" onclick="selectQuizAnswer(${currentQIdx}, ${oIdx})">
         <span>${opt}</span>
       </div>
     `;
@@ -124,8 +124,8 @@ function submitPart1() {
   if (banner) {
     banner.style.display = 'block';
     banner.innerHTML = `
-      <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:3.2rem; font-weight:900;">Part I Completed! 🎉</h2>
-      <p style="font-size:2.2rem; color:#fff; margin-top:8px;">Part I Score: <strong style="color:var(--accent-cyan); font-size:2.6rem;">${score} / 5</strong> Points</p>
+      <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:3.5rem; font-weight:900;">Part I Completed! 🎉</h2>
+      <p style="font-size:2.5rem; color:#fff; margin-top:8px;">Part I Score: <strong style="color:var(--accent-cyan); font-size:3rem;">${score} / 5</strong> Points</p>
     `;
   }
   if (window.playAudioTone) window.playAudioTone(880, 0.2);
@@ -151,11 +151,11 @@ function submitPart2() {
   if (banner) {
     banner.style.display = 'block';
     banner.innerHTML = `
-      <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:3.5rem; font-weight:900;">Evaluation Quiz Submitted! 🎉</h2>
-      <p style="font-size:2.5rem; color:#fff; margin-top:10px;">
+      <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:3.8rem; font-weight:900;">Evaluation Quiz Submitted! 🎉</h2>
+      <p style="font-size:2.8rem; color:#fff; margin-top:12px;">
         Part I: <strong style="color:var(--accent-cyan);">${part1Score} / 5</strong> &nbsp;|&nbsp; 
         Part II: <strong style="color:var(--accent-green);">${score} / 8</strong> &nbsp;|&nbsp; 
-        Total: <strong style="color:var(--accent-amber); font-size:3.2rem;">${totalScore} / 13</strong>
+        Total: <strong style="color:var(--accent-amber); font-size:3.5rem;">${totalScore} / 13</strong>
       </p>
     `;
   }
