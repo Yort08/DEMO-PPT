@@ -868,7 +868,7 @@
             </button>
 
             <button class="nav-btn" onclick="showSlide(21)" style="font-size: 1.8rem; padding: 20px 56px; background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">
-              Proceed to Part II ▶
+              Proceed to Table 1 (AND Gate) ▶
             </button>
           </div>
 
@@ -877,80 +877,169 @@
         </div>
       </section>
 
-      <!-- SLIDE 21: DEDICATED PART II QUIZ SLIDE (10-Point Full Truth Table Completion) -->
+      <!-- SLIDE 21: DEDICATED PART II - TABLE 1: AND GATE (Colossal Full-Screen Table with Pre-filled Hint) -->
       <section class="slide" data-slide="21">
         <div class="slide-header">
           <div>
-            <div class="slide-tag">Evaluate • Part II of II (10 Points)</div>
-            <h2 class="slide-title">Quiz Part II: Truth Table Completion</h2>
+            <div class="slide-tag">Evaluate • Part II (Table 1 of 3)</div>
+            <h2 class="slide-title">1. AND Gate Truth Table (4 Points)</h2>
           </div>
-          <div class="slide-subtitle">Fill in all missing output values (Y) for the AND, OR, and NOT gate tables!</div>
+          <div style="font-size:2.2rem; font-weight:800; color:var(--accent-amber); background:rgba(251,191,36,0.15); border:2px solid var(--accent-amber); padding:10px 24px; border-radius:16px;">
+            💡 HINT: Row 1 (A=0, B=0 ➔ Y=0) is pre-filled as an example hint!
+          </div>
         </div>
-        <div class="slide-body" style="height: 100%; justify-content: space-around;">
+        <div class="slide-body" style="height: 100%; justify-content: space-around; align-items: center;">
           
-          <div class="grid-3" style="gap: 36px; height: 100%; align-items: stretch;">
-            
-            <!-- Table 1: AND Gate Truth Table (4 pts) -->
-            <div class="truth-table-card" style="border-color: var(--accent-cyan); padding: 32px;">
-              <div class="truth-table-title" style="font-size: 2.4rem;">1. AND Gate (4 pts)</div>
-              <table class="truth-table">
-                <thead>
-                  <tr><th>A</th><th>B</th><th>Output Y</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>0</td><td>0</td><td><input type="number" id="tt-and-00" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td></tr>
-                  <tr><td>0</td><td>1</td><td><input type="number" id="tt-and-01" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td></tr>
-                  <tr><td>1</td><td>0</td><td><input type="number" id="tt-and-10" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td></tr>
-                  <tr><td>1</td><td>1</td><td><input type="number" id="tt-and-11" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td></tr>
+          <div class="truth-table-card" style="width: 100%; max-width: 1400px; padding: 48px; border-color: var(--accent-cyan);">
+            <table class="truth-table" style="width: 100%;">
+              <thead>
+                <tr><th style="font-size: 3.8rem; padding: 36px;">Input A</th><th style="font-size: 3.8rem; padding: 36px;">Input B</th><th style="font-size: 3.8rem; padding: 36px;">Output Y</th></tr>
+              </thead>
+              <tbody>
+                <!-- Pre-filled Hint Row 1 -->
+                <tr style="background: rgba(52, 211, 153, 0.2);">
+                  <td style="font-size: 3.8rem; padding: 32px; font-weight: 900; color: var(--accent-green);">0</td>
+                  <td style="font-size: 3.8rem; padding: 32px; font-weight: 900; color: var(--accent-green);">0</td>
+                  <td style="font-size: 3.8rem; padding: 32px; font-weight: 900; color: var(--accent-green);">
+                    0 <span style="font-size: 1.8rem; color: var(--accent-amber); margin-left: 16px;">(💡 Hint Given)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-size: 3.8rem; padding: 32px;">0</td>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="padding: 32px;"><input type="number" id="tt-and-01" min="0" max="1" placeholder="?" style="width:120px; height:80px; text-align:center; font-family:var(--font-code); font-size:3.5rem; font-weight:900; border-radius:16px; border:4px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td>
+                </tr>
+                <tr>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="font-size: 3.8rem; padding: 32px;">0</td>
+                  <td style="padding: 32px;"><input type="number" id="tt-and-10" min="0" max="1" placeholder="?" style="width:120px; height:80px; text-align:center; font-family:var(--font-code); font-size:3.5rem; font-weight:900; border-radius:16px; border:4px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td>
+                </tr>
+                <tr>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="padding: 32px;"><input type="number" id="tt-and-11" min="0" max="1" placeholder="?" style="width:120px; height:80px; text-align:center; font-family:var(--font-code); font-size:3.5rem; font-weight:900; border-radius:16px; border:4px solid var(--accent-cyan); background:#0f172a; color:var(--accent-cyan);"></td>
+                </tr>
                 </tbody>
-              </table>
-            </div>
-
-            <!-- Table 2: OR Gate Truth Table (4 pts) -->
-            <div class="truth-table-card" style="border-color: var(--accent-purple); padding: 32px;">
-              <div class="truth-table-title" style="font-size: 2.4rem; color: var(--accent-purple);">2. OR Gate (4 pts)</div>
-              <table class="truth-table">
-                <thead>
-                  <tr><th style="color:var(--accent-purple);">A</th><th style="color:var(--accent-purple);">B</th><th style="color:var(--accent-purple);">Output Y</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>0</td><td>0</td><td><input type="number" id="tt-or-00" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td></tr>
-                  <tr><td>0</td><td>1</td><td><input type="number" id="tt-or-01" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td></tr>
-                  <tr><td>1</td><td>0</td><td><input type="number" id="tt-or-10" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td></tr>
-                  <tr><td>1</td><td>1</td><td><input type="number" id="tt-or-11" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td></tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Table 3: NOT Gate Truth Table (2 pts) -->
-            <div class="truth-table-card" style="border-color: var(--accent-green); padding: 32px;">
-              <div class="truth-table-title" style="font-size: 2.4rem; color: var(--accent-green);">3. NOT Gate (2 pts)</div>
-              <table class="truth-table">
-                <thead>
-                  <tr><th style="color:var(--accent-green);">Input A</th><th style="color:var(--accent-green);">Output Y</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>0</td><td><input type="number" id="tt-not-0" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-green); background:#0f172a; color:var(--accent-green);"></td></tr>
-                  <tr><td>1</td><td><input type="number" id="tt-not-1" min="0" max="1" placeholder="?" style="width:80px; height:56px; text-align:center; font-family:var(--font-code); font-size:2.4rem; font-weight:900; border-radius:12px; border:3px solid var(--accent-green); background:#0f172a; color:var(--accent-green);"></td></tr>
-                </tbody>
-              </table>
-            </div>
-
+            </table>
           </div>
 
-          <div style="display:flex; justify-content:center; margin-top:20px;">
-            <button class="nav-btn" onclick="submitPart2()" style="font-size: 2.2rem; padding: 24px 64px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none; border-radius: 18px;">
-              📝 Submit Complete 15-Item Evaluation Quiz
+          <div style="display:flex; justify-content:space-between; width:100%; max-width:1400px;">
+            <button class="nav-btn" onclick="showSlide(20)" style="font-size: 1.8rem; padding: 20px 48px;">
+              ◀ Back to Part I
+            </button>
+            <button class="nav-btn" onclick="showSlide(22)" style="font-size: 2rem; padding: 24px 64px; background: linear-gradient(135deg, var(--accent-purple), #7c3aed); color:#fff; border:none; border-radius:18px;">
+              Proceed to Table 2 (OR Gate) ▶
             </button>
           </div>
-
-          <div id="part2-results-banner" style="display: none; text-align: center; background: rgba(52, 211, 153, 0.15); border: 3px solid var(--accent-green); border-radius: 24px; padding: 32px; margin-top: 20px;"></div>
 
         </div>
       </section>
 
-      <!-- SLIDE 22: Assignment & Conclusion -->
+      <!-- SLIDE 22: DEDICATED PART II - TABLE 2: OR GATE (Colossal Full-Screen Table with Pre-filled Hint) -->
       <section class="slide" data-slide="22">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Evaluate • Part II (Table 2 of 3)</div>
+            <h2 class="slide-title">2. OR Gate Truth Table (4 Points)</h2>
+          </div>
+          <div style="font-size:2.2rem; font-weight:800; color:var(--accent-amber); background:rgba(251,191,36,0.15); border:2px solid var(--accent-amber); padding:10px 24px; border-radius:16px;">
+            💡 HINT: Row 1 (A=0, B=0 ➔ Y=0) is pre-filled as an example hint!
+          </div>
+        </div>
+        <div class="slide-body" style="height: 100%; justify-content: space-around; align-items: center;">
+          
+          <div class="truth-table-card" style="width: 100%; max-width: 1400px; padding: 48px; border-color: var(--accent-purple);">
+            <table class="truth-table" style="width: 100%;">
+              <thead>
+                <tr><th style="font-size: 3.8rem; padding: 36px; color:var(--accent-purple);">Input A</th><th style="font-size: 3.8rem; padding: 36px; color:var(--accent-purple);">Input B</th><th style="font-size: 3.8rem; padding: 36px; color:var(--accent-purple);">Output Y</th></tr>
+              </thead>
+              <tbody>
+                <!-- Pre-filled Hint Row 1 -->
+                <tr style="background: rgba(167, 139, 250, 0.2);">
+                  <td style="font-size: 3.8rem; padding: 32px; font-weight: 900; color: var(--accent-purple);">0</td>
+                  <td style="font-size: 3.8rem; padding: 32px; font-weight: 900; color: var(--accent-purple);">0</td>
+                  <td style="font-size: 3.8rem; padding: 32px; font-weight: 900; color: var(--accent-purple);">
+                    0 <span style="font-size: 1.8rem; color: var(--accent-amber); margin-left: 16px;">(💡 Hint Given)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-size: 3.8rem; padding: 32px;">0</td>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="padding: 32px;"><input type="number" id="tt-or-01" min="0" max="1" placeholder="?" style="width:120px; height:80px; text-align:center; font-family:var(--font-code); font-size:3.5rem; font-weight:900; border-radius:16px; border:4px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td>
+                </tr>
+                <tr>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="font-size: 3.8rem; padding: 32px;">0</td>
+                  <td style="padding: 32px;"><input type="number" id="tt-or-10" min="0" max="1" placeholder="?" style="width:120px; height:80px; text-align:center; font-family:var(--font-code); font-size:3.5rem; font-weight:900; border-radius:16px; border:4px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td>
+                </tr>
+                <tr>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="padding: 32px;"><input type="number" id="tt-or-11" min="0" max="1" placeholder="?" style="width:120px; height:80px; text-align:center; font-family:var(--font-code); font-size:3.5rem; font-weight:900; border-radius:16px; border:4px solid var(--accent-purple); background:#0f172a; color:var(--accent-purple);"></td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; width:100%; max-width:1400px;">
+            <button class="nav-btn" onclick="showSlide(21)" style="font-size: 1.8rem; padding: 20px 48px;">
+              ◀ Back to Table 1 (AND Gate)
+            </button>
+            <button class="nav-btn" onclick="showSlide(23)" style="font-size: 2rem; padding: 24px 64px; background: linear-gradient(135deg, var(--accent-green), #059669); color:#0f172a; border:none; border-radius:18px;">
+              Proceed to Table 3 (NOT Gate) ▶
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SLIDE 23: DEDICATED PART II - TABLE 3: NOT GATE (Colossal Full-Screen Table with Pre-filled Hint) -->
+      <section class="slide" data-slide="23">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Evaluate • Part II (Table 3 of 3)</div>
+            <h2 class="slide-title">3. NOT Gate Truth Table (2 Points)</h2>
+          </div>
+          <div style="font-size:2.2rem; font-weight:800; color:var(--accent-amber); background:rgba(251,191,36,0.15); border:2px solid var(--accent-amber); padding:10px 24px; border-radius:16px;">
+            💡 HINT: Row 1 (Input A=0 ➔ Y=1) is pre-filled as an example hint!
+          </div>
+        </div>
+        <div class="slide-body" style="height: 100%; justify-content: space-around; align-items: center;">
+          
+          <div class="truth-table-card" style="width: 100%; max-width: 1400px; padding: 48px; border-color: var(--accent-green);">
+            <table class="truth-table" style="width: 100%;">
+              <thead>
+                <tr><th style="font-size: 3.8rem; padding: 36px; color:var(--accent-green);">Input A</th><th style="font-size: 3.8rem; padding: 36px; color:var(--accent-green);">Output Y</th></tr>
+              </thead>
+              <tbody>
+                <!-- Pre-filled Hint Row 1 -->
+                <tr style="background: rgba(52, 211, 153, 0.2);">
+                  <td style="font-size: 3.8rem; padding: 32px; font-weight: 900; color: var(--accent-green);">0</td>
+                  <td style="font-size: 3.8rem; padding: 32px; font-weight: 900; color: var(--accent-green);">
+                    1 <span style="font-size: 1.8rem; color: var(--accent-amber); margin-left: 16px;">(💡 Hint Given)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-size: 3.8rem; padding: 32px;">1</td>
+                  <td style="padding: 32px;"><input type="number" id="tt-not-1" min="0" max="1" placeholder="?" style="width:120px; height:80px; text-align:center; font-family:var(--font-code); font-size:3.5rem; font-weight:900; border-radius:16px; border:4px solid var(--accent-green); background:#0f172a; color:var(--accent-green);"></td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+
+          <div style="display:flex; flex-direction:column; align-items:center; gap:20px; width:100%; max-width:1400px;">
+            <button class="nav-btn" onclick="submitPart2()" style="font-size: 2.4rem; padding: 24px 80px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none; border-radius: 20px;">
+              📝 Submit Complete 15-Item Evaluation Quiz
+            </button>
+
+            <div id="part2-results-banner" style="display: none; text-align: center; background: rgba(52, 211, 153, 0.15); border: 3px solid var(--accent-green); border-radius: 24px; padding: 32px; width: 100%;"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SLIDE 24: Assignment & Conclusion -->
+      <section class="slide" data-slide="24">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Extend • Next Meeting Assignment</div>
@@ -993,7 +1082,7 @@
         <div class="progress-bar-bg">
           <div class="progress-bar-fill" id="progress-bar-fill"></div>
         </div>
-        <span class="slide-counter" id="slide-counter">SLIDE 1 / 22</span>
+        <span class="slide-counter" id="slide-counter">SLIDE 1 / 24</span>
       </div>
 
       <div class="nav-buttons">
@@ -1051,8 +1140,10 @@
         <div class="thumb-card" onclick="showSlide(18); toggleSlideOverview();"><div class="thumb-num">SLIDE 18</div><div class="thumb-title">1-Min Reflection</div></div>
         <div class="thumb-card" onclick="showSlide(19); toggleSlideOverview();"><div class="thumb-num">SLIDE 19</div><div class="thumb-title">Pick Symbol Activity</div></div>
         <div class="thumb-card" onclick="showSlide(20); toggleSlideOverview();"><div class="thumb-num">SLIDE 20</div><div class="thumb-title">Quiz Part I (Multiple Choice)</div></div>
-        <div class="thumb-card" onclick="showSlide(21); toggleSlideOverview();"><div class="thumb-num">SLIDE 21</div><div class="thumb-title">Quiz Part II (Truth Tables)</div></div>
-        <div class="thumb-card" onclick="showSlide(22); toggleSlideOverview();"><div class="thumb-num">SLIDE 22</div><div class="thumb-title">Assignment & Goodbye</div></div>
+        <div class="thumb-card" onclick="showSlide(21); toggleSlideOverview();"><div class="thumb-num">SLIDE 21</div><div class="thumb-title">Quiz Part II: Table 1 (AND)</div></div>
+        <div class="thumb-card" onclick="showSlide(22); toggleSlideOverview();"><div class="thumb-num">SLIDE 22</div><div class="thumb-title">Quiz Part II: Table 2 (OR)</div></div>
+        <div class="thumb-card" onclick="showSlide(23); toggleSlideOverview();"><div class="thumb-num">SLIDE 23</div><div class="thumb-title">Quiz Part II: Table 3 (NOT)</div></div>
+        <div class="thumb-card" onclick="showSlide(24); toggleSlideOverview();"><div class="thumb-num">SLIDE 24</div><div class="thumb-title">Assignment & Goodbye</div></div>
       </div>
     </div>
   </div>
