@@ -669,8 +669,10 @@ table.truth-table tr.active-row {
 .secret-word-display {
   display: flex;
   justify-content: center;
+  align-items: center;
+  align-self: center;
   gap: 40px;
-  margin-top: 24px;
+  margin: 0 auto;
   padding: 36px 48px;
   background: #0b1120;
   border-radius: 32px;
