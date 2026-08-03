@@ -1,4 +1,4 @@
-/* True Edge-to-Edge Fullscreen Presentation Stylesheet - Colossal Screen-Filling Fonts */
+/* True Edge-to-Edge Fullscreen Presentation Stylesheet - Maxed Colossal Sizes */
 :root {
   --bg-dark: #0f172a;           /* Eye-safe Slate 900 */
   --bg-card: #0f172a;           /* Seamless Dark Slate background */
@@ -149,7 +149,7 @@ header.top-bar {
   background: var(--bg-dark);
   border: none;
   border-radius: 0;
-  padding: 28px 60px;
+  padding: 24px 48px;
   display: flex;
   flex-direction: column;
   opacity: 0;
@@ -166,12 +166,12 @@ header.top-bar {
 
 /* Slide Header */
 .slide-header {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 14px;
+  padding-bottom: 12px;
 }
 
 .slide-tag {
@@ -200,11 +200,12 @@ header.top-bar {
 .slide-body {
   flex: 1;
   overflow-y: auto;
-  padding-right: 12px;
+  padding-right: 8px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
   justify-content: space-around;
+  height: 100%;
 }
 
 .slide-body::-webkit-scrollbar {
@@ -286,7 +287,7 @@ footer.bottom-bar {
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Title Slide Styling - Maximize Screen Space */
+/* Title Slide Styling */
 .title-slide-content {
   display: flex;
   flex-direction: column;
@@ -338,7 +339,7 @@ footer.bottom-bar {
   color: var(--text-muted);
 }
 
-/* Colossal Grid Cards Filling 100% Space */
+/* Colossal Grid Cards */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; height: 100%; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; height: 100%; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; height: 100%; }
@@ -399,38 +400,39 @@ footer.bottom-bar {
 .letter-o .troy-letter { color: var(--accent-purple); }
 .letter-y .troy-letter { color: var(--accent-amber); }
 
-/* Gate Simulator Layout */
+/* Gate Simulator Layout - Maximized 100% Screen Square Cards */
 .simulator-layout {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 36px;
   height: 100%;
-  align-items: center;
+  align-items: stretch;
 }
 
 .circuit-box {
   background: #0b1120;
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 24px;
-  padding: 48px;
+  border: 3px solid rgba(56, 189, 248, 0.3);
+  border-radius: 28px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   height: 100%;
 }
 
 .circuit-svg {
   width: 100%;
-  max-width: 800px;
+  max-width: 950px;
   height: auto;
+  flex: 1;
 }
 
-/* Switch Controls - Colossal Switches */
+/* Switch Controls - Maximized Colossal Switches */
 .switch-control-group {
   display: flex;
-  gap: 64px;
-  margin-top: 36px;
+  gap: 72px;
+  align-items: center;
 }
 
 .switch-wrapper {
@@ -441,11 +443,11 @@ footer.bottom-bar {
 }
 
 .switch-btn {
-  width: 120px;
-  height: 196px;
+  width: 130px;
+  height: 210px;
   background: rgba(255, 255, 255, 0.08);
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-radius: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.35);
+  border-radius: 64px;
   position: relative;
   cursor: pointer;
   padding: 8px;
@@ -453,8 +455,8 @@ footer.bottom-bar {
 }
 
 .switch-thumb {
-  width: 98px;
-  height: 98px;
+  width: 106px;
+  height: 106px;
   background: #64748b;
   border-radius: 50%;
   position: absolute;
@@ -465,27 +467,27 @@ footer.bottom-bar {
   align-items: center;
   justify-content: center;
   font-family: var(--font-code);
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: #fff;
 }
 
 .switch-btn.on {
   border-color: var(--accent-cyan);
-  background: rgba(56, 189, 248, 0.25);
+  background: rgba(56, 189, 248, 0.3);
 }
 
 .switch-btn.on .switch-thumb {
-  bottom: 84px;
+  bottom: 92px;
   background: var(--accent-cyan);
   color: #0f172a;
 }
 
 .switch-label {
   font-family: var(--font-code);
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: var(--text-muted);
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--text-main);
 }
 
 /* Output Bulb */
@@ -494,19 +496,18 @@ footer.bottom-bar {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  margin-top: 10px;
 }
 
 .bulb-icon {
-  width: 110px;
-  height: 110px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
-  border: 4px solid rgba(255, 255, 255, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4.2rem;
+  font-size: 5rem;
   transition: all 0.2s ease;
 }
 
@@ -514,26 +515,27 @@ footer.bottom-bar {
   background: var(--accent-green);
   border-color: var(--accent-green);
   color: #0f172a;
+  box-shadow: 0 0 40px rgba(52, 211, 153, 0.6);
 }
 
-/* Truth Table Styling - Colossal Fonts */
+/* Truth Table Card - Maximized 100% Screen Fill */
 .truth-table-card {
   background: rgba(255, 255, 255, 0.04);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 24px;
-  padding: 44px;
+  border: 3px solid rgba(56, 189, 248, 0.3);
+  border-radius: 28px;
+  padding: 40px 48px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
   height: 100%;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .truth-table-title {
   font-family: var(--font-heading);
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   color: var(--accent-cyan);
-  font-weight: 800;
+  font-weight: 900;
 }
 
 table.truth-table {
@@ -544,21 +546,22 @@ table.truth-table {
 }
 
 table.truth-table th {
-  background: rgba(56, 189, 248, 0.2);
+  background: rgba(56, 189, 248, 0.25);
   color: var(--accent-cyan);
-  padding: 24px;
-  font-size: 2.2rem;
+  padding: 28px;
+  font-size: 2.6rem;
+  font-weight: 800;
   border-bottom: 4px solid var(--bg-card-border);
 }
 
 table.truth-table td {
-  padding: 24px;
-  font-size: 2.2rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 28px;
+  font-size: 2.6rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.12);
 }
 
 table.truth-table tr.active-row {
-  background: rgba(52, 211, 153, 0.3);
+  background: rgba(52, 211, 153, 0.35);
   font-weight: 900;
   color: var(--accent-green);
 }
@@ -779,7 +782,7 @@ table.truth-table tr.active-row {
   display: flex;
   flex-direction: column;
   gap: 36px;
-  overflow-y: auto;
+  overflow-y.auto;
 }
 
 .overview-grid {
