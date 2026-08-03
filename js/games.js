@@ -8,6 +8,18 @@ function revealTroyCard(card) {
   }
 }
 
+// Slide 4 Interactive Topic Reveal Handler
+function revealRecapTopic() {
+  const btn = document.getElementById('recap-reveal-btn');
+  const topic = document.getElementById('recap-topic-text');
+  if (btn) btn.style.display = 'none';
+  if (topic) {
+    topic.style.display = 'block';
+    topic.style.opacity = '1';
+  }
+  if (window.playAudioTone) window.playAudioTone(880, 0.2);
+}
+
 // Motivation Mystery Boxes State
 const MysteryState = {
   box1: { a: 0, b: 0, unlocked: false, letter: 'L' },

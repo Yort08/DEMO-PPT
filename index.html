@@ -93,7 +93,7 @@
             </div>
             <div class="feature-card" style="padding: 44px 40px; border-color: var(--accent-green); justify-content: space-between;">
               <div class="card-icon" style="font-size: 3.5rem; color: var(--accent-green);">3️⃣</div>
-              <h3 style="font-size: 4.6rem; color: var(--accent-green); font-weight: 900; line-height: 1.05;">Demonstrate Logic</h3>
+              <h3 style="font-size: 5.6rem; color: var(--accent-green); font-weight: 900; line-height: 1.05;">Demonstrate Logic</h3>
               <p style="font-size: 4.6rem; line-height: 1.35; font-weight: 700; color: #ffffff;">Demonstrate mastery by accurately identifying gate symbols in real-time quiz challenges.</p>
             </div>
           </div>
@@ -148,19 +148,25 @@
         </div>
       </section>
 
-      <!-- SLIDE 4: Colossal Big "RECAP" Slide -->
+      <!-- SLIDE 4: Interactive Reveal RECAP Slide -->
       <section class="slide" data-slide="4">
         <div class="title-slide-content">
-          <div class="title-badge" style="font-size: 2.4rem; padding: 18px 56px; border-radius: 50px;">
+          <div class="title-badge" style="font-size: 2.8rem; padding: 22px 64px; border-radius: 50px;">
             Review of Previous Lesson
           </div>
 
-          <h1 style="font-family: var(--font-heading); font-size: 13rem; font-weight: 900; line-height: 1.02; color: var(--accent-cyan); text-shadow: 0 0 60px rgba(56, 189, 248, 0.45); letter-spacing: 4px;">
+          <h1 style="font-family: var(--font-heading); font-size: 17rem; font-weight: 900; line-height: 1; color: var(--accent-cyan); text-shadow: 0 0 70px rgba(56, 189, 248, 0.55); letter-spacing: 6px;">
             RECAP
           </h1>
 
-          <div style="font-size: 3.8rem; font-weight: 800; color: #ffffff; margin-top: 16px;">
-            Computer Ethics & IT
+          <div style="margin-top: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <button id="recap-reveal-btn" class="nav-btn" onclick="revealRecapTopic()" style="font-size: 3.2rem; padding: 28px 84px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none; border-radius: 28px; font-weight: 900; box-shadow: 0 0 40px rgba(52, 211, 153, 0.4);">
+              ✨ Click to Reveal Topic
+            </button>
+
+            <div id="recap-topic-text" style="display: none; font-size: 6.8rem; font-weight: 900; color: var(--accent-green); text-shadow: 0 0 45px rgba(52, 211, 153, 0.5); margin-top: 10px;">
+              Computer Ethics & IT
+            </div>
           </div>
         </div>
       </section>
@@ -1107,7 +1113,7 @@
         <div class="thumb-card" onclick="showSlide(1); toggleSlideOverview();"><div class="thumb-num">SLIDE 1</div><div class="thumb-title">Title Slide</div></div>
         <div class="thumb-card" onclick="showSlide(2); toggleSlideOverview();"><div class="thumb-num">SLIDE 2</div><div class="thumb-title">Learning Objectives</div></div>
         <div class="thumb-card" onclick="showSlide(3); toggleSlideOverview();"><div class="thumb-num">SLIDE 3</div><div class="thumb-title">T.R.O.Y. Classroom Rules</div></div>
-        <div class="thumb-card" onclick="showSlide(4); toggleSlideOverview();"><div class="thumb-num">SLIDE 4</div><div class="thumb-title">Big RECAP Slide</div></div>
+        <div class="thumb-card" onclick="showSlide(4); toggleSlideOverview();"><div class="thumb-num">SLIDE 4</div><div class="thumb-title">Interactive RECAP Slide</div></div>
         <div class="thumb-card" onclick="showSlide(5); toggleSlideOverview();"><div class="thumb-num">SLIDE 5</div><div class="thumb-title">Mystery Box 1</div></div>
         <div class="thumb-card" onclick="showSlide(6); toggleSlideOverview();"><div class="thumb-num">SLIDE 6</div><div class="thumb-title">Mystery Box 2</div></div>
         <div class="thumb-card" onclick="showSlide(7); toggleSlideOverview();"><div class="thumb-num">SLIDE 7</div><div class="thumb-title">Mystery Box 3</div></div>
