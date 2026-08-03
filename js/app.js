@@ -2,7 +2,7 @@
 
 // Slide State
 let currentSlide = 1;
-const totalSlides = 24;
+const totalSlides = 25;
 let timerSeconds = 0;
 let timerInterval = null;
 
@@ -193,19 +193,23 @@ const TeacherNotesDB = {
     student: "Students select answers for Questions 1 to 5."
   },
   21: {
-    speech: "“Part II (Table 1): Complete the AND Gate Truth Table! Notice Row 1 (A=0, B=0 ➔ Y=0) is pre-filled as a hint for you!”",
+    speech: "“Part II (Table 1): Complete the AND Gate Truth Table!”",
     student: "Students complete rows 2, 3, and 4."
   },
   22: {
-    speech: "“Part II (Table 2): Complete the OR Gate Truth Table! Row 1 (A=0, B=0 ➔ Y=0) is pre-filled as a hint for you!”",
-    student: "Students complete rows 2, 3, and 4."
+    speech: "“Part II (Table 2): Complete the OR Gate Truth Table!”",
+    student: "Students complete rows 1, 2, and 4."
   },
   23: {
-    speech: "“Part II (Table 3): Complete the NOT Gate Truth Table! Row 1 (A=0 ➔ Y=1) is pre-filled as a hint for you!”",
-    student: "Students complete row 2 and submit their completed evaluation!"
+    speech: "“Part II (Table 3): Complete the NOT Gate Truth Table!”",
+    student: "Students complete rows 1 and 2 and submit their evaluation!"
   },
   24: {
-    speech: "“For our next hands-on activity, please bring a printed picture of your chosen gate symbol, 1/8 illustration board, and a marker. Goodbye class!”",
+    speech: "“For our next hands-on activity, please bring a printed picture of your chosen gate symbol, 1/8 illustration board, and a marker.”",
+    student: "Students write down assignment requirements."
+  },
+  25: {
+    speech: "“That's all for today! Thank you for participating, Goodbye Class!”",
     student: "“Goodbye and thank you, sir!”"
   }
 };
