@@ -339,20 +339,20 @@ footer.bottom-bar {
   color: var(--text-muted);
 }
 
-/* Colossal Grid Cards */
+/* Colossal Grid Cards - Max Space Fillers */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; height: 100%; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; height: 100%; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; height: 100%; }
 
 .feature-card {
   background: rgba(255, 255, 255, 0.04);
-  border: 3px solid rgba(255, 255, 255, 0.18);
-  border-radius: 28px;
-  padding: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-radius: 32px;
+  padding: 56px 48px;
   transition: all 0.2s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   height: 100%;
 }
 
@@ -362,28 +362,29 @@ footer.bottom-bar {
 }
 
 .feature-card .card-icon {
-  font-size: 6.5rem;
-  margin-bottom: 20px;
+  font-size: 8rem;
+  margin-bottom: 24px;
   color: var(--accent-cyan);
 }
 
 .feature-card h3 {
   font-family: var(--font-heading);
-  font-size: 3.8rem;
-  margin-bottom: 20px;
+  font-size: 4.5rem;
+  margin-bottom: 24px;
   color: #fff;
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
 .feature-card p {
-  font-size: 2.6rem;
+  font-size: 3.4rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 /* Classroom Rules (T.R.O.Y.) */
-.troy-card { border-left: 10px solid var(--accent-cyan); }
+.troy-card { border-left: 12px solid var(--accent-cyan); }
 .troy-card.letter-t { border-color: var(--accent-cyan); }
 .troy-card.letter-r { border-color: var(--accent-green); }
 .troy-card.letter-o { border-color: var(--accent-purple); }
@@ -391,7 +392,7 @@ footer.bottom-bar {
 
 .troy-letter {
   font-family: var(--font-heading);
-  font-size: 8rem;
+  font-size: 8.5rem;
   font-weight: 900;
   line-height: 1;
   margin-bottom: 16px;
@@ -522,9 +523,9 @@ footer.bottom-bar {
 /* Truth Table Card - Massive Fonts Occupying Entire Card Space */
 .truth-table-card {
   background: rgba(255, 255, 255, 0.04);
-  border: 3px solid rgba(56, 189, 248, 0.3);
-  border-radius: 28px;
-  padding: 40px 48px;
+  border: 4px solid rgba(56, 189, 248, 0.35);
+  border-radius: 32px;
+  padding: 48px;
   display: flex;
   flex-direction: column;
   gap: 32px;
