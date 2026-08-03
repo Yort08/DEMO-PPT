@@ -380,10 +380,10 @@ footer.bottom-bar {
   font-weight: 600;
 }
 
-/* Classroom Rules (T.R.O.Y.) - Clean Top Alignment & Giant Text */
+/* Classroom Rules (T.R.O.Y.) - 100% Full-Card Space Filling & Giant Fonts */
 .troy-card {
   border-left: 12px solid var(--accent-cyan);
-  padding: 32px 28px;
+  padding: 44px 36px;
   cursor: pointer;
   position: relative;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -393,6 +393,7 @@ footer.bottom-bar {
   justify-content: center;
   text-align: center;
   background: rgba(255, 255, 255, 0.04);
+  height: 100%;
 }
 
 .troy-card:hover {
@@ -426,35 +427,22 @@ footer.bottom-bar {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-around;
+  flex: 1;
 }
 
-.troy-hint {
-  font-family: var(--font-code);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  margin-top: 24px;
-  padding: 8px 18px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  border: 1px dashed rgba(255, 255, 255, 0.3);
-  transition: opacity 0.3s ease;
-}
-
-/* Revealed State: Clean Top-Aligned Layout Starting Right Below the Letter */
+/* Revealed State: Fills 100% of Card Height & Width with Giant Colossal Fonts */
 .troy-card.revealed {
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: flex-start;
   text-align: left;
-  gap: 14px;
-  padding: 28px 24px;
+  padding: 44px 36px;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .troy-card.revealed .troy-letter {
-  font-size: 3.8rem;
-  margin-bottom: 2px;
+  font-size: 4.8rem;
+  margin-bottom: 8px;
   line-height: 1;
 }
 
@@ -464,23 +452,22 @@ footer.bottom-bar {
   transform: translateY(0);
 }
 
-.troy-card.revealed .troy-hint {
-  display: none;
-}
-
 .troy-card h3 {
-  font-size: 3.8rem;
-  line-height: 1.1;
-  margin-bottom: 4px;
+  font-size: 4.5rem;
+  line-height: 1.08;
+  margin-bottom: 16px;
   color: #ffffff;
   font-weight: 900;
 }
 
 .troy-card p {
-  font-size: 3.2rem;
-  font-weight: 600;
+  font-size: 3.8rem;
+  font-weight: 700;
   line-height: 1.35;
-  color: #e2e8f0;
+  color: var(--text-muted);
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 /* Gate Simulator Layout - Massive Screen-Occupying Cards & Giant SVG Schematics */
