@@ -2,7 +2,7 @@
 
 // Slide State
 let currentSlide = 1;
-const totalSlides = 25;
+const totalSlides = 24;
 let timerSeconds = 0;
 let timerInterval = null;
 
@@ -177,38 +177,34 @@ const TeacherNotesDB = {
     student: "“No questions, sir!”"
   },
   17: {
-    speech: "“Recap time! Can anyone tell us which is the easiest logic gate structure we discussed, and which is the hardest?”",
-    student: "“Easiest is NOT gate (1 input), hardest is EXNOR gate (combination of EXOR + NOT)!”"
-  },
-  18: {
     speech: "“Reflection Question: In one minute, how do basic logic gates impact the electronic devices you use every day?”",
     student: "“Every action on our phones relies on millions of tiny transistors making fast binary decisions using logic gate rules!”"
   },
-  19: {
+  18: {
     speech: "“Activity Time: 'Pick the Gate Symbol!' I will flash two symbols, choose Symbol 1 or Symbol 2 within 10 seconds!”",
     student: "Students participate in the 5-round symbol challenge."
   },
-  20: {
+  19: {
     speech: "“Part I Quiz: Please answer the 5 multiple choice questions on screen!”",
     student: "Students select answers for Questions 1 to 5."
   },
-  21: {
+  20: {
     speech: "“Part II (Table 1): Complete the AND Gate Truth Table!”",
     student: "Students complete rows 2, 3, and 4."
   },
-  22: {
+  21: {
     speech: "“Part II (Table 2): Complete the OR Gate Truth Table!”",
     student: "Students complete rows 1, 2, and 4."
   },
-  23: {
+  22: {
     speech: "“Part II (Table 3): Complete the NOT Gate Truth Table!”",
     student: "Students complete rows 1 and 2 and submit their evaluation!"
   },
-  24: {
+  23: {
     speech: "“For our next hands-on activity, please bring a printed picture of your chosen gate symbol, 1/8 illustration board, and a marker.”",
     student: "Students write down assignment requirements."
   },
-  25: {
+  24: {
     speech: "“That's all for today! Thank you for participating, Goodbye Class!”",
     student: "“Goodbye and thank you, sir!”"
   }
