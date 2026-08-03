@@ -35,7 +35,7 @@ function toggleMysterySwitch(boxNum, switchKey) {
 function updateMysteryUI(boxNum) {
   const box = MysteryState[`box${boxNum}`];
 
-  // Update Switch buttons UI for boxNum
+  // Update Switch buttons UI
   const btnA = document.getElementById(`mb${boxNum}-sw-a`);
   if (btnA) {
     btnA.classList.toggle('on', box.a === 1);
@@ -82,22 +82,26 @@ function updateMysteryUI(boxNum) {
   }
 }
 
+// Track unlocked letters LOG up to Box 3
 function updateGlobalWordTrackers() {
   const letter1 = MysteryState.box1.unlocked ? 'L' : '_';
   const letter2 = MysteryState.box2.unlocked ? 'O' : '_';
   const letter3 = MysteryState.box3.unlocked ? 'G' : '_';
 
-  document.querySelectorAll('.word-slot-1-val').forEach(el => { el.textContent = letter1; if (letter1 !== '_') el.classList.add('unlocked'); });
-  document.querySelectorAll('.word-slot-2-val').forEach(el => { el.textContent = letter2; if (letter2 !== '_') el.classList.add('unlocked'); });
-  document.querySelectorAll('.word-slot-3-val').forEach(el => { el.textContent = letter3; if (letter3 !== '_') el.classList.add('unlocked'); });
+  document.querySelectorAll('.word-slot-1-val').forEach(el => { el.textContent = letter1; if (letter1 !== '_') el.classList.add('unlocked'); else el.classList.remove('unlocked'); });
+  document.querySelectorAll('.word-slot-2-val').forEach(el => { el.textContent = letter2; if (letter2 !== '_') el.classList.add('unlocked'); else el.classList.remove('unlocked'); });
+  document.querySelectorAll('.word-slot-3-val').forEach(el => { el.textContent = letter3; if (letter3 !== '_') el.classList.add('unlocked'); else el.classList.remove('unlocked'); });
+}
 
-  if (MysteryState.box1.unlocked && MysteryState.box2.unlocked && MysteryState.box3.unlocked) {
-    document.querySelectorAll('.word-slot-4-val').forEach(el => { el.textContent = 'I'; el.classList.add('unlocked'); });
-    document.querySelectorAll('.word-slot-5-val').forEach(el => { el.textContent = 'C'; el.classList.add('unlocked'); });
+// Interactive Button Function on Slide 8: Reveal Full Word LOGIC
+function revealFullWordLogic() {
+  document.querySelectorAll('.word-slot-4-val').forEach(el => { el.textContent = 'I'; el.classList.add('unlocked'); });
+  document.querySelectorAll('.word-slot-5-val').forEach(el => { el.textContent = 'C'; el.classList.add('unlocked'); });
 
-    const completeBanner = document.getElementById('final-word-complete');
-    if (completeBanner) completeBanner.style.display = 'block';
-  }
+  const completeBanner = document.getElementById('final-word-complete');
+  if (completeBanner) completeBanner.style.display = 'block';
+
+  if (window.playAudioTone) window.playAudioTone(880, 0.25);
 }
 
 // Pick Symbol Activity Game State
@@ -129,14 +133,12 @@ function loadSymbolRound() {
     return;
   }
 
-  // Set Round UI
   const titleElem = document.getElementById('symbol-round-title');
   if (titleElem) titleElem.textContent = `Round ${SymbolGame.currentRound + 1}: Identify the correct ${roundData.target}`;
 
   const feedbackElem = document.getElementById('symbol-feedback');
   if (feedbackElem) feedbackElem.textContent = 'Select Symbol 1 or Symbol 2 within 10 seconds!';
 
-  // Timer
   SymbolGame.timer = 10;
   const timerElem = document.getElementById('symbol-timer-num');
   if (timerElem) timerElem.textContent = SymbolGame.timer;
@@ -182,9 +184,9 @@ function showSymbolGameResults() {
   if (container) {
     container.innerHTML = `
       <div style="text-align:center; padding:40px;">
-        <h2 style="font-family:var(--font-heading); color:var(--accent-green); font-size:3rem; margin-bottom:16px;">Activity Complete! 🎉</h2>
-        <p style="font-size:1.8rem; color:var(--text-muted);">You scored <strong style="color:var(--accent-cyan);">${SymbolGame.score} / 5</strong> in the Symbol Identification Challenge!</p>
-        <button class="nav-btn" onclick="startSymbolGame()" style="margin-top:28px; font-size:1.3rem; padding:14px 36px;">Play Again</button>
+        <h2 style="font-family:var(--font-heading); color:var(--accent-green); font-size:3.5rem; margin-bottom:16px;">Activity Complete! 🎉</h2>
+        <p style="font-size:2rem; color:var(--text-muted);">You scored <strong style="color:var(--accent-cyan);">${SymbolGame.score} / 5</strong> in the Symbol Identification Challenge!</p>
+        <button class="nav-btn" onclick="startSymbolGame()" style="margin-top:28px; font-size:1.4rem; padding:16px 40px;">Play Again</button>
       </div>
     `;
   }
