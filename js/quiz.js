@@ -1,4 +1,4 @@
-/* Interactive Evaluation Quiz Module - Colossal Screen-Filling Fonts */
+/* Interactive Evaluation Quiz Module - Maximum 4.8rem Colossal Screen-Filling Fonts */
 
 const QuizData = {
   mcQuestions: [
@@ -54,7 +54,7 @@ function renderQuizPart1() {
 
   let html = `
     <!-- Top Question Tabs -->
-    <div style="display:flex; justify-content:center; gap:24px; margin-bottom:28px;">
+    <div style="display:flex; justify-content:center; gap:28px; margin-bottom:28px;">
   `;
 
   QuizData.mcQuestions.forEach((_, idx) => {
@@ -68,7 +68,7 @@ function renderQuizPart1() {
     }
 
     html += `
-      <button onclick="switchQuizQ(${idx})" style="${btnStyle} font-family:var(--font-heading); font-size:2.2rem; padding:16px 44px; border-radius:18px; cursor:pointer;">
+      <button onclick="switchQuizQ(${idx})" style="${btnStyle} font-family:var(--font-heading); font-size:2.5rem; padding:18px 52px; border-radius:20px; cursor:pointer;">
         Q${idx + 1} ${isAnswered ? '✓' : ''}
       </button>
     `;
@@ -76,9 +76,9 @@ function renderQuizPart1() {
 
   html += `</div>
 
-    <!-- Active Question Card (Colossal 4.2rem Question & 3.8rem Option Boxes) -->
+    <!-- Active Question Card (Colossal 4.8rem Question & 4.8rem Option Boxes) -->
     <div class="feature-card" style="padding:48px; border-color:var(--accent-cyan); height:100%; justify-content:space-around;">
-      <h2 style="color:var(--accent-cyan); font-size:4.2rem; font-weight:900; line-height:1.15; text-align:center; margin-bottom:32px;">
+      <h2 style="color:var(--accent-cyan); font-size:4.8rem; font-weight:900; line-height:1.15; text-align:center; margin-bottom:36px;">
         ${currentQ.q}
       </h2>
 
@@ -124,8 +124,8 @@ function submitPart1() {
   if (banner) {
     banner.style.display = 'block';
     banner.innerHTML = `
-      <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:3.5rem; font-weight:900;">Part I Completed! 🎉</h2>
-      <p style="font-size:2.5rem; color:#fff; margin-top:8px;">Part I Score: <strong style="color:var(--accent-cyan); font-size:3rem;">${score} / 5</strong> Points</p>
+      <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:3.8rem; font-weight:900;">Part I Completed! 🎉</h2>
+      <p style="font-size:2.8rem; color:#fff; margin-top:8px;">Part I Score: <strong style="color:var(--accent-cyan); font-size:3.5rem;">${score} / 5</strong> Points</p>
     `;
   }
   if (window.playAudioTone) window.playAudioTone(880, 0.2);
@@ -151,11 +151,11 @@ function submitPart2() {
   if (banner) {
     banner.style.display = 'block';
     banner.innerHTML = `
-      <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:3.8rem; font-weight:900;">Evaluation Quiz Submitted! 🎉</h2>
-      <p style="font-size:2.8rem; color:#fff; margin-top:12px;">
+      <h2 style="color:var(--accent-green); font-family:var(--font-heading); font-size:4rem; font-weight:900;">Evaluation Quiz Submitted! 🎉</h2>
+      <p style="font-size:3rem; color:#fff; margin-top:12px;">
         Part I: <strong style="color:var(--accent-cyan);">${part1Score} / 5</strong> &nbsp;|&nbsp; 
         Part II: <strong style="color:var(--accent-green);">${score} / 8</strong> &nbsp;|&nbsp; 
-        Total: <strong style="color:var(--accent-amber); font-size:3.5rem;">${totalScore} / 13</strong>
+        Total: <strong style="color:var(--accent-amber); font-size:3.8rem;">${totalScore} / 13</strong>
       </p>
     `;
   }

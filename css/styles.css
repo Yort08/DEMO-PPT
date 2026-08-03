@@ -551,15 +551,15 @@ table.truth-table th {
   background: rgba(56, 189, 248, 0.25);
   color: var(--accent-cyan);
   padding: 32px;
-  font-size: 4rem;
+  font-size: 4.2rem;
   font-weight: 900;
   border-bottom: 4px solid var(--bg-card-border);
 }
 
 table.truth-table td {
   padding: 32px;
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: 4.2rem;
+  font-weight: 900;
   border-bottom: 2px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -667,7 +667,7 @@ table.truth-table tr.active-row {
   background: rgba(56, 189, 248, 0.2);
 }
 
-/* Quiz Option Cards - Colossal Screen-Filling Text */
+/* Quiz Option Cards - Colossal Screen-Filling 4.8rem Fonts */
 .quiz-container {
   display: flex;
   flex-direction: column;
@@ -676,19 +676,21 @@ table.truth-table tr.active-row {
 
 .quiz-option {
   background: rgba(255, 255, 255, 0.04);
-  border: 4px solid rgba(255, 255, 255, 0.25);
-  border-radius: 28px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 32px;
   padding: 40px 48px;
   cursor: pointer;
-  font-size: 3.8rem;
+  font-size: 4.8rem;
   font-weight: 900;
+  line-height: 1.1;
   color: #fff;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 140px;
+  height: 100%;
+  min-height: 180px;
 }
 
 .quiz-option:hover {
@@ -698,10 +700,10 @@ table.truth-table tr.active-row {
 }
 
 .quiz-option.selected {
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(2, 132, 199, 0.4));
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.45), rgba(2, 132, 199, 0.45));
   border-color: var(--accent-cyan);
   color: #fff;
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 36px rgba(56, 189, 248, 0.5);
 }
 
 /* Speaker Notes Drawer */
