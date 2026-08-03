@@ -6,22 +6,26 @@ const totalSlides = 18;
 let timerSeconds = 0;
 let timerInterval = null;
 
-// Sound Effects Engine using Web Audio API
+// Sound Effects Engine using Web Audio API (Soft, non-intrusive tones)
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-function playAudioTone(freq = 440, duration = 0.1) {
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
+function playAudioTone(freq = 440, duration = 0.08) {
+  try {
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+  } catch (e) {
+    // Audio fail safe
   }
-  const osc = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.type = 'sine';
-  osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-  gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-  osc.connect(gain);
-  gain.connect(audioCtx.destination);
-  osc.start();
-  osc.stop(audioCtx.currentTime + duration);
 }
 window.playAudioTone = playAudioTone;
 
@@ -53,8 +57,8 @@ function showSlide(index) {
   // Update Teacher Notes Content for active slide
   updateTeacherNotes(currentSlide);
 
-  // Play slide switch audio
-  playAudioTone(520, 0.08);
+  // Soft audio cue
+  playAudioTone(480, 0.06);
 }
 
 function nextSlide() {
@@ -68,9 +72,13 @@ function prevSlide() {
 // Fullscreen Toggle
 function toggleFullscreen() {
   if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen().catch(err => console.log(err));
+    document.documentElement.requestFullscreen().catch(err => {
+      alert("Fullscreen mode can be triggered by pressing F11 or clicking the Fullscreen button.");
+    });
   } else {
-    document.exitFullscreen().catch(err => console.log(err));
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(err => console.log(err));
+    }
   }
 }
 
@@ -190,85 +198,8 @@ function updateTeacherNotes(slideNum) {
   if (studentElem) studentElem.textContent = noteData.student;
 }
 
-// Background Particle Circuit Canvas
-function initBackgroundCanvas() {
-  const canvas = document.getElementById('bg-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  const particles = [];
-  for (let i = 0; i < 45; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.8,
-      vy: (Math.random() - 0.5) * 0.8,
-      radius: Math.random() * 2 + 1
-    });
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw background grid lines
-    ctx.strokeStyle = 'rgba(0, 243, 255, 0.03)';
-    ctx.lineWidth = 1;
-    const step = 60;
-    for (let x = 0; x < canvas.width; x += step) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, canvas.height);
-      ctx.stroke();
-    }
-    for (let y = 0; y < canvas.height; y += step) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(canvas.width, y);
-      ctx.stroke();
-    }
-
-    // Connect particles
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-      ctx.fillStyle = 'rgba(0, 243, 255, 0.5)';
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fill();
-
-      for (let j = i + 1; j < particles.length; j++) {
-        const p2 = particles[j];
-        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-        if (dist < 130) {
-          ctx.strokeStyle = `rgba(0, 243, 255, ${0.15 * (1 - dist / 130)})`;
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    requestAnimationFrame(animate);
-  }
-  animate();
-}
-
 // Global Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
-  initBackgroundCanvas();
   startLessonTimer();
   showSlide(1);
 

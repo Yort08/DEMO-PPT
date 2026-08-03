@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Architecture / Logic Gates - Interactive Demo Teaching Presentation</title>
+  <title>Architecture / Logic Gates - Minimal Presentation Deck</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,9 +14,6 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-  <!-- Background Particle Circuit Canvas -->
-  <canvas id="bg-canvas"></canvas>
 
   <!-- Main Application Container -->
   <div id="app-container">
@@ -39,8 +36,9 @@
         <button class="control-btn" onclick="toggleSlideOverview()" title="Press O">
           <span>🎛</span> Grid View
         </button>
-        <button class="control-btn" onclick="toggleFullscreen()" title="Press F">
-          <span>⛶</span> Fullscreen
+        <!-- Prominent Fullscreen Button -->
+        <button class="control-btn btn-fullscreen" onclick="toggleFullscreen()" title="Toggle Fullscreen (Press F or F11)">
+          <span>⛶</span> Fullscreen Mode
         </button>
       </div>
     </header>
@@ -53,7 +51,7 @@
         <div class="title-slide-content">
           <div class="title-badge">Principles & Methods of Teaching • Demo Presentation</div>
           <h1 class="main-title">ARCHITECTURE &<br>DIGITAL LOGIC GATES</h1>
-          <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px;">
+          <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 700px;">
             An Interactive Guide to Binary Decision-Making, Circuit Building Blocks & Standard Schematic Logic
           </p>
 
@@ -62,9 +60,14 @@
             <div class="presenter-meta">BSIT-31A • 3rd Year College Computer Architecture</div>
           </div>
 
-          <button class="nav-btn" onclick="nextSlide()" style="font-size: 1.1rem; padding: 14px 36px; margin-top: 10px;">
-            🚀 Start Demo Presentation
-          </button>
+          <div style="display:flex; gap:16px; margin-top:12px;">
+            <button class="nav-btn" onclick="nextSlide()" style="font-size: 1.1rem; padding: 14px 36px;">
+              🚀 Start Presentation
+            </button>
+            <button class="control-btn btn-fullscreen" onclick="toggleFullscreen()" style="font-size: 1.1rem; padding: 14px 28px;">
+              ⛶ Enter Fullscreen
+            </button>
+          </div>
         </div>
       </section>
 
@@ -180,7 +183,7 @@
             <!-- Box 1 -->
             <div class="mystery-card">
               <h3>Mystery Box 1</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">Requires Switch A = UP & Switch B = UP</p>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">Requires Switch A = UP & Switch B = UP</p>
               <div class="mystery-letter-slot" id="mb1-slot">?</div>
               <div class="switch-control-group">
                 <div class="switch-wrapper">
@@ -196,13 +199,13 @@
                   <span class="switch-label">Switch B</span>
                 </div>
               </div>
-              <div id="mb1-status" style="font-weight: 700; font-size: 0.85rem; color: var(--accent-red);">Red Light! Access Denied</div>
+              <div id="mb1-status" style="font-weight: 700; font-size: 0.9rem; color: var(--accent-red);">Red Light! Access Denied</div>
             </div>
 
             <!-- Box 2 -->
             <div class="mystery-card">
               <h3>Mystery Box 2</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">Requires At Least ONE Switch UP</p>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">Requires At Least ONE Switch UP</p>
               <div class="mystery-letter-slot" id="mb2-slot">?</div>
               <div class="switch-control-group">
                 <div class="switch-wrapper">
@@ -218,13 +221,13 @@
                   <span class="switch-label">Switch B</span>
                 </div>
               </div>
-              <div id="mb2-status" style="font-weight: 700; font-size: 0.85rem; color: var(--accent-red);">Red Light! Access Denied</div>
+              <div id="mb2-status" style="font-weight: 700; font-size: 0.9rem; color: var(--accent-red);">Red Light! Access Denied</div>
             </div>
 
             <!-- Box 3 -->
             <div class="mystery-card">
               <h3>Mystery Box 3</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">Requires Switch A = DOWN (Inverted)</p>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">Requires Switch A = DOWN (Inverted)</p>
               <div class="mystery-letter-slot" id="mb3-slot">?</div>
               <div class="switch-control-group">
                 <div class="switch-wrapper">
@@ -234,7 +237,7 @@
                   <span class="switch-label">Switch A</span>
                 </div>
               </div>
-              <div id="mb3-status" style="font-weight: 700; font-size: 0.85rem; color: var(--accent-red);">Red Light! Access Denied</div>
+              <div id="mb3-status" style="font-weight: 700; font-size: 0.9rem; color: var(--accent-red);">Red Light! Access Denied</div>
             </div>
           </div>
 
@@ -247,7 +250,7 @@
           </div>
 
           <div id="motivation-complete-banner" style="display:none; text-align:center; color:var(--accent-green); font-size:1.3rem; font-weight:700; margin-top:10px;">
-            🎉 Congratulations! Secret Word Unlocked: LOGIC! Today's Topic: LOGIC GATES!
+            🎉 Secret Word Unlocked: LOGIC! Today's Topic: LOGIC GATES!
           </div>
         </div>
       </section>
@@ -274,7 +277,7 @@
             </div>
           </div>
 
-          <div class="feature-card" style="margin-top: 10px; background: rgba(0, 243, 255, 0.05); border-color: var(--accent-cyan);">
+          <div class="feature-card" style="margin-top: 10px; background: rgba(56, 189, 248, 0.05); border-color: var(--accent-cyan);">
             <h3 style="color: var(--accent-cyan);">The 7 Logic Gates We Will Tackle</h3>
             <p style="color: #fff; font-family: var(--font-code); font-weight: 600; margin-top: 8px;">
               1. AND Gate &nbsp;&nbsp; 2. OR Gate &nbsp;&nbsp; 3. NOT Gate &nbsp;&nbsp; 4. NAND Gate &nbsp;&nbsp; 5. NOR Gate &nbsp;&nbsp; 6. EXOR Gate &nbsp;&nbsp; 7. EXNOR Gate
@@ -296,14 +299,14 @@
           <div class="simulator-layout">
             <div class="circuit-box">
               <svg class="circuit-svg" viewBox="0 0 400 180">
-                <line id="line-and-a" x1="20" y1="50" x2="120" y2="50" stroke="#334155" stroke-width="6"/>
-                <line id="line-and-b" x1="20" y1="130" x2="120" y2="130" stroke="#334155" stroke-width="6"/>
-                <path id="gate-body-and" d="M 120,30 L 170,30 A 60,60 0 0,1 170,150 L 120,150 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
-                <line id="line-and-out" x1="230" y1="90" x2="320" y2="90" stroke="#334155" stroke-width="6"/>
-                <text x="50" y="40" fill="#00f3ff" font-family="Fira Code" font-size="16">Input A</text>
-                <text x="50" y="160" fill="#00f3ff" font-family="Fira Code" font-size="16">Input B</text>
+                <line id="line-and-a" x1="20" y1="50" x2="120" y2="50" stroke="#64748b" stroke-width="6"/>
+                <line id="line-and-b" x1="20" y1="130" x2="120" y2="130" stroke="#64748b" stroke-width="6"/>
+                <path id="gate-body-and" d="M 120,30 L 170,30 A 60,60 0 0,1 170,150 L 120,150 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+                <line id="line-and-out" x1="230" y1="90" x2="320" y2="90" stroke="#64748b" stroke-width="6"/>
+                <text x="40" y="40" fill="#38bdf8" font-family="Fira Code" font-size="16">Input A</text>
+                <text x="40" y="160" fill="#38bdf8" font-family="Fira Code" font-size="16">Input B</text>
                 <text x="145" y="96" fill="#fff" font-family="Outfit" font-size="20" font-weight="bold">AND</text>
-                <text x="240" y="78" fill="#00ff88" font-family="Fira Code" font-size="16">Output Y</text>
+                <text x="240" y="78" fill="#34d399" font-family="Fira Code" font-size="16">Output Y</text>
               </svg>
 
               <div class="switch-control-group">
@@ -357,14 +360,14 @@
           <div class="simulator-layout">
             <div class="circuit-box">
               <svg class="circuit-svg" viewBox="0 0 400 180">
-                <line id="line-or-a" x1="20" y1="50" x2="135" y2="50" stroke="#334155" stroke-width="6"/>
-                <line id="line-or-b" x1="20" y1="130" x2="135" y2="130" stroke="#334155" stroke-width="6"/>
-                <path id="gate-body-or" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
-                <line id="line-or-out" x1="230" y1="90" x2="320" y2="90" stroke="#334155" stroke-width="6"/>
-                <text x="50" y="40" fill="#00f3ff" font-family="Fira Code" font-size="16">Input A</text>
-                <text x="50" y="160" fill="#00f3ff" font-family="Fira Code" font-size="16">Input B</text>
+                <line id="line-or-a" x1="20" y1="50" x2="135" y2="50" stroke="#64748b" stroke-width="6"/>
+                <line id="line-or-b" x1="20" y1="130" x2="135" y2="130" stroke="#64748b" stroke-width="6"/>
+                <path id="gate-body-or" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+                <line id="line-or-out" x1="230" y1="90" x2="320" y2="90" stroke="#64748b" stroke-width="6"/>
+                <text x="40" y="40" fill="#38bdf8" font-family="Fira Code" font-size="16">Input A</text>
+                <text x="40" y="160" fill="#38bdf8" font-family="Fira Code" font-size="16">Input B</text>
                 <text x="150" y="96" fill="#fff" font-family="Outfit" font-size="20" font-weight="bold">OR</text>
-                <text x="240" y="78" fill="#00ff88" font-family="Fira Code" font-size="16">Output Y</text>
+                <text x="240" y="78" fill="#34d399" font-family="Fira Code" font-size="16">Output Y</text>
               </svg>
 
               <div class="switch-control-group">
@@ -418,13 +421,13 @@
           <div class="simulator-layout">
             <div class="circuit-box">
               <svg class="circuit-svg" viewBox="0 0 400 180">
-                <line id="line-not-a" x1="20" y1="90" x2="130" y2="90" stroke="#334155" stroke-width="6"/>
-                <polygon id="gate-body-not" points="130,30 220,90 130,150" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
-                <circle cx="230" cy="90" r="10" fill="#0a0e17" stroke="#00f3ff" stroke-width="3"/>
-                <line id="line-not-out" x1="240" y1="90" x2="330" y2="90" stroke="#334155" stroke-width="6"/>
-                <text x="50" y="78" fill="#00f3ff" font-family="Fira Code" font-size="16">Input A</text>
+                <line id="line-not-a" x1="20" y1="90" x2="130" y2="90" stroke="#64748b" stroke-width="6"/>
+                <polygon id="gate-body-not" points="130,30 220,90 130,150" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+                <circle cx="230" cy="90" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+                <line id="line-not-out" x1="240" y1="90" x2="330" y2="90" stroke="#64748b" stroke-width="6"/>
+                <text x="40" y="78" fill="#38bdf8" font-family="Fira Code" font-size="16">Input A</text>
                 <text x="145" y="96" fill="#fff" font-family="Outfit" font-size="18" font-weight="bold">NOT</text>
-                <text x="250" y="78" fill="#00ff88" font-family="Fira Code" font-size="16">Output Y</text>
+                <text x="250" y="78" fill="#34d399" font-family="Fira Code" font-size="16">Output Y</text>
               </svg>
 
               <div class="switch-control-group">
@@ -470,11 +473,11 @@
           <div class="simulator-layout">
             <div class="circuit-box">
               <svg class="circuit-svg" viewBox="0 0 400 180">
-                <line id="line-nand-a" x1="20" y1="50" x2="120" y2="50" stroke="#334155" stroke-width="6"/>
-                <line id="line-nand-b" x1="20" y1="130" x2="120" y2="130" stroke="#334155" stroke-width="6"/>
-                <path id="gate-body-nand" d="M 120,30 L 170,30 A 60,60 0 0,1 170,150 L 120,150 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
-                <circle cx="240" cy="90" r="10" fill="#0a0e17" stroke="#00f3ff" stroke-width="3"/>
-                <line id="line-nand-out" x1="250" y1="90" x2="330" y2="90" stroke="#334155" stroke-width="6"/>
+                <line id="line-nand-a" x1="20" y1="50" x2="120" y2="50" stroke="#64748b" stroke-width="6"/>
+                <line id="line-nand-b" x1="20" y1="130" x2="120" y2="130" stroke="#64748b" stroke-width="6"/>
+                <path id="gate-body-nand" d="M 120,30 L 170,30 A 60,60 0 0,1 170,150 L 120,150 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+                <circle cx="240" cy="90" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+                <line id="line-nand-out" x1="250" y1="90" x2="330" y2="90" stroke="#64748b" stroke-width="6"/>
                 <text x="135" y="96" fill="#fff" font-family="Outfit" font-size="18" font-weight="bold">NAND</text>
               </svg>
 
@@ -529,11 +532,11 @@
           <div class="simulator-layout">
             <div class="circuit-box">
               <svg class="circuit-svg" viewBox="0 0 400 180">
-                <line id="line-nor-a" x1="20" y1="50" x2="135" y2="50" stroke="#334155" stroke-width="6"/>
-                <line id="line-nor-b" x1="20" y1="130" x2="135" y2="130" stroke="#334155" stroke-width="6"/>
-                <path id="gate-body-nor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
-                <circle cx="240" cy="90" r="10" fill="#0a0e17" stroke="#00f3ff" stroke-width="3"/>
-                <line id="line-nor-out" x1="250" y1="90" x2="330" y2="90" stroke="#334155" stroke-width="6"/>
+                <line id="line-nor-a" x1="20" y1="50" x2="135" y2="50" stroke="#64748b" stroke-width="6"/>
+                <line id="line-nor-b" x1="20" y1="130" x2="135" y2="130" stroke="#64748b" stroke-width="6"/>
+                <path id="gate-body-nor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+                <circle cx="240" cy="90" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+                <line id="line-nor-out" x1="250" y1="90" x2="330" y2="90" stroke="#64748b" stroke-width="6"/>
                 <text x="145" y="96" fill="#fff" font-family="Outfit" font-size="18" font-weight="bold">NOR</text>
               </svg>
 
@@ -588,11 +591,11 @@
           <div class="simulator-layout">
             <div class="circuit-box">
               <svg class="circuit-svg" viewBox="0 0 400 180">
-                <line id="line-exor-a" x1="20" y1="50" x2="135" y2="50" stroke="#334155" stroke-width="6"/>
-                <line id="line-exor-b" x1="20" y1="130" x2="135" y2="130" stroke="#334155" stroke-width="6"/>
-                <path d="M 105,30 Q 140,90 105,150" fill="none" stroke="#00f3ff" stroke-width="4"/>
-                <path id="gate-body-exor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
-                <line id="line-exor-out" x1="230" y1="90" x2="320" y2="90" stroke="#334155" stroke-width="6"/>
+                <line id="line-exor-a" x1="20" y1="50" x2="135" y2="50" stroke="#64748b" stroke-width="6"/>
+                <line id="line-exor-b" x1="20" y1="130" x2="135" y2="130" stroke="#64748b" stroke-width="6"/>
+                <path d="M 105,30 Q 140,90 105,150" fill="none" stroke="#38bdf8" stroke-width="4"/>
+                <path id="gate-body-exor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+                <line id="line-exor-out" x1="230" y1="90" x2="320" y2="90" stroke="#64748b" stroke-width="6"/>
                 <text x="140" y="96" fill="#fff" font-family="Outfit" font-size="17" font-weight="bold">EXOR</text>
               </svg>
 
@@ -647,12 +650,12 @@
           <div class="simulator-layout">
             <div class="circuit-box">
               <svg class="circuit-svg" viewBox="0 0 400 180">
-                <line id="line-exnor-a" x1="20" y1="50" x2="135" y2="50" stroke="#334155" stroke-width="6"/>
-                <line id="line-exnor-b" x1="20" y1="130" x2="135" y2="130" stroke="#334155" stroke-width="6"/>
-                <path d="M 105,30 Q 140,90 105,150" fill="none" stroke="#00f3ff" stroke-width="4"/>
-                <path id="gate-body-exnor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
-                <circle cx="240" cy="90" r="10" fill="#0a0e17" stroke="#00f3ff" stroke-width="3"/>
-                <line id="line-exnor-out" x1="250" y1="90" x2="330" y2="90" stroke="#334155" stroke-width="6"/>
+                <line id="line-exnor-a" x1="20" y1="50" x2="135" y2="50" stroke="#64748b" stroke-width="6"/>
+                <line id="line-exnor-b" x1="20" y1="130" x2="135" y2="130" stroke="#64748b" stroke-width="6"/>
+                <path d="M 105,30 Q 140,90 105,150" fill="none" stroke="#38bdf8" stroke-width="4"/>
+                <path id="gate-body-exnor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+                <circle cx="240" cy="90" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+                <line id="line-exnor-out" x1="250" y1="90" x2="330" y2="90" stroke="#64748b" stroke-width="6"/>
                 <text x="135" y="96" fill="#fff" font-family="Outfit" font-size="16" font-weight="bold">EXNOR</text>
               </svg>
 
@@ -732,9 +735,9 @@
           </div>
         </div>
         <div class="slide-body">
-          <div class="feature-card" style="padding: 36px; text-align: center; background: rgba(0, 243, 255, 0.05); border-color: var(--accent-cyan);">
-            <h3 style="font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 16px;">"How do basic logic gates impact the electronic devices you use every day?"</h3>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #fff; max-width: 900px; margin: 0 auto;">
+          <div class="feature-card" style="padding: 40px; text-align: center; background: rgba(56, 189, 248, 0.05); border-color: var(--accent-cyan);">
+            <h3 style="font-size: 1.9rem; color: var(--accent-cyan); margin-bottom: 18px;">"How do basic logic gates impact the electronic devices you use every day?"</h3>
+            <p style="font-size: 1.25rem; line-height: 1.8; color: #fff; max-width: 950px; margin: 0 auto;">
               Logic gates are essential because every single action on our smartphones, laptops, smart TVs, and computers relies on millions of microscopic transistors making ultra-fast binary decisions using these exact gate rules!
             </p>
           </div>
@@ -752,7 +755,7 @@
         </div>
         <div class="slide-body" id="symbol-game-box">
           <div class="symbol-game-container">
-            <h3 id="symbol-round-title" style="font-family:var(--font-heading); color:#fff; font-size:1.4rem;">Round 1: Identify the correct AND Gate</h3>
+            <h3 id="symbol-round-title" style="font-family:var(--font-heading); color:#fff; font-size:1.5rem;">Round 1: Identify the correct AND Gate</h3>
 
             <div class="timer-ring">
               ⏱ <span id="symbol-timer-num">10</span>s
@@ -761,20 +764,20 @@
             <div class="symbol-choices">
               <div class="symbol-card" onclick="selectSymbolChoice(1)">
                 <div style="font-weight:700; color:var(--accent-cyan);">Symbol 1</div>
-                <svg width="120" height="70" viewBox="0 0 160 80">
-                  <path d="M 30,10 L 80,10 A 30,30 0 0,1 80,70 L 30,70 Z" fill="rgba(0,243,255,0.2)" stroke="#00f3ff" stroke-width="3"/>
+                <svg width="140" height="80" viewBox="0 0 160 80">
+                  <path d="M 30,10 L 80,10 A 30,30 0 0,1 80,70 L 30,70 Z" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="3"/>
                 </svg>
               </div>
 
               <div class="symbol-card" onclick="selectSymbolChoice(2)">
                 <div style="font-weight:700; color:var(--accent-purple);">Symbol 2</div>
-                <svg width="120" height="70" viewBox="0 0 160 80">
-                  <path d="M 30,10 Q 50,40 30,70 Q 80,70 120,40 Q 80,10 30,10 Z" fill="rgba(157,78,221,0.2)" stroke="#9d4edd" stroke-width="3"/>
+                <svg width="140" height="80" viewBox="0 0 160 80">
+                  <path d="M 30,10 Q 50,40 30,70 Q 80,70 120,40 Q 80,10 30,10 Z" fill="rgba(167,139,250,0.2)" stroke="#a78bfa" stroke-width="3"/>
                 </svg>
               </div>
             </div>
 
-            <div id="symbol-feedback" style="font-size:1.1rem; font-weight:700; color:var(--text-muted); min-height:30px;">
+            <div id="symbol-feedback" style="font-size:1.15rem; font-weight:700; color:var(--text-muted); min-height:30px;">
               Select Symbol 1 or Symbol 2 within 10 seconds!
             </div>
 
@@ -796,17 +799,17 @@
           <div id="quiz-questions-box"></div>
 
           <div class="feature-card" style="margin-top: 10px;">
-            <h4 style="color:var(--accent-cyan); font-size:1.1rem; margin-bottom:12px;">Part II: Truth Table Completion (Enter 0 or 1)</h4>
-            <div class="grid-3" style="gap: 12px;">
-              <div>AND (A=1, B=1) Y = <input type="number" id="tt-q-AND" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
-              <div>OR (A=0, B=1) Y = <input type="number" id="tt-q-OR" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
-              <div>NOT (A=1) Y = <input type="number" id="tt-q-NOT" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
-              <div>NAND (A=1, B=1) Y = <input type="number" id="tt-q-NAND" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
-              <div>NOR (A=0, B=0) Y = <input type="number" id="tt-q-NOR" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
+            <h4 style="color:var(--accent-cyan); font-size:1.15rem; margin-bottom:12px;">Part II: Truth Table Completion (Enter 0 or 1)</h4>
+            <div class="grid-3" style="gap: 14px;">
+              <div>AND (A=1, B=1) Y = <input type="number" id="tt-q-AND" min="0" max="1" style="width:55px; padding:6px; font-family:var(--font-code); border-radius:6px; border:1px solid #64748b;"></div>
+              <div>OR (A=0, B=1) Y = <input type="number" id="tt-q-OR" min="0" max="1" style="width:55px; padding:6px; font-family:var(--font-code); border-radius:6px; border:1px solid #64748b;"></div>
+              <div>NOT (A=1) Y = <input type="number" id="tt-q-NOT" min="0" max="1" style="width:55px; padding:6px; font-family:var(--font-code); border-radius:6px; border:1px solid #64748b;"></div>
+              <div>NAND (A=1, B=1) Y = <input type="number" id="tt-q-NAND" min="0" max="1" style="width:55px; padding:6px; font-family:var(--font-code); border-radius:6px; border:1px solid #64748b;"></div>
+              <div>NOR (A=0, B=0) Y = <input type="number" id="tt-q-NOR" min="0" max="1" style="width:55px; padding:6px; font-family:var(--font-code); border-radius:6px; border:1px solid #64748b;"></div>
             </div>
           </div>
 
-          <button class="nav-btn" onclick="submitQuiz()" style="margin-top:15px; align-self:center;">
+          <button class="nav-btn" onclick="submitQuiz()" style="margin-top:15px; align-self:center; font-size:1.1rem; padding:12px 30px;">
             📝 Submit Evaluation Quiz
           </button>
 
@@ -842,10 +845,10 @@
           </div>
 
           <div style="text-align: center; margin-top: 30px;">
-            <h2 style="font-family: var(--font-heading); font-size: 2.8rem; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <h2 style="font-family: var(--font-heading); font-size: 3rem; color: var(--accent-cyan);">
               That's all for today! Goodbye Class!
             </h2>
-            <p style="color: var(--text-muted); margin-top: 8px;">References: Planform Technologies Module 1, Digital Logic Gates (electronics-tutorials.ws)</p>
+            <p style="color: var(--text-muted); margin-top: 10px;">References: Planform Technologies Module 1, Digital Logic Gates (electronics-tutorials.ws)</p>
           </div>
         </div>
       </section>
@@ -876,12 +879,12 @@
       <button class="control-btn" onclick="toggleTeacherNotes()">✕</button>
     </div>
     <div class="drawer-body">
-      <div style="font-size:0.8rem; font-family:var(--font-code); color:var(--accent-cyan); margin-bottom:8px;">TEACHER'S SPOKEN SCRIPT:</div>
+      <div style="font-size:0.85rem; font-family:var(--font-code); color:var(--accent-cyan); margin-bottom:8px;">TEACHER'S SPOKEN SCRIPT:</div>
       <div class="teacher-speech" id="drawer-speech-text">
         "Good afternoon class! I am Troy Lits D. Dancel, and today we will discuss Digital Logic Gates!"
       </div>
 
-      <div style="font-size:0.8rem; font-family:var(--font-code); color:var(--accent-green); margin-bottom:8px;">EXPECTED STUDENT RESPONSE:</div>
+      <div style="font-size:0.85rem; font-family:var(--font-code); color:var(--accent-green); margin-bottom:8px;">EXPECTED STUDENT RESPONSE:</div>
       <div class="student-response" id="drawer-student-text">
         "Good afternoon sir!"
       </div>
