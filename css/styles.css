@@ -380,10 +380,10 @@ footer.bottom-bar {
   font-weight: 600;
 }
 
-/* Classroom Rules (T.R.O.Y.) - Interactive Click-to-Reveal Animation */
+/* Classroom Rules (T.R.O.Y.) - Clean Top Alignment & Giant Text */
 .troy-card {
   border-left: 12px solid var(--accent-cyan);
-  padding: 36px 32px;
+  padding: 32px 28px;
   cursor: pointer;
   position: relative;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -421,9 +421,12 @@ footer.bottom-bar {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition: opacity 0.4s ease, max-height 0.5s ease, transform 0.4s ease;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .troy-hint {
@@ -439,22 +442,25 @@ footer.bottom-bar {
   transition: opacity 0.3s ease;
 }
 
-/* Revealed State: Shrink Letter to Top and Animate Meaning Text In */
+/* Revealed State: Clean Top-Aligned Layout Starting Right Below the Letter */
 .troy-card.revealed {
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
+  gap: 14px;
+  padding: 28px 24px;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .troy-card.revealed .troy-letter {
-  font-size: 4.5rem;
-  margin-bottom: 12px;
+  font-size: 3.8rem;
+  margin-bottom: 2px;
+  line-height: 1;
 }
 
 .troy-card.revealed .troy-content {
   opacity: 1;
-  max-height: 600px;
+  max-height: none;
   transform: translateY(0);
 }
 
@@ -463,18 +469,18 @@ footer.bottom-bar {
 }
 
 .troy-card h3 {
-  font-size: 4.2rem;
+  font-size: 3.8rem;
   line-height: 1.1;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   color: #ffffff;
   font-weight: 900;
 }
 
 .troy-card p {
-  font-size: 3.8rem;
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--text-muted);
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #e2e8f0;
 }
 
 /* Gate Simulator Layout - Massive Screen-Occupying Cards & Giant SVG Schematics */
