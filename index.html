@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture / Logic Gates - Interactive Demo Teaching Presentation</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Background Particle Circuit Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Main Application Container -->
+  <div id="app-container">
+
+    <!-- Top Navigation Header -->
+    <header class="top-bar">
+      <div class="brand">
+        <div class="logo-icon">⚡</div>
+        <div class="brand-text">LOGIC<span>GATES</span></div>
+      </div>
+
+      <div class="top-controls">
+        <div class="timer-badge">
+          <span>⏱</span>
+          <span id="timer-display">00:00</span>
+        </div>
+        <button class="control-btn" id="btn-notes" onclick="toggleTeacherNotes()" title="Press N">
+          <span>🗣</span> Teacher Script
+        </button>
+        <button class="control-btn" onclick="toggleSlideOverview()" title="Press O">
+          <span>🎛</span> Grid View
+        </button>
+        <button class="control-btn" onclick="toggleFullscreen()" title="Press F">
+          <span>⛶</span> Fullscreen
+        </button>
+      </div>
+    </header>
+
+    <!-- Slide Deck Viewport -->
+    <main id="slide-viewport">
+
+      <!-- SLIDE 1: Title & Presenter Info -->
+      <section class="slide active" data-slide="1">
+        <div class="title-slide-content">
+          <div class="title-badge">Principles & Methods of Teaching • Demo Presentation</div>
+          <h1 class="main-title">ARCHITECTURE &<br>DIGITAL LOGIC GATES</h1>
+          <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px;">
+            An Interactive Guide to Binary Decision-Making, Circuit Building Blocks & Standard Schematic Logic
+          </p>
+
+          <div class="presenter-card">
+            <div class="presenter-name">Troy Lits D. Dancel</div>
+            <div class="presenter-meta">BSIT-31A • 3rd Year College Computer Architecture</div>
+          </div>
+
+          <button class="nav-btn" onclick="nextSlide()" style="font-size: 1.1rem; padding: 14px 36px; margin-top: 10px;">
+            🚀 Start Demo Presentation
+          </button>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: Objectives & Standards -->
+      <section class="slide" data-slide="2">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Lesson Scope</div>
+            <h2 class="slide-title">Learning Objectives</h2>
+          </div>
+          <div class="slide-subtitle">Time Allotment: 30 Minutes</div>
+        </div>
+        <div class="slide-body">
+          <div class="feature-card" style="border-left: 4px solid var(--accent-cyan);">
+            <h3 style="color: var(--accent-cyan);">Performance Standard</h3>
+            <p>The learners independently analyze and verify logic gate operations by evaluating binary input-output conditions and correctly identifying standard gate symbols.</p>
+          </div>
+
+          <div class="grid-3">
+            <div class="feature-card">
+              <div class="card-icon">1️⃣</div>
+              <h3>Identify Symbols</h3>
+              <p>Identify the seven (7) basic types of logic gates and their standard schematic symbols.</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">2️⃣</div>
+              <h3>Evaluate Truth Tables</h3>
+              <p>Evaluate binary input and output behavior across logic gates using interactive truth tables.</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">3️⃣</div>
+              <h3>Demonstrate Logic</h3>
+              <p>Demonstrate mastery by accurately identifying gate symbols in real-time quiz challenges.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: Classroom Rules -->
+      <section class="slide" data-slide="3">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Classroom Management</div>
+            <h2 class="slide-title">Be a T.R.O.Y. Student!</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="grid-4">
+            <div class="feature-card troy-card letter-t">
+              <div class="troy-letter">T</div>
+              <h3>Try Your Best</h3>
+              <p>Give your full effort in every lesson, discussion, and interactive activity.</p>
+            </div>
+            <div class="feature-card troy-card letter-r">
+              <div class="troy-letter">R</div>
+              <h3>Raise Others Up</h3>
+              <p>Speak kindly, collaborate, and support your classmates during discussions.</p>
+            </div>
+            <div class="feature-card troy-card letter-o">
+              <div class="troy-letter">O</div>
+              <h3>Open Your Mind</h3>
+              <p>Stay curious, listen carefully, and welcome new ideas in technology.</p>
+            </div>
+            <div class="feature-card troy-card letter-y">
+              <div class="troy-letter">Y</div>
+              <h3>Your Actions Matter</h3>
+              <p>Take responsibility for your behavior, choices, and keep our learning space clean.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: Previous Lesson Recap -->
+      <section class="slide" data-slide="4">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Review of Previous Lesson</div>
+            <h2 class="slide-title">Computer Ethics & IT</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="grid-3">
+            <div class="feature-card">
+              <div class="card-icon">📜</div>
+              <h3>What is Computer Ethics?</h3>
+              <p>Using computers and the internet in a good, honest, responsible, and respectful way.</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">🛡️</div>
+              <h3>Why Rules Matter</h3>
+              <p>Rules prevent harm to others, safeguard privacy, and stop software piracy or data theft.</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">⚖️</div>
+              <h3>Golden Example</h3>
+              <p>"Thou shalt not use a computer to steal, harm others, or distribute pirated software."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: Motivation Game - Light Up the Stage -->
+      <section class="slide" data-slide="5">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Engage • Interactive Activity</div>
+            <h2 class="slide-title">Light Up the Stage!</h2>
+          </div>
+          <div class="slide-subtitle">Find the correct switch combination to grant Green Light access!</div>
+        </div>
+        <div class="slide-body">
+          <div class="mystery-box-grid">
+            <!-- Box 1 -->
+            <div class="mystery-card">
+              <h3>Mystery Box 1</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Requires Switch A = UP & Switch B = UP</p>
+              <div class="mystery-letter-slot" id="mb1-slot">?</div>
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="mb1-sw-a" onclick="toggleMysterySwitch(1, 'a')">
+                    <div class="switch-thumb">DN</div>
+                  </div>
+                  <span class="switch-label">Switch A</span>
+                </div>
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="mb1-sw-b" onclick="toggleMysterySwitch(1, 'b')">
+                    <div class="switch-thumb">DN</div>
+                  </div>
+                  <span class="switch-label">Switch B</span>
+                </div>
+              </div>
+              <div id="mb1-status" style="font-weight: 700; font-size: 0.85rem; color: var(--accent-red);">Red Light! Access Denied</div>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="mystery-card">
+              <h3>Mystery Box 2</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Requires At Least ONE Switch UP</p>
+              <div class="mystery-letter-slot" id="mb2-slot">?</div>
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="mb2-sw-a" onclick="toggleMysterySwitch(2, 'a')">
+                    <div class="switch-thumb">DN</div>
+                  </div>
+                  <span class="switch-label">Switch A</span>
+                </div>
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="mb2-sw-b" onclick="toggleMysterySwitch(2, 'b')">
+                    <div class="switch-thumb">DN</div>
+                  </div>
+                  <span class="switch-label">Switch B</span>
+                </div>
+              </div>
+              <div id="mb2-status" style="font-weight: 700; font-size: 0.85rem; color: var(--accent-red);">Red Light! Access Denied</div>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="mystery-card">
+              <h3>Mystery Box 3</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Requires Switch A = DOWN (Inverted)</p>
+              <div class="mystery-letter-slot" id="mb3-slot">?</div>
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="mb3-sw-a" onclick="toggleMysterySwitch(3, 'a')">
+                    <div class="switch-thumb">DN</div>
+                  </div>
+                  <span class="switch-label">Switch A</span>
+                </div>
+              </div>
+              <div id="mb3-status" style="font-weight: 700; font-size: 0.85rem; color: var(--accent-red);">Red Light! Access Denied</div>
+            </div>
+          </div>
+
+          <div class="secret-word-display">
+            <div class="word-box" id="word-slot-1">_</div>
+            <div class="word-box" id="word-slot-2">_</div>
+            <div class="word-box" id="word-slot-3">_</div>
+            <div class="word-box" id="word-slot-4">_</div>
+            <div class="word-box" id="word-slot-5">_</div>
+          </div>
+
+          <div id="motivation-complete-banner" style="display:none; text-align:center; color:var(--accent-green); font-size:1.3rem; font-weight:700; margin-top:10px;">
+            🎉 Congratulations! Secret Word Unlocked: LOGIC! Today's Topic: LOGIC GATES!
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Transistors & Logic Gates Concept -->
+      <section class="slide" data-slide="6">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Explain • Foundation</div>
+            <h2 class="slide-title">What is a Logic Gate?</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="grid-2">
+            <div class="feature-card">
+              <div class="card-icon">⚡</div>
+              <h3>Building Block of Computers</h3>
+              <p>A logic gate is a basic building block of digital circuits. It performs logical operations using binary inputs (0 or 1) to produce a single output signal.</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">📱</div>
+              <h3>Transistors as Micro-Switches</h3>
+              <p>Logic gates rely on transistors—tiny electrical switches that turn current ON and OFF, enabling smartphones and computers to process complex calculations!</p>
+            </div>
+          </div>
+
+          <div class="feature-card" style="margin-top: 10px; background: rgba(0, 243, 255, 0.05); border-color: var(--accent-cyan);">
+            <h3 style="color: var(--accent-cyan);">The 7 Logic Gates We Will Tackle</h3>
+            <p style="color: #fff; font-family: var(--font-code); font-weight: 600; margin-top: 8px;">
+              1. AND Gate &nbsp;&nbsp; 2. OR Gate &nbsp;&nbsp; 3. NOT Gate &nbsp;&nbsp; 4. NAND Gate &nbsp;&nbsp; 5. NOR Gate &nbsp;&nbsp; 6. EXOR Gate &nbsp;&nbsp; 7. EXNOR Gate
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: Gate 1 - AND Gate -->
+      <section class="slide" data-slide="7">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Gate 1 of 7</div>
+            <h2 class="slide-title">AND Gate (All Must Agree)</h2>
+          </div>
+          <div class="slide-subtitle">Output is 1 ONLY if ALL inputs are 1. Shape: Flat-left, curved-right "D".</div>
+        </div>
+        <div class="slide-body">
+          <div class="simulator-layout">
+            <div class="circuit-box">
+              <svg class="circuit-svg" viewBox="0 0 400 180">
+                <line id="line-and-a" x1="20" y1="50" x2="120" y2="50" stroke="#334155" stroke-width="6"/>
+                <line id="line-and-b" x1="20" y1="130" x2="120" y2="130" stroke="#334155" stroke-width="6"/>
+                <path id="gate-body-and" d="M 120,30 L 170,30 A 60,60 0 0,1 170,150 L 120,150 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
+                <line id="line-and-out" x1="230" y1="90" x2="320" y2="90" stroke="#334155" stroke-width="6"/>
+                <text x="50" y="40" fill="#00f3ff" font-family="Fira Code" font-size="16">Input A</text>
+                <text x="50" y="160" fill="#00f3ff" font-family="Fira Code" font-size="16">Input B</text>
+                <text x="145" y="96" fill="#fff" font-family="Outfit" font-size="20" font-weight="bold">AND</text>
+                <text x="240" y="78" fill="#00ff88" font-family="Fira Code" font-size="16">Output Y</text>
+              </svg>
+
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-and-a" onclick="toggleSwitch('and', 'a')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input A</span>
+                </div>
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-and-b" onclick="toggleSwitch('and', 'b')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input B</span>
+                </div>
+                <div class="bulb-container">
+                  <div class="bulb-icon" id="bulb-and">💡</div>
+                  <span class="switch-label">Output Y = <strong id="out-val-and">0</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="truth-table-card">
+              <div class="truth-table-title">📊 AND Gate Truth Table</div>
+              <table class="truth-table" id="table-and">
+                <thead>
+                  <tr><th>A</th><th>B</th><th>Y (A · B)</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-a="0" data-b="0"><td>0</td><td>0</td><td>0</td></tr>
+                  <tr data-a="0" data-b="1"><td>0</td><td>1</td><td>0</td></tr>
+                  <tr data-a="1" data-b="0"><td>1</td><td>0</td><td>0</td></tr>
+                  <tr data-a="1" data-b="1"><td>1</td><td>1</td><td>1</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: Gate 2 - OR Gate -->
+      <section class="slide" data-slide="8">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Gate 2 of 7</div>
+            <h2 class="slide-title">OR Gate (Any Can Agree)</h2>
+          </div>
+          <div class="slide-subtitle">Output is 1 if AT LEAST ONE input is 1. Shape: Curved back, pointed tip.</div>
+        </div>
+        <div class="slide-body">
+          <div class="simulator-layout">
+            <div class="circuit-box">
+              <svg class="circuit-svg" viewBox="0 0 400 180">
+                <line id="line-or-a" x1="20" y1="50" x2="135" y2="50" stroke="#334155" stroke-width="6"/>
+                <line id="line-or-b" x1="20" y1="130" x2="135" y2="130" stroke="#334155" stroke-width="6"/>
+                <path id="gate-body-or" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
+                <line id="line-or-out" x1="230" y1="90" x2="320" y2="90" stroke="#334155" stroke-width="6"/>
+                <text x="50" y="40" fill="#00f3ff" font-family="Fira Code" font-size="16">Input A</text>
+                <text x="50" y="160" fill="#00f3ff" font-family="Fira Code" font-size="16">Input B</text>
+                <text x="150" y="96" fill="#fff" font-family="Outfit" font-size="20" font-weight="bold">OR</text>
+                <text x="240" y="78" fill="#00ff88" font-family="Fira Code" font-size="16">Output Y</text>
+              </svg>
+
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-or-a" onclick="toggleSwitch('or', 'a')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input A</span>
+                </div>
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-or-b" onclick="toggleSwitch('or', 'b')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input B</span>
+                </div>
+                <div class="bulb-container">
+                  <div class="bulb-icon" id="bulb-or">💡</div>
+                  <span class="switch-label">Output Y = <strong id="out-val-or">0</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="truth-table-card">
+              <div class="truth-table-title">📊 OR Gate Truth Table</div>
+              <table class="truth-table" id="table-or">
+                <thead>
+                  <tr><th>A</th><th>B</th><th>Y (A + B)</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-a="0" data-b="0"><td>0</td><td>0</td><td>0</td></tr>
+                  <tr data-a="0" data-b="1"><td>0</td><td>1</td><td>1</td></tr>
+                  <tr data-a="1" data-b="0"><td>1</td><td>0</td><td>1</td></tr>
+                  <tr data-a="1" data-b="1"><td>1</td><td>1</td><td>1</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: Gate 3 - NOT Gate -->
+      <section class="slide" data-slide="9">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Gate 3 of 7</div>
+            <h2 class="slide-title">NOT Gate (The Inverter)</h2>
+          </div>
+          <div class="slide-subtitle">Has 1 input and 1 output. Reverses the input signal. Shape: Triangle with bubble tip.</div>
+        </div>
+        <div class="slide-body">
+          <div class="simulator-layout">
+            <div class="circuit-box">
+              <svg class="circuit-svg" viewBox="0 0 400 180">
+                <line id="line-not-a" x1="20" y1="90" x2="130" y2="90" stroke="#334155" stroke-width="6"/>
+                <polygon id="gate-body-not" points="130,30 220,90 130,150" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
+                <circle cx="230" cy="90" r="10" fill="#0a0e17" stroke="#00f3ff" stroke-width="3"/>
+                <line id="line-not-out" x1="240" y1="90" x2="330" y2="90" stroke="#334155" stroke-width="6"/>
+                <text x="50" y="78" fill="#00f3ff" font-family="Fira Code" font-size="16">Input A</text>
+                <text x="145" y="96" fill="#fff" font-family="Outfit" font-size="18" font-weight="bold">NOT</text>
+                <text x="250" y="78" fill="#00ff88" font-family="Fira Code" font-size="16">Output Y</text>
+              </svg>
+
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-not-a" onclick="toggleSwitch('not', 'a')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input A</span>
+                </div>
+                <div class="bulb-container">
+                  <div class="bulb-icon" id="bulb-not">💡</div>
+                  <span class="switch-label">Output Y = <strong id="out-val-not">1</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="truth-table-card">
+              <div class="truth-table-title">📊 NOT Gate Truth Table</div>
+              <table class="truth-table" id="table-not">
+                <thead>
+                  <tr><th>A</th><th>Y (A̅)</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-a="0"><td>0</td><td>1</td></tr>
+                  <tr data-a="1"><td>1</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: Gate 4 - NAND Gate -->
+      <section class="slide" data-slide="10">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Gate 4 of 7</div>
+            <h2 class="slide-title">NAND Gate (NOT-AND)</h2>
+          </div>
+          <div class="slide-subtitle">Combination of AND + NOT. Gives 0 ONLY when all inputs are 1.</div>
+        </div>
+        <div class="slide-body">
+          <div class="simulator-layout">
+            <div class="circuit-box">
+              <svg class="circuit-svg" viewBox="0 0 400 180">
+                <line id="line-nand-a" x1="20" y1="50" x2="120" y2="50" stroke="#334155" stroke-width="6"/>
+                <line id="line-nand-b" x1="20" y1="130" x2="120" y2="130" stroke="#334155" stroke-width="6"/>
+                <path id="gate-body-nand" d="M 120,30 L 170,30 A 60,60 0 0,1 170,150 L 120,150 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
+                <circle cx="240" cy="90" r="10" fill="#0a0e17" stroke="#00f3ff" stroke-width="3"/>
+                <line id="line-nand-out" x1="250" y1="90" x2="330" y2="90" stroke="#334155" stroke-width="6"/>
+                <text x="135" y="96" fill="#fff" font-family="Outfit" font-size="18" font-weight="bold">NAND</text>
+              </svg>
+
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-nand-a" onclick="toggleSwitch('nand', 'a')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input A</span>
+                </div>
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-nand-b" onclick="toggleSwitch('nand', 'b')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input B</span>
+                </div>
+                <div class="bulb-container">
+                  <div class="bulb-icon" id="bulb-nand">💡</div>
+                  <span class="switch-label">Output Y = <strong id="out-val-nand">1</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="truth-table-card">
+              <div class="truth-table-title">📊 NAND Gate Truth Table</div>
+              <table class="truth-table" id="table-nand">
+                <thead>
+                  <tr><th>A</th><th>B</th><th>Y (A · B̅)</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-a="0" data-b="0"><td>0</td><td>0</td><td>1</td></tr>
+                  <tr data-a="0" data-b="1"><td>0</td><td>1</td><td>1</td></tr>
+                  <tr data-a="1" data-b="0"><td>1</td><td>0</td><td>1</td></tr>
+                  <tr data-a="1" data-b="1"><td>1</td><td>1</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 11: Gate 5 - NOR Gate -->
+      <section class="slide" data-slide="11">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Gate 5 of 7</div>
+            <h2 class="slide-title">NOR Gate (NOT-OR)</h2>
+          </div>
+          <div class="slide-subtitle">Combination of OR + NOT. Gives 1 ONLY when all inputs are 0.</div>
+        </div>
+        <div class="slide-body">
+          <div class="simulator-layout">
+            <div class="circuit-box">
+              <svg class="circuit-svg" viewBox="0 0 400 180">
+                <line id="line-nor-a" x1="20" y1="50" x2="135" y2="50" stroke="#334155" stroke-width="6"/>
+                <line id="line-nor-b" x1="20" y1="130" x2="135" y2="130" stroke="#334155" stroke-width="6"/>
+                <path id="gate-body-nor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
+                <circle cx="240" cy="90" r="10" fill="#0a0e17" stroke="#00f3ff" stroke-width="3"/>
+                <line id="line-nor-out" x1="250" y1="90" x2="330" y2="90" stroke="#334155" stroke-width="6"/>
+                <text x="145" y="96" fill="#fff" font-family="Outfit" font-size="18" font-weight="bold">NOR</text>
+              </svg>
+
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-nor-a" onclick="toggleSwitch('nor', 'a')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input A</span>
+                </div>
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-nor-b" onclick="toggleSwitch('nor', 'b')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input B</span>
+                </div>
+                <div class="bulb-container">
+                  <div class="bulb-icon" id="bulb-nor">💡</div>
+                  <span class="switch-label">Output Y = <strong id="out-val-nor">1</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="truth-table-card">
+              <div class="truth-table-title">📊 NOR Gate Truth Table</div>
+              <table class="truth-table" id="table-nor">
+                <thead>
+                  <tr><th>A</th><th>B</th><th>Y (A + B̅)</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-a="0" data-b="0"><td>0</td><td>0</td><td>1</td></tr>
+                  <tr data-a="0" data-b="1"><td>0</td><td>1</td><td>0</td></tr>
+                  <tr data-a="1" data-b="0"><td>1</td><td>0</td><td>0</td></tr>
+                  <tr data-a="1" data-b="1"><td>1</td><td>1</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 12: Gate 6 - EXOR Gate -->
+      <section class="slide" data-slide="12">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Gate 6 of 7</div>
+            <h2 class="slide-title">EXOR Gate (Exclusive OR)</h2>
+          </div>
+          <div class="slide-subtitle">Output is 1 ONLY when inputs are DIFFERENT. Shape: OR gate with extra curved input line.</div>
+        </div>
+        <div class="slide-body">
+          <div class="simulator-layout">
+            <div class="circuit-box">
+              <svg class="circuit-svg" viewBox="0 0 400 180">
+                <line id="line-exor-a" x1="20" y1="50" x2="135" y2="50" stroke="#334155" stroke-width="6"/>
+                <line id="line-exor-b" x1="20" y1="130" x2="135" y2="130" stroke="#334155" stroke-width="6"/>
+                <path d="M 105,30 Q 140,90 105,150" fill="none" stroke="#00f3ff" stroke-width="4"/>
+                <path id="gate-body-exor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
+                <line id="line-exor-out" x1="230" y1="90" x2="320" y2="90" stroke="#334155" stroke-width="6"/>
+                <text x="140" y="96" fill="#fff" font-family="Outfit" font-size="17" font-weight="bold">EXOR</text>
+              </svg>
+
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-exor-a" onclick="toggleSwitch('exor', 'a')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input A</span>
+                </div>
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-exor-b" onclick="toggleSwitch('exor', 'b')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input B</span>
+                </div>
+                <div class="bulb-container">
+                  <div class="bulb-icon" id="bulb-exor">💡</div>
+                  <span class="switch-label">Output Y = <strong id="out-val-exor">0</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="truth-table-card">
+              <div class="truth-table-title">📊 EXOR Gate Truth Table</div>
+              <table class="truth-table" id="table-exor">
+                <thead>
+                  <tr><th>A</th><th>B</th><th>Y (A ⊕ B)</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-a="0" data-b="0"><td>0</td><td>0</td><td>0</td></tr>
+                  <tr data-a="0" data-b="1"><td>0</td><td>1</td><td>1</td></tr>
+                  <tr data-a="1" data-b="0"><td>1</td><td>0</td><td>1</td></tr>
+                  <tr data-a="1" data-b="1"><td>1</td><td>1</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 13: Gate 7 - EXNOR Gate -->
+      <section class="slide" data-slide="13">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Gate 7 of 7</div>
+            <h2 class="slide-title">EXNOR Gate (Exclusive NOR)</h2>
+          </div>
+          <div class="slide-subtitle">Opposite of EXOR. Output is 1 ONLY when inputs are IDENTICAL.</div>
+        </div>
+        <div class="slide-body">
+          <div class="simulator-layout">
+            <div class="circuit-box">
+              <svg class="circuit-svg" viewBox="0 0 400 180">
+                <line id="line-exnor-a" x1="20" y1="50" x2="135" y2="50" stroke="#334155" stroke-width="6"/>
+                <line id="line-exnor-b" x1="20" y1="130" x2="135" y2="130" stroke="#334155" stroke-width="6"/>
+                <path d="M 105,30 Q 140,90 105,150" fill="none" stroke="#00f3ff" stroke-width="4"/>
+                <path id="gate-body-exnor" d="M 120,30 Q 155,90 120,150 Q 180,150 230,90 Q 180,30 120,30 Z" fill="rgba(15,23,42,0.8)" stroke="#00f3ff" stroke-width="4"/>
+                <circle cx="240" cy="90" r="10" fill="#0a0e17" stroke="#00f3ff" stroke-width="3"/>
+                <line id="line-exnor-out" x1="250" y1="90" x2="330" y2="90" stroke="#334155" stroke-width="6"/>
+                <text x="135" y="96" fill="#fff" font-family="Outfit" font-size="16" font-weight="bold">EXNOR</text>
+              </svg>
+
+              <div class="switch-control-group">
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-exnor-a" onclick="toggleSwitch('exnor', 'a')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input A</span>
+                </div>
+                <div class="switch-wrapper">
+                  <div class="switch-btn" id="sw-exnor-b" onclick="toggleSwitch('exnor', 'b')">
+                    <div class="switch-thumb">0</div>
+                  </div>
+                  <span class="switch-label">Input B</span>
+                </div>
+                <div class="bulb-container">
+                  <div class="bulb-icon" id="bulb-exnor">💡</div>
+                  <span class="switch-label">Output Y = <strong id="out-val-exnor">1</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="truth-table-card">
+              <div class="truth-table-title">📊 EXNOR Gate Truth Table</div>
+              <table class="truth-table" id="table-exnor">
+                <thead>
+                  <tr><th>A</th><th>B</th><th>Y (A ⊙ B)</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-a="0" data-b="0"><td>0</td><td>0</td><td>1</td></tr>
+                  <tr data-a="0" data-b="1"><td>0</td><td>1</td><td>0</td></tr>
+                  <tr data-a="1" data-b="0"><td>1</td><td>0</td><td>0</td></tr>
+                  <tr data-a="1" data-b="1"><td>1</td><td>1</td><td>1</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 14: Generalization & Class Recapping -->
+      <section class="slide" data-slide="14">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Generalization • Recapping Session</div>
+            <h2 class="slide-title">Class Discussion & Summary</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="grid-3">
+            <div class="feature-card">
+              <div class="card-icon">🟢</div>
+              <h3>Easiest Logic Gate</h3>
+              <p><strong>NOT Gate</strong> — because it has only 1 input and 1 output, simply inverting the signal!</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">🔴</div>
+              <h3>Hardest Logic Gate</h3>
+              <p><strong>EXNOR Gate</strong> — because it is a combination gate combining EXOR and NOT functions!</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">🔢</div>
+              <h3>7 Gates Discussed</h3>
+              <p>AND, OR, NOT, NAND, NOR, EXOR (Exclusive OR), EXNOR (Exclusive NOR).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 15: Reflection -->
+      <section class="slide" data-slide="15">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Elaborate • 1-Minute Reflection</div>
+            <h2 class="slide-title">Impact of Logic Gates in Daily Life</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="feature-card" style="padding: 36px; text-align: center; background: rgba(0, 243, 255, 0.05); border-color: var(--accent-cyan);">
+            <h3 style="font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 16px;">"How do basic logic gates impact the electronic devices you use every day?"</h3>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #fff; max-width: 900px; margin: 0 auto;">
+              Logic gates are essential because every single action on our smartphones, laptops, smart TVs, and computers relies on millions of microscopic transistors making ultra-fast binary decisions using these exact gate rules!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 16: Activity - Pick the Gate Symbol -->
+      <section class="slide" data-slide="16">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Evaluate • Interactive Activity</div>
+            <h2 class="slide-title">Pick the Gate Symbol!</h2>
+          </div>
+          <div class="slide-subtitle">Identify the correct logic gate symbol within 10 seconds!</div>
+        </div>
+        <div class="slide-body" id="symbol-game-box">
+          <div class="symbol-game-container">
+            <h3 id="symbol-round-title" style="font-family:var(--font-heading); color:#fff; font-size:1.4rem;">Round 1: Identify the correct AND Gate</h3>
+
+            <div class="timer-ring">
+              ⏱ <span id="symbol-timer-num">10</span>s
+            </div>
+
+            <div class="symbol-choices">
+              <div class="symbol-card" onclick="selectSymbolChoice(1)">
+                <div style="font-weight:700; color:var(--accent-cyan);">Symbol 1</div>
+                <svg width="120" height="70" viewBox="0 0 160 80">
+                  <path d="M 30,10 L 80,10 A 30,30 0 0,1 80,70 L 30,70 Z" fill="rgba(0,243,255,0.2)" stroke="#00f3ff" stroke-width="3"/>
+                </svg>
+              </div>
+
+              <div class="symbol-card" onclick="selectSymbolChoice(2)">
+                <div style="font-weight:700; color:var(--accent-purple);">Symbol 2</div>
+                <svg width="120" height="70" viewBox="0 0 160 80">
+                  <path d="M 30,10 Q 50,40 30,70 Q 80,70 120,40 Q 80,10 30,10 Z" fill="rgba(157,78,221,0.2)" stroke="#9d4edd" stroke-width="3"/>
+                </svg>
+              </div>
+            </div>
+
+            <div id="symbol-feedback" style="font-size:1.1rem; font-weight:700; color:var(--text-muted); min-height:30px;">
+              Select Symbol 1 or Symbol 2 within 10 seconds!
+            </div>
+
+            <button class="nav-btn" onclick="startSymbolGame()">Reset Activity</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 17: Interactive Evaluation Quiz -->
+      <section class="slide" data-slide="17">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Evaluate • Short Assessment</div>
+            <h2 class="slide-title">15-Item Logic Gates Quiz</h2>
+          </div>
+          <div class="slide-subtitle">Select the correct answers for Part I & fill in Truth Table outputs for Part II</div>
+        </div>
+        <div class="slide-body">
+          <div id="quiz-questions-box"></div>
+
+          <div class="feature-card" style="margin-top: 10px;">
+            <h4 style="color:var(--accent-cyan); font-size:1.1rem; margin-bottom:12px;">Part II: Truth Table Completion (Enter 0 or 1)</h4>
+            <div class="grid-3" style="gap: 12px;">
+              <div>AND (A=1, B=1) Y = <input type="number" id="tt-q-AND" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
+              <div>OR (A=0, B=1) Y = <input type="number" id="tt-q-OR" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
+              <div>NOT (A=1) Y = <input type="number" id="tt-q-NOT" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
+              <div>NAND (A=1, B=1) Y = <input type="number" id="tt-q-NAND" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
+              <div>NOR (A=0, B=0) Y = <input type="number" id="tt-q-NOR" min="0" max="1" style="width:50px; padding:4px; font-family:var(--font-code);"></div>
+            </div>
+          </div>
+
+          <button class="nav-btn" onclick="submitQuiz()" style="margin-top:15px; align-self:center;">
+            📝 Submit Evaluation Quiz
+          </button>
+
+          <div id="quiz-results-banner" class="feature-card" style="display:none; text-align:center; margin-top:15px;"></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 18: Assignment & Conclusion -->
+      <section class="slide" data-slide="18">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag">Extend • Next Meeting Assignment</div>
+            <h2 class="slide-title">Hands-on Activity Materials</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="grid-3">
+            <div class="feature-card">
+              <div class="card-icon">🖼️</div>
+              <h3>Printed Symbol</h3>
+              <p>Bring a printed picture of your chosen logic gate symbol (AND, OR, NOT, NAND, NOR, EXOR, EXNOR).</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">📋</div>
+              <h3>Illustration Board</h3>
+              <p>1/8 size illustration board for mounting your schematic circuit diagram.</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon">🖊️</div>
+              <h3>Marker & Pins</h3>
+              <p>Marker for labeling gate inputs, outputs, and truth tables.</p>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 30px;">
+            <h2 style="font-family: var(--font-heading); font-size: 2.8rem; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              That's all for today! Goodbye Class!
+            </h2>
+            <p style="color: var(--text-muted); margin-top: 8px;">References: Planform Technologies Module 1, Digital Logic Gates (electronics-tutorials.ws)</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Footer Controls -->
+    <footer class="bottom-bar">
+      <div class="progress-container">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        </div>
+        <span class="slide-counter" id="slide-counter">SLIDE 1 / 18</span>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="nav-btn" id="btn-prev" onclick="prevSlide()" disabled>◀ Previous</button>
+        <button class="nav-btn" id="btn-next" onclick="nextSlide()">Next ▶</button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Spoken Teacher Script Side Drawer (Press 'N') -->
+  <aside id="teacher-notes-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">🗣 Spoken Teacher Dialogue Script</div>
+      <button class="control-btn" onclick="toggleTeacherNotes()">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div style="font-size:0.8rem; font-family:var(--font-code); color:var(--accent-cyan); margin-bottom:8px;">TEACHER'S SPOKEN SCRIPT:</div>
+      <div class="teacher-speech" id="drawer-speech-text">
+        "Good afternoon class! I am Troy Lits D. Dancel, and today we will discuss Digital Logic Gates!"
+      </div>
+
+      <div style="font-size:0.8rem; font-family:var(--font-code); color:var(--accent-green); margin-bottom:8px;">EXPECTED STUDENT RESPONSE:</div>
+      <div class="student-response" id="drawer-student-text">
+        "Good afternoon sir!"
+      </div>
+    </div>
+  </aside>
+
+  <!-- Slide Overview Grid Modal (Press 'O') -->
+  <div class="modal-overlay" id="overview-modal" onclick="toggleSlideOverview()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3 style="font-family:var(--font-heading); color:var(--accent-cyan); font-size:1.5rem;">Slide Overview Grid</h3>
+        <button class="control-btn" onclick="toggleSlideOverview()">✕ Close</button>
+      </div>
+      <div class="overview-grid">
+        <div class="thumb-card" onclick="showSlide(1); toggleSlideOverview();"><div class="thumb-num">SLIDE 1</div><div class="thumb-title">Title Slide</div></div>
+        <div class="thumb-card" onclick="showSlide(2); toggleSlideOverview();"><div class="thumb-num">SLIDE 2</div><div class="thumb-title">Learning Objectives</div></div>
+        <div class="thumb-card" onclick="showSlide(3); toggleSlideOverview();"><div class="thumb-num">SLIDE 3</div><div class="thumb-title">T.R.O.Y. Classroom Rules</div></div>
+        <div class="thumb-card" onclick="showSlide(4); toggleSlideOverview();"><div class="thumb-num">SLIDE 4</div><div class="thumb-title">Computer Ethics Review</div></div>
+        <div class="thumb-card" onclick="showSlide(5); toggleSlideOverview();"><div class="thumb-num">SLIDE 5</div><div class="thumb-title">Light Up the Stage Game</div></div>
+        <div class="thumb-card" onclick="showSlide(6); toggleSlideOverview();"><div class="thumb-num">SLIDE 6</div><div class="thumb-title">Logic Gates Concept</div></div>
+        <div class="thumb-card" onclick="showSlide(7); toggleSlideOverview();"><div class="thumb-num">SLIDE 7</div><div class="thumb-title">AND Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(8); toggleSlideOverview();"><div class="thumb-num">SLIDE 8</div><div class="thumb-title">OR Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(9); toggleSlideOverview();"><div class="thumb-num">SLIDE 9</div><div class="thumb-title">NOT Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(10); toggleSlideOverview();"><div class="thumb-num">SLIDE 10</div><div class="thumb-title">NAND Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(11); toggleSlideOverview();"><div class="thumb-num">SLIDE 11</div><div class="thumb-title">NOR Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(12); toggleSlideOverview();"><div class="thumb-num">SLIDE 12</div><div class="thumb-title">EXOR Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(13); toggleSlideOverview();"><div class="thumb-num">SLIDE 13</div><div class="thumb-title">EXNOR Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(14); toggleSlideOverview();"><div class="thumb-num">SLIDE 14</div><div class="thumb-title">Generalization</div></div>
+        <div class="thumb-card" onclick="showSlide(15); toggleSlideOverview();"><div class="thumb-num">SLIDE 15</div><div class="thumb-title">1-Min Reflection</div></div>
+        <div class="thumb-card" onclick="showSlide(16); toggleSlideOverview();"><div class="thumb-num">SLIDE 16</div><div class="thumb-title">Pick Symbol Activity</div></div>
+        <div class="thumb-card" onclick="showSlide(17); toggleSlideOverview();"><div class="thumb-num">SLIDE 17</div><div class="thumb-title">15-Item Quiz</div></div>
+        <div class="thumb-card" onclick="showSlide(18); toggleSlideOverview();"><div class="thumb-num">SLIDE 18</div><div class="thumb-title">Assignment & Goodbye</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/gates.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
