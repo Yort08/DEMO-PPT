@@ -339,7 +339,7 @@ footer.bottom-bar {
   color: var(--text-muted);
 }
 
-/* Colossal Grid Cards - Max Space Fillers */
+/* Colossal Grid Cards - Max Space Fillers with Compact Icons & Giant Text */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; height: 100%; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; height: 100%; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; height: 100%; }
@@ -348,7 +348,7 @@ footer.bottom-bar {
   background: rgba(255, 255, 255, 0.04);
   border: 4px solid rgba(255, 255, 255, 0.2);
   border-radius: 32px;
-  padding: 56px 48px;
+  padding: 48px 44px;
   transition: all 0.2s ease;
   display: flex;
   flex-direction: column;
@@ -361,26 +361,27 @@ footer.bottom-bar {
   border-color: var(--accent-cyan);
 }
 
+/* Compact Icon to give 100% space for Giant Text */
 .feature-card .card-icon {
-  font-size: 8rem;
-  margin-bottom: 24px;
+  font-size: 4rem;
+  margin-bottom: 12px;
   color: var(--accent-cyan);
 }
 
 .feature-card h3 {
   font-family: var(--font-heading);
-  font-size: 4.5rem;
-  margin-bottom: 24px;
+  font-size: 4.8rem;
+  margin-bottom: 20px;
   color: #fff;
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.08;
 }
 
 .feature-card p {
-  font-size: 3.4rem;
+  font-size: 3.8rem;
   color: var(--text-muted);
-  line-height: 1.5;
-  font-weight: 500;
+  line-height: 1.4;
+  font-weight: 600;
 }
 
 /* Classroom Rules (T.R.O.Y.) */
