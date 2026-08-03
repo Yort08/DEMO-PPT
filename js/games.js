@@ -1,4 +1,4 @@
-/* Interactive Games Module: Motivation Switch Game & Pick Symbol Activity */
+/* Interactive Games Module: Mystery Boxes & Pick Symbol Activity */
 
 // Motivation Mystery Boxes State
 const MysteryState = {
@@ -12,7 +12,7 @@ function toggleMysterySwitch(boxNum, switchKey) {
   box[switchKey] = box[switchKey] === 1 ? 0 : 1;
 
   // Sound effect
-  if (window.playAudioTone) window.playAudioTone(500, 0.05);
+  if (window.playAudioTone) window.playAudioTone(550, 0.08);
 
   // Check unlock condition:
   // Box 1 (AND logic): both A and B must be 1 (UP)
@@ -29,13 +29,13 @@ function toggleMysterySwitch(boxNum, switchKey) {
   }
 
   updateMysteryUI(boxNum);
-  checkAllMysteryUnlocked();
+  updateGlobalWordTrackers();
 }
 
 function updateMysteryUI(boxNum) {
   const box = MysteryState[`box${boxNum}`];
 
-  // Update Switches UI
+  // Update Switch buttons UI for boxNum
   const btnA = document.getElementById(`mb${boxNum}-sw-a`);
   if (btnA) {
     btnA.classList.toggle('on', box.a === 1);
@@ -50,52 +50,53 @@ function updateMysteryUI(boxNum) {
     if (thumbB) thumbB.textContent = box.b === 1 ? 'UP' : 'DN';
   }
 
-  // Update Status Light Badge
+  // Update Status Light & Letter Slot
   const statusBadge = document.getElementById(`mb${boxNum}-status`);
   const slot = document.getElementById(`mb${boxNum}-slot`);
-  const wordBox = document.getElementById(`word-slot-${boxNum}`);
+  const bulb = document.getElementById(`mb${boxNum}-bulb`);
 
   if (box.unlocked) {
     if (statusBadge) {
-      statusBadge.textContent = "GREEN LIGHT! Access Granted";
-      statusBadge.style.color = "#00ff88";
+      statusBadge.textContent = "GREEN LIGHT! ACCESS GRANTED";
+      statusBadge.style.color = "#34d399";
     }
     if (slot) {
       slot.classList.add('unlocked');
       slot.textContent = box.letter;
     }
-    if (wordBox) {
-      wordBox.classList.add('unlocked');
-      wordBox.textContent = box.letter;
+    if (bulb) {
+      bulb.classList.add('on');
     }
   } else {
     if (statusBadge) {
-      statusBadge.textContent = "RED LIGHT! Access Denied";
-      statusBadge.style.color = "#ff3366";
+      statusBadge.textContent = "RED LIGHT! ACCESS DENIED";
+      statusBadge.style.color = "#f87171";
     }
     if (slot) {
       slot.classList.remove('unlocked');
       slot.textContent = '?';
     }
-    if (wordBox) {
-      wordBox.classList.remove('unlocked');
-      wordBox.textContent = '_';
+    if (bulb) {
+      bulb.classList.remove('on');
     }
   }
 }
 
-function checkAllMysteryUnlocked() {
-  if (MysteryState.box1.unlocked && MysteryState.box2.unlocked && MysteryState.box3.unlocked) {
-    // Reveal full word LOGIC
-    const slotI = document.getElementById('word-slot-4');
-    const slotC = document.getElementById('word-slot-5');
-    if (slotI) { slotI.classList.add('unlocked'); slotI.textContent = 'I'; }
-    if (slotC) { slotC.classList.add('unlocked'); slotC.textContent = 'C'; }
+function updateGlobalWordTrackers() {
+  const letter1 = MysteryState.box1.unlocked ? 'L' : '_';
+  const letter2 = MysteryState.box2.unlocked ? 'O' : '_';
+  const letter3 = MysteryState.box3.unlocked ? 'G' : '_';
 
-    const banner = document.getElementById('motivation-complete-banner');
-    if (banner) {
-      banner.style.display = 'block';
-    }
+  document.querySelectorAll('.word-slot-1-val').forEach(el => { el.textContent = letter1; if (letter1 !== '_') el.classList.add('unlocked'); });
+  document.querySelectorAll('.word-slot-2-val').forEach(el => { el.textContent = letter2; if (letter2 !== '_') el.classList.add('unlocked'); });
+  document.querySelectorAll('.word-slot-3-val').forEach(el => { el.textContent = letter3; if (letter3 !== '_') el.classList.add('unlocked'); });
+
+  if (MysteryState.box1.unlocked && MysteryState.box2.unlocked && MysteryState.box3.unlocked) {
+    document.querySelectorAll('.word-slot-4-val').forEach(el => { el.textContent = 'I'; el.classList.add('unlocked'); });
+    document.querySelectorAll('.word-slot-5-val').forEach(el => { el.textContent = 'C'; el.classList.add('unlocked'); });
+
+    const completeBanner = document.getElementById('final-word-complete');
+    if (completeBanner) completeBanner.style.display = 'block';
   }
 }
 
@@ -145,7 +146,7 @@ function loadSymbolRound() {
     if (timerElem) timerElem.textContent = SymbolGame.timer;
     if (SymbolGame.timer <= 0) {
       clearInterval(SymbolGame.timerInterval);
-      selectSymbolChoice(0); // Times up!
+      selectSymbolChoice(0);
     }
   }, 1000);
 }
@@ -159,18 +160,17 @@ function selectSymbolChoice(choiceNum) {
     SymbolGame.score++;
     if (feedbackElem) {
       feedbackElem.textContent = '✔ Correct! Great job!';
-      feedbackElem.style.color = '#00ff88';
+      feedbackElem.style.color = '#34d399';
     }
     if (window.playAudioTone) window.playAudioTone(800, 0.1);
   } else {
     if (feedbackElem) {
       feedbackElem.textContent = '✖ Incorrect or Time Expired!';
-      feedbackElem.style.color = '#ff3366';
+      feedbackElem.style.color = '#f87171';
     }
     if (window.playAudioTone) window.playAudioTone(250, 0.15);
   }
 
-  // Next round after short delay
   setTimeout(() => {
     SymbolGame.currentRound++;
     loadSymbolRound();
@@ -181,18 +181,18 @@ function showSymbolGameResults() {
   const container = document.getElementById('symbol-game-box');
   if (container) {
     container.innerHTML = `
-      <div style="text-align:center; padding:30px;">
-        <h2 style="font-family:var(--font-heading); color:var(--accent-green); font-size:2rem; margin-bottom:12px;">Activity Complete! 🎉</h2>
-        <p style="font-size:1.2rem; color:var(--text-muted);">You scored <strong style="color:var(--accent-cyan);">${SymbolGame.score} / 5</strong> in the Symbol Identification Challenge!</p>
-        <button class="nav-btn" onclick="startSymbolGame()" style="margin-top:20px;">Play Again</button>
+      <div style="text-align:center; padding:40px;">
+        <h2 style="font-family:var(--font-heading); color:var(--accent-green); font-size:3rem; margin-bottom:16px;">Activity Complete! 🎉</h2>
+        <p style="font-size:1.8rem; color:var(--text-muted);">You scored <strong style="color:var(--accent-cyan);">${SymbolGame.score} / 5</strong> in the Symbol Identification Challenge!</p>
+        <button class="nav-btn" onclick="startSymbolGame()" style="margin-top:28px; font-size:1.3rem; padding:14px 36px;">Play Again</button>
       </div>
     `;
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Mystery Boxes
   updateMysteryUI(1);
   updateMysteryUI(2);
   updateMysteryUI(3);
+  updateGlobalWordTrackers();
 });

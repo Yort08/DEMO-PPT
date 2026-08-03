@@ -2,11 +2,11 @@
 
 // Slide State
 let currentSlide = 1;
-const totalSlides = 18;
+const totalSlides = 21;
 let timerSeconds = 0;
 let timerInterval = null;
 
-// Sound Effects Engine using Web Audio API (Soft, non-intrusive tones)
+// Sound Effects Engine using Web Audio API
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 function playAudioTone(freq = 440, duration = 0.08) {
   try {
@@ -23,9 +23,7 @@ function playAudioTone(freq = 440, duration = 0.08) {
     gain.connect(audioCtx.destination);
     osc.start();
     osc.stop(audioCtx.currentTime + duration);
-  } catch (e) {
-    // Audio fail safe
-  }
+  } catch (e) {}
 }
 window.playAudioTone = playAudioTone;
 
@@ -57,7 +55,6 @@ function showSlide(index) {
   // Update Teacher Notes Content for active slide
   updateTeacherNotes(currentSlide);
 
-  // Soft audio cue
   playAudioTone(480, 0.06);
 }
 
@@ -132,58 +129,70 @@ const TeacherNotesDB = {
     student: "“It means using computers and the internet in a good, honest, and respectful way, sir!”"
   },
   5: {
-    speech: "“To unlock our mystery word today, let's play 'Light Up the Stage'! Volunteer students will toggle switches A and B to find which combination grants Green Light access!”",
-    student: "Volunteers select switch positions. Test 1: Red Light! Test 2: Green Light! Secret word revealed: LOGIC!"
+    speech: "“To unlock the first letter on the screen, we need to find the correct switch position that turns the green light ON in Mystery Box 1. I need a volunteer!”",
+    student: "Volunteer tests switches. Test 1 (UP/DOWN): Red Light! Test 2 (UP/UP): Green Light! Access Granted! Unlocks Letter 1: L."
   },
   6: {
+    speech: "“Let's move to Mystery Box 2 to reveal our second letter! Notice Mystery Box 2 requires a different switch condition. Who wants to try?”",
+    student: "Volunteer tests switches. Test 1 (UP/DOWN): Green Light! Access Granted! Unlocks Letter 2: O."
+  },
+  7: {
+    speech: "“Finally, let's look at Mystery Box 3 to reveal our third letter. Notice this box only has a single switch (Switch A)! Who will volunteer?”",
+    student: "Volunteer tests switch. Test 1 (UP): Red Light! Test 2 (DOWN): Green Light! Access Granted! Unlocks Letter 3: G."
+  },
+  8: {
+    speech: "“Well done class! Can anyone complete the word L O G _ _ ?”",
+    student: "“LOGIC, sir!” — Teacher introduces the main topic: Digital Logic Gates!"
+  },
+  9: {
     speech: "“Does anyone know what logic gates are? They are the basic building blocks of digital circuits, using transistors to make fast binary decisions with 1s and 0s. What device uses transistors?”",
     student: "“A cellphone, sir!”"
   },
-  7: {
+  10: {
     speech: "“First is the AND Gate. The output is 1 (true) ONLY if all inputs are 1. If even one input is 0, the output is 0. Notice its flat-left, curved-right 'D' shape!”",
     student: "Students test switches A and B on the live simulator."
   },
-  8: {
+  11: {
     speech: "“Next is the OR Gate. The OR Gate gives an output of 1 if at least one of its inputs is 1. The output will only be 0 when all inputs are 0.”",
     student: "Students observe the output bulb turning ON when either switch is active."
   },
-  9: {
+  12: {
     speech: "“Now let's talk about the NOT Gate, also known as the Inverter. It has only one input and one output, and simply reverses the signal!”",
     student: "“If input is 1, output is 0. If input is 0, output is 1!”"
   },
-  10: {
+  13: {
     speech: "“The NAND Gate means NOT-AND. It gives an output of 0 only when all inputs are 1. In every other case, the output is 1. How does it differ from AND gate, class?”",
     student: "“Sir, AND gives 1 only when both inputs are 1, but NAND gives 0 when both are 1!”"
   },
-  11: {
+  14: {
     speech: "“The NOR Gate means NOT-OR. It gives an output of 1 only when all inputs are 0. If even one input becomes 1, the output turns to 0.”",
     student: "“OR gives 1 if any input is 1, while NOR gives 1 only when both are 0!”"
   },
-  12: {
+  15: {
     speech: "“Moving on to the EXOR (Exclusive OR) Gate! Its output is 1 only when the inputs are different from each other. If inputs are identical, output is 0.”",
     student: "Students check their notes and test 0-1 and 1-0 inputs."
   },
-  13: {
+  16: {
     speech: "“Our 7th gate is EXNOR (Exclusive NOR). It is the opposite of EXOR: output is 1 when inputs are identical (both 0 or both 1), and 0 when different!”",
     student: "“No questions, sir!”"
   },
-  14: {
+  17: {
     speech: "“Recap time! Can anyone tell us which is the easiest logic gate structure we discussed, and which is the hardest?”",
     student: "“Easiest is NOT gate (1 input), hardest is EXNOR gate (combination of EXOR + NOT)!”"
   },
-  15: {
+  18: {
     speech: "“Reflection Question: In one minute, how do basic logic gates impact the electronic devices you use every day?”",
     student: "“Every action on our phones relies on millions of tiny transistors making fast binary decisions using logic gate rules!”"
   },
-  16: {
+  19: {
     speech: "“Activity Time: 'Pick the Gate Symbol!' I will flash two symbols, choose Symbol 1 or Symbol 2 within 10 seconds!”",
     student: "Students participate in the 5-round symbol challenge."
   },
-  17: {
+  20: {
     speech: "“Please prepare for our 15-item evaluation quiz and Truth Table completion on screen!”",
     student: "Students complete the interactive quiz and submit answers."
   },
-  18: {
+  21: {
     speech: "“For our next hands-on activity, please bring a printed picture of your chosen gate symbol, 1/8 illustration board, and a marker. Goodbye class!”",
     student: "“Goodbye and thank you, sir!”"
   }
@@ -203,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
   startLessonTimer();
   showSlide(1);
 
-  // Keyboard navigation shortcuts
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === 'Space' || e.key === 'PageDown') {
       nextSlide();
