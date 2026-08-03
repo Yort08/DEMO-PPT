@@ -9,7 +9,7 @@
   --accent-amber: #fbbf24;      /* Soft Amber 400 */
   --accent-red: #f87171;        /* Soft Rose 400 */
   --text-main: #f8fafc;         /* High-contrast text */
-  --text-muted: #cbd5e1;        /* Soft Slate 300 */
+  --text-muted: #e2e8f0;        /* Bright Slate 200 */
   --font-heading: 'Outfit', -apple-system, sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
   --font-code: 'Fira Code', monospace;
@@ -335,7 +335,7 @@ footer.bottom-bar {
   color: var(--text-muted);
 }
 
-/* Colossal Grid Cards - Max Space Fillers with Compact Icons & Giant Text */
+/* Colossal Grid Cards - Max Space Fillers with Compact Icons & Truly Massive Fonts */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; height: 100%; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; height: 100%; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; height: 100%; }
@@ -344,11 +344,11 @@ footer.bottom-bar {
   background: rgba(255, 255, 255, 0.04);
   border: 4px solid rgba(255, 255, 255, 0.2);
   border-radius: 32px;
-  padding: 48px 44px;
+  padding: 44px 38px;
   transition: all 0.2s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
 }
 
@@ -357,30 +357,34 @@ footer.bottom-bar {
   border-color: var(--accent-cyan);
 }
 
-/* Compact Icon to give 100% space for Giant Text */
+/* Compact Icon Badge */
 .feature-card .card-icon {
-  font-size: 4rem;
-  margin-bottom: 12px;
+  font-size: 3rem;
+  margin-bottom: 8px;
   color: var(--accent-cyan);
+  line-height: 1;
 }
 
 .feature-card h3 {
   font-family: var(--font-heading);
-  font-size: 4.8rem;
-  margin-bottom: 20px;
+  font-size: 5.2rem;
+  margin-bottom: 16px;
   color: #fff;
   font-weight: 900;
-  line-height: 1.08;
+  line-height: 1.05;
 }
 
 .feature-card p {
-  font-size: 3.8rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  font-weight: 600;
+  font-size: 4.2rem;
+  color: #ffffff;
+  line-height: 1.35;
+  font-weight: 700;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
-/* Classroom Rules (T.R.O.Y.) - 100% Full-Card Space Filling & Giant Fonts */
+/* Classroom Rules (T.R.O.Y.) - Truly Giant 5.2rem Titles & 4.2rem Meaning Fonts */
 .troy-card {
   border-left: 12px solid var(--accent-cyan);
   padding: 44px 36px;
@@ -431,7 +435,7 @@ footer.bottom-bar {
   flex: 1;
 }
 
-/* Revealed State: Fills 100% of Card Height & Width with Giant Colossal Fonts */
+/* Revealed State: Truly Giant Fonts Filling 100% of Vertical & Horizontal Space */
 .troy-card.revealed {
   justify-content: space-around;
   align-items: flex-start;
@@ -441,7 +445,7 @@ footer.bottom-bar {
 }
 
 .troy-card.revealed .troy-letter {
-  font-size: 4.8rem;
+  font-size: 5rem;
   margin-bottom: 8px;
   line-height: 1;
 }
@@ -453,18 +457,18 @@ footer.bottom-bar {
 }
 
 .troy-card h3 {
-  font-size: 4.5rem;
-  line-height: 1.08;
+  font-size: 5.2rem;
+  line-height: 1.05;
   margin-bottom: 16px;
   color: #ffffff;
   font-weight: 900;
 }
 
 .troy-card p {
-  font-size: 3.8rem;
+  font-size: 4.2rem;
   font-weight: 700;
   line-height: 1.35;
-  color: var(--text-muted);
+  color: #ffffff;
   flex: 1;
   display: flex;
   align-items: center;
