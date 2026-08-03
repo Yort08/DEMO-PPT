@@ -288,50 +288,50 @@ footer.bottom-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 100%;
   text-align: center;
-  gap: 36px;
+  gap: 0;
+  padding: 20px 0;
 }
 
 .title-badge {
   background: rgba(56, 189, 248, 0.15);
-  border: 2px solid var(--accent-cyan);
+  border: 3px solid var(--accent-cyan);
   color: var(--accent-cyan);
-  padding: 14px 44px;
-  border-radius: 40px;
+  padding: 20px 60px;
+  border-radius: 50px;
   font-family: var(--font-code);
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 700;
 }
 
 .main-title {
   font-family: var(--font-heading);
-  font-size: 7.5rem;
+  font-size: 11rem;
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 1.0;
   color: #fff;
 }
 
 .presenter-card {
-  margin-top: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  padding: 32px 72px;
-  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  padding: 40px 100px;
+  border-radius: 28px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .presenter-name {
-  font-size: 2.8rem;
+  font-size: 4rem;
   font-weight: 800;
   color: var(--accent-green);
 }
 
 .presenter-meta {
-  font-size: 2rem;
+  font-size: 2.8rem;
   color: var(--text-muted);
 }
 
