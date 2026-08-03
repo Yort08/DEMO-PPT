@@ -174,13 +174,9 @@ header.top-bar {
   padding-bottom: 12px;
 }
 
+/* Remove/Hide Category Tags (e.g. CLASSROOM MANAGEMENT) */
 .slide-tag {
-  font-family: var(--font-code);
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--accent-cyan);
-  margin-bottom: 4px;
+  display: none !important;
 }
 
 .slide-title {
