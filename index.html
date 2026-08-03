@@ -860,53 +860,65 @@
           </div>
           <div class="slide-subtitle">Identify the correct logic gate symbol within 10 seconds!</div>
         </div>
-        <div class="slide-body" id="symbol-game-box" style="flex-direction: column; gap: 24px; height: 100%; overflow: hidden;">
+        <div class="slide-body" id="symbol-game-box" style="flex-direction: column; gap: 16px; height: 100%; overflow: hidden;">
 
-          <!-- Round Title + Timer -->
+          <!-- Round Title -->
           <div style="text-align: center; flex-shrink: 0;">
-            <h3 id="symbol-round-title" style="font-family: var(--font-heading); color: #fff; font-size: 3.8rem; font-weight: 900;">Round 1: Identify the correct AND Gate</h3>
-            <div class="timer-ring" style="font-size: 3.2rem; margin-top: 10px;">
-              ⏱ <span id="symbol-timer-num" style="font-size: 4rem; font-weight: 900; color: var(--accent-cyan);">10</span>s
-            </div>
+            <h3 id="symbol-round-title" style="font-family: var(--font-heading); color: #fff; font-size: 4rem; font-weight: 900;">Round 1: Identify the correct AND Gate</h3>
           </div>
 
-          <!-- Symbol Cards: fill remaining space -->
-          <div class="symbol-choices" style="flex: 1; display: flex; gap: 48px; min-height: 0;">
+          <!-- Symbol Cards: large, display only -->
+          <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; min-height: 0;">
 
-            <div class="symbol-card" id="sym-card-1" onclick="selectSymbolChoice(1)" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; cursor: pointer; border-radius: 32px; border: 4px solid var(--accent-cyan); background: rgba(56,189,248,0.07);">
-              <div style="font-weight: 900; color: var(--accent-cyan); font-size: 3rem;">Symbol 1</div>
-              <svg id="sym-svg-1" width="100%" height="60%" viewBox="0 0 200 120" style="max-width: 420px;">
-                <!-- AND Gate default -->
+            <div id="sym-card-1" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border-radius: 32px; border: 5px solid var(--accent-cyan); background: rgba(56,189,248,0.07);">
+              <div style="font-weight: 900; color: var(--accent-cyan); font-size: 3.5rem; letter-spacing: 2px;">SYMBOL 1</div>
+              <svg id="sym-svg-1" width="90%" height="65%" viewBox="0 0 200 120" style="overflow: visible;">
                 <path d="M 40,20 L 100,20 A 40,40 0 0,1 100,100 L 40,100 Z" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="5"/>
                 <line x1="10" y1="40" x2="40" y2="40" stroke="#38bdf8" stroke-width="4"/>
                 <line x1="10" y1="80" x2="40" y2="80" stroke="#38bdf8" stroke-width="4"/>
-                <line x1="140" y1="60" x2="180" y2="60" stroke="#38bdf8" stroke-width="4"/>
+                <line x1="140" y1="60" x2="190" y2="60" stroke="#38bdf8" stroke-width="4"/>
               </svg>
             </div>
 
-            <div class="symbol-card" id="sym-card-2" onclick="selectSymbolChoice(2)" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; cursor: pointer; border-radius: 32px; border: 4px solid var(--accent-purple); background: rgba(167,139,250,0.07);">
-              <div style="font-weight: 900; color: var(--accent-purple); font-size: 3rem;">Symbol 2</div>
-              <svg id="sym-svg-2" width="100%" height="60%" viewBox="0 0 200 120" style="max-width: 420px;">
-                <!-- OR Gate default -->
+            <div id="sym-card-2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border-radius: 32px; border: 5px solid var(--accent-purple); background: rgba(167,139,250,0.07);">
+              <div style="font-weight: 900; color: var(--accent-purple); font-size: 3.5rem; letter-spacing: 2px;">SYMBOL 2</div>
+              <svg id="sym-svg-2" width="90%" height="65%" viewBox="0 0 200 120" style="overflow: visible;">
                 <path d="M 40,20 Q 65,60 40,100 Q 100,100 150,60 Q 100,20 40,20 Z" fill="rgba(167,139,250,0.2)" stroke="#a78bfa" stroke-width="5"/>
-                <line x1="10" y1="40" x2="55" y2="40" stroke="#a78bfa" stroke-width="4"/>
-                <line x1="10" y1="80" x2="55" y2="80" stroke="#a78bfa" stroke-width="4"/>
+                <line x1="10" y1="38" x2="55" y2="38" stroke="#a78bfa" stroke-width="4"/>
+                <line x1="10" y1="82" x2="55" y2="82" stroke="#a78bfa" stroke-width="4"/>
                 <line x1="150" y1="60" x2="190" y2="60" stroke="#a78bfa" stroke-width="4"/>
               </svg>
             </div>
-
           </div>
 
-          <!-- Feedback + Reset -->
-          <div style="text-align: center; flex-shrink: 0; padding-bottom: 8px;">
-            <div id="symbol-feedback" style="font-size: 2.8rem; font-weight: 800; color: var(--accent-cyan); min-height: 50px;">
-              Select Symbol 1 or Symbol 2 within 10 seconds!
+          <!-- Bottom bar: Timer + Buttons -->
+          <div style="text-align: center; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; padding-bottom: 8px;">
+
+            <div id="symbol-timer-display" style="display: none; font-size: 5rem; font-weight: 900; color: var(--accent-cyan);">
+              ⏱ <span id="symbol-timer-num">10</span>s
             </div>
-            <button class="nav-btn" onclick="startSymbolGame()" style="font-size: 2rem; padding: 20px 60px; margin-top: 8px;">Reset Activity</button>
+
+            <div id="symbol-feedback" style="font-size: 2.8rem; font-weight: 800; color: var(--accent-cyan); min-height: 48px; display: none;"></div>
+
+            <div style="display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;">
+              <button id="sym-start-btn" class="nav-btn" onclick="startSymbolTimer()" style="font-size: 2.4rem; padding: 24px 72px; background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color: #0f172a; border: none;">
+                ▶ Start Timer
+              </button>
+              <button id="sym-answer-btn" class="nav-btn" onclick="revealSymbolAnswer()" style="font-size: 2.4rem; padding: 24px 72px; display: none;">
+                ✅ Reveal Answer
+              </button>
+              <button id="sym-next-btn" class="nav-btn" onclick="nextSymbolRound()" style="font-size: 2.4rem; padding: 24px 72px; display: none; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none;">
+                ▶ Next Round
+              </button>
+              <button class="nav-btn" onclick="startSymbolGame()" style="font-size: 2rem; padding: 20px 48px; opacity: 0.7;">
+                ↺ Reset
+              </button>
+            </div>
           </div>
 
         </div>
       </section>
+
 
 
       <!-- SLIDE 19: DEDICATED PART I QUIZ SLIDE (Multiple Choice) -->

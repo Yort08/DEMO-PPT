@@ -198,16 +198,11 @@ function startSymbolGame() {
 function loadSymbolRound() {
   clearInterval(SymbolGame.timerInterval);
   const roundData = SymbolGame.rounds[SymbolGame.currentRound];
-  if (!roundData) {
-    showSymbolGameResults();
-    return;
-  }
+  if (!roundData) { showSymbolGameResults(); return; }
 
+  // Update title
   const titleElem = document.getElementById('symbol-round-title');
   if (titleElem) titleElem.textContent = `Round ${SymbolGame.currentRound + 1}: Identify the correct ${roundData.target}`;
-
-  const feedbackElem = document.getElementById('symbol-feedback');
-  if (feedbackElem) { feedbackElem.textContent = 'Select Symbol 1 or Symbol 2 within 10 seconds!'; feedbackElem.style.color = 'var(--accent-cyan)'; }
 
   // Inject correct SVG shapes
   const svg1 = document.getElementById('sym-svg-1');
@@ -218,47 +213,77 @@ function loadSymbolRound() {
   // Reset card borders
   const card1 = document.getElementById('sym-card-1');
   const card2 = document.getElementById('sym-card-2');
-  if (card1) { card1.style.borderColor = 'var(--accent-cyan)'; card1.style.opacity = '1'; }
-  if (card2) { card2.style.borderColor = 'var(--accent-purple)'; card2.style.opacity = '1'; }
+  if (card1) { card1.style.borderColor = 'var(--accent-cyan)'; card1.style.background = 'rgba(56,189,248,0.07)'; }
+  if (card2) { card2.style.borderColor = 'var(--accent-purple)'; card2.style.background = 'rgba(167,139,250,0.07)'; }
+
+  // Show Start button, hide others
+  const startBtn = document.getElementById('sym-start-btn');
+  const answerBtn = document.getElementById('sym-answer-btn');
+  const nextBtn = document.getElementById('sym-next-btn');
+  const timerDisplay = document.getElementById('symbol-timer-display');
+  const feedback = document.getElementById('symbol-feedback');
+  if (startBtn) startBtn.style.display = 'inline-block';
+  if (answerBtn) answerBtn.style.display = 'none';
+  if (nextBtn) nextBtn.style.display = 'none';
+  if (timerDisplay) timerDisplay.style.display = 'none';
+  if (feedback) { feedback.style.display = 'none'; feedback.textContent = ''; }
+
+  const timerNum = document.getElementById('symbol-timer-num');
+  if (timerNum) timerNum.textContent = '10';
+}
+
+function startSymbolTimer() {
+  const startBtn = document.getElementById('sym-start-btn');
+  const timerDisplay = document.getElementById('symbol-timer-display');
+  const timerNum = document.getElementById('symbol-timer-num');
+  if (startBtn) startBtn.style.display = 'none';
+  if (timerDisplay) timerDisplay.style.display = 'block';
 
   SymbolGame.timer = 10;
-  const timerElem = document.getElementById('symbol-timer-num');
-  if (timerElem) timerElem.textContent = SymbolGame.timer;
+  if (timerNum) timerNum.textContent = SymbolGame.timer;
 
+  clearInterval(SymbolGame.timerInterval);
   SymbolGame.timerInterval = setInterval(() => {
     SymbolGame.timer--;
-    if (timerElem) timerElem.textContent = SymbolGame.timer;
+    if (timerNum) timerNum.textContent = SymbolGame.timer;
     if (SymbolGame.timer <= 0) {
       clearInterval(SymbolGame.timerInterval);
-      selectSymbolChoice(0);
+      // Show Reveal Answer button
+      const answerBtn = document.getElementById('sym-answer-btn');
+      if (answerBtn) answerBtn.style.display = 'inline-block';
+      if (timerDisplay) timerDisplay.style.display = 'none';
     }
   }, 1000);
 }
 
-function selectSymbolChoice(choiceNum) {
-  clearInterval(SymbolGame.timerInterval);
+function revealSymbolAnswer() {
   const roundData = SymbolGame.rounds[SymbolGame.currentRound];
-  const feedbackElem = document.getElementById('symbol-feedback');
+  const answerBtn = document.getElementById('sym-answer-btn');
+  const nextBtn = document.getElementById('sym-next-btn');
+  const feedback = document.getElementById('symbol-feedback');
+  const card1 = document.getElementById('sym-card-1');
+  const card2 = document.getElementById('sym-card-2');
 
-  if (choiceNum === roundData.correct) {
-    SymbolGame.score++;
-    if (feedbackElem) {
-      feedbackElem.textContent = '✔ Correct! Great job!';
-      feedbackElem.style.color = '#34d399';
-    }
-    if (window.playAudioTone) window.playAudioTone(800, 0.1);
+  if (answerBtn) answerBtn.style.display = 'none';
+
+  // Highlight correct card green, wrong card dim
+  if (roundData.correct === 1) {
+    if (card1) { card1.style.borderColor = '#34d399'; card1.style.background = 'rgba(52,211,153,0.18)'; }
+    if (card2) { card2.style.opacity = '0.35'; }
+    if (feedback) { feedback.textContent = `✅ SYMBOL 1 is the ${roundData.target}!`; feedback.style.color = '#34d399'; feedback.style.display = 'block'; }
   } else {
-    if (feedbackElem) {
-      feedbackElem.textContent = '✖ Incorrect or Time Expired!';
-      feedbackElem.style.color = '#f87171';
-    }
-    if (window.playAudioTone) window.playAudioTone(250, 0.15);
+    if (card2) { card2.style.borderColor = '#34d399'; card2.style.background = 'rgba(52,211,153,0.18)'; }
+    if (card1) { card1.style.opacity = '0.35'; }
+    if (feedback) { feedback.textContent = `✅ SYMBOL 2 is the ${roundData.target}!`; feedback.style.color = '#34d399'; feedback.style.display = 'block'; }
   }
 
-  setTimeout(() => {
-    SymbolGame.currentRound++;
-    loadSymbolRound();
-  }, 1500);
+  if (nextBtn) nextBtn.style.display = 'inline-block';
+  if (window.playAudioTone) window.playAudioTone(800, 0.15);
+}
+
+function nextSymbolRound() {
+  SymbolGame.currentRound++;
+  loadSymbolRound();
 }
 
 
