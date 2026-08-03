@@ -402,10 +402,10 @@ footer.bottom-bar {
 .letter-o .troy-letter { color: var(--accent-purple); }
 .letter-y .troy-letter { color: var(--accent-amber); }
 
-/* Gate Simulator Layout - Massive Screen-Occupying Cards */
+/* Gate Simulator Layout - Massive Screen-Occupying Cards & Giant SVG Schematics */
 .simulator-layout {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   gap: 36px;
   height: 100%;
   align-items: stretch;
@@ -413,28 +413,29 @@ footer.bottom-bar {
 
 .circuit-box {
   background: #0b1120;
-  border: 3px solid rgba(56, 189, 248, 0.3);
-  border-radius: 28px;
-  padding: 36px;
+  border: 4px solid rgba(56, 189, 248, 0.4);
+  border-radius: 32px;
+  padding: 32px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
 }
 
 .circuit-svg {
   width: 100%;
-  max-width: 950px;
-  height: auto;
+  max-width: 1100px;
+  height: 380px;
   flex: 1;
 }
 
-/* Switch Controls - Massive Switches */
+/* Switch Controls - Colossal Giant Switches */
 .switch-control-group {
   display: flex;
-  gap: 72px;
+  gap: 80px;
   align-items: center;
+  margin-top: 12px;
 }
 
 .switch-wrapper {
@@ -445,31 +446,31 @@ footer.bottom-bar {
 }
 
 .switch-btn {
-  width: 130px;
-  height: 210px;
+  width: 150px;
+  height: 240px;
   background: rgba(255, 255, 255, 0.08);
-  border: 4px solid rgba(255, 255, 255, 0.35);
-  border-radius: 64px;
+  border: 5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 72px;
   position: relative;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   transition: all 0.2s ease;
 }
 
 .switch-thumb {
-  width: 106px;
-  height: 106px;
+  width: 122px;
+  height: 122px;
   background: #64748b;
   border-radius: 50%;
   position: absolute;
-  bottom: 8px;
-  left: 8px;
+  bottom: 9px;
+  left: 9px;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-code);
-  font-size: 2.6rem;
+  font-size: 3.2rem;
   font-weight: 900;
   color: #fff;
 }
@@ -480,15 +481,15 @@ footer.bottom-bar {
 }
 
 .switch-btn.on .switch-thumb {
-  bottom: 92px;
+  bottom: 105px;
   background: var(--accent-cyan);
   color: #0f172a;
 }
 
 .switch-label {
   font-family: var(--font-code);
-  font-weight: 800;
-  font-size: 2.4rem;
+  font-weight: 900;
+  font-size: 2.8rem;
   color: var(--text-main);
 }
 
@@ -501,15 +502,15 @@ footer.bottom-bar {
 }
 
 .bulb-icon {
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
-  border: 4px solid rgba(255, 255, 255, 0.35);
+  border: 5px solid rgba(255, 255, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5rem;
+  font-size: 6rem;
   transition: all 0.2s ease;
 }
 
@@ -517,7 +518,7 @@ footer.bottom-bar {
   background: var(--accent-green);
   border-color: var(--accent-green);
   color: #0f172a;
-  box-shadow: 0 0 40px rgba(52, 211, 153, 0.6);
+  box-shadow: 0 0 50px rgba(52, 211, 153, 0.7);
 }
 
 /* Truth Table Card - Massive Fonts Occupying Entire Card Space */
