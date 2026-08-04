@@ -372,40 +372,45 @@
             <h2 class="slide-title">The 7 Logic Gates We Will Tackle</h2>
           </div>
         </div>
-        <div class="slide-body" style="align-items: center; justify-content: center;">
-          <div style="display: flex; flex-direction: column; gap: 40px; width: 100%; height: 100%; justify-content: center; align-items: center;">
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; width: 100%;">
-              <div class="feature-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 4rem;">⚡</div>
-                <div style="font-size: 4.5rem; font-weight: 900; color: var(--accent-cyan); margin-top: 16px;">1. AND</div>
+        <div class="slide-body" style="height: 100%; padding: 0; overflow: hidden;">
+          <div style="display: flex; flex-direction: column; gap: clamp(16px, 2.5vh, 28px); width: 100%; height: 100%; padding: 12px 0;">
+
+            <!-- Top Row: 4 Gates -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2vw, 28px); width: 100%; flex: 1; min-height: 0;">
+              <div class="feature-card" style="text-align: center; padding: clamp(20px, 3vh, 40px) 16px; border-color: var(--accent-cyan); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="font-size: clamp(4.5rem, 6.5vh, 7.5rem);">⚡</div>
+                <div style="font-size: clamp(4.2rem, 5.2vw, 6.5rem); font-weight: 900; color: var(--accent-cyan); margin-top: 10px;">1. AND</div>
               </div>
-              <div class="feature-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 4rem;">🔀</div>
-                <div style="font-size: 4.5rem; font-weight: 900; color: var(--accent-green); margin-top: 16px;">2. OR</div>
+              <div class="feature-card" style="text-align: center; padding: clamp(20px, 3vh, 40px) 16px; border-color: var(--accent-green); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="font-size: clamp(4.5rem, 6.5vh, 7.5rem);">🔀</div>
+                <div style="font-size: clamp(4.2rem, 5.2vw, 6.5rem); font-weight: 900; color: var(--accent-green); margin-top: 10px;">2. OR</div>
               </div>
-              <div class="feature-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 4rem;">🔄</div>
-                <div style="font-size: 4.5rem; font-weight: 900; color: var(--accent-red); margin-top: 16px;">3. NOT</div>
+              <div class="feature-card" style="text-align: center; padding: clamp(20px, 3vh, 40px) 16px; border-color: var(--accent-red); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="font-size: clamp(4.5rem, 6.5vh, 7.5rem);">🔄</div>
+                <div style="font-size: clamp(4.2rem, 5.2vw, 6.5rem); font-weight: 900; color: var(--accent-red); margin-top: 10px;">3. NOT</div>
               </div>
-              <div class="feature-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 4rem;">🚫</div>
-                <div style="font-size: 4.5rem; font-weight: 900; color: #f59e0b; margin-top: 16px;">4. NAND</div>
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; width: 75%;">
-              <div class="feature-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 4rem;">🔇</div>
-                <div style="font-size: 4.5rem; font-weight: 900; color: #a78bfa; margin-top: 16px;">5. NOR</div>
-              </div>
-              <div class="feature-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 4rem;">✖️</div>
-                <div style="font-size: 4.5rem; font-weight: 900; color: #fb7185; margin-top: 16px;">6. EXOR</div>
-              </div>
-              <div class="feature-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 4rem;">🔁</div>
-                <div style="font-size: 4.5rem; font-weight: 900; color: #34d399; margin-top: 16px;">7. EXNOR</div>
+              <div class="feature-card" style="text-align: center; padding: clamp(20px, 3vh, 40px) 16px; border-color: #f59e0b; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="font-size: clamp(4.5rem, 6.5vh, 7.5rem);">🚫</div>
+                <div style="font-size: clamp(4.2rem, 5.2vw, 6.5rem); font-weight: 900; color: #f59e0b; margin-top: 10px;">4. NAND</div>
               </div>
             </div>
+
+            <!-- Bottom Row: 3 Gates -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 28px); width: 100%; flex: 1; min-height: 0;">
+              <div class="feature-card" style="text-align: center; padding: clamp(20px, 3vh, 40px) 16px; border-color: #a78bfa; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="font-size: clamp(4.5rem, 6.5vh, 7.5rem);">🔇</div>
+                <div style="font-size: clamp(4.2rem, 5.2vw, 6.5rem); font-weight: 900; color: #a78bfa; margin-top: 10px;">5. NOR</div>
+              </div>
+              <div class="feature-card" style="text-align: center; padding: clamp(20px, 3vh, 40px) 16px; border-color: #fb7185; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="font-size: clamp(4.5rem, 6.5vh, 7.5rem);">✖️</div>
+                <div style="font-size: clamp(4.2rem, 5.2vw, 6.5rem); font-weight: 900; color: #fb7185; margin-top: 10px;">6. EXOR</div>
+              </div>
+              <div class="feature-card" style="text-align: center; padding: clamp(20px, 3vh, 40px) 16px; border-color: #34d399; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="font-size: clamp(4.5rem, 6.5vh, 7.5rem);">🔁</div>
+                <div style="font-size: clamp(4.2rem, 5.2vw, 6.5rem); font-weight: 900; color: #34d399; margin-top: 10px;">7. EXNOR</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
