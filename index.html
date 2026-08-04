@@ -905,17 +905,20 @@
 
             <div id="symbol-feedback" style="font-size: 2.8rem; font-weight: 800; color: var(--accent-cyan); min-height: 48px; display: none;"></div>
 
-            <div style="display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;">
-              <button id="sym-start-btn" class="nav-btn" onclick="startSymbolTimer()" style="font-size: 2.4rem; padding: 24px 72px; background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color: #0f172a; border: none;">
+            <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; align-items: center;">
+              <button id="sym-prev-btn" class="nav-btn" onclick="prevSymbolRound()" style="font-size: clamp(1.8rem, 2.4vh, 2.4rem); padding: 18px 48px; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3);">
+                ◀ Back
+              </button>
+              <button id="sym-start-btn" class="nav-btn" onclick="startSymbolTimer()" style="font-size: clamp(1.8rem, 2.4vh, 2.4rem); padding: 18px 56px; background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color: #0f172a; border: none;">
                 ▶ Start Timer
               </button>
-              <button id="sym-answer-btn" class="nav-btn" onclick="revealSymbolAnswer()" style="font-size: 2.4rem; padding: 24px 72px; display: none;">
+              <button id="sym-answer-btn" class="nav-btn" onclick="revealSymbolAnswer()" style="font-size: clamp(1.8rem, 2.4vh, 2.4rem); padding: 18px 56px; display: none;">
                 ✅ Reveal Answer
               </button>
-              <button id="sym-next-btn" class="nav-btn" onclick="nextSymbolRound()" style="font-size: 2.4rem; padding: 24px 72px; display: none; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none;">
-                ▶ Next Round
+              <button id="sym-next-btn" class="nav-btn" onclick="nextSymbolRound()" style="font-size: clamp(1.8rem, 2.4vh, 2.4rem); padding: 18px 56px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none;">
+                Next ▶
               </button>
-              <button class="nav-btn" onclick="startSymbolGame()" style="font-size: 2rem; padding: 20px 48px; opacity: 0.7;">
+              <button class="nav-btn" onclick="startSymbolGame()" style="font-size: clamp(1.6rem, 2vh, 2rem); padding: 16px 36px; opacity: 0.7;">
                 ↺ Reset
               </button>
             </div>

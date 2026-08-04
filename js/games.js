@@ -195,6 +195,13 @@ function startSymbolGame() {
   loadSymbolRound();
 }
 
+function prevSymbolRound() {
+  if (SymbolGame.currentRound > 0) {
+    SymbolGame.currentRound--;
+    loadSymbolRound();
+  }
+}
+
 function loadSymbolRound() {
   clearInterval(SymbolGame.timerInterval);
   const roundData = SymbolGame.rounds[SymbolGame.currentRound];
@@ -213,10 +220,18 @@ function loadSymbolRound() {
   // Reset card borders
   const card1 = document.getElementById('sym-card-1');
   const card2 = document.getElementById('sym-card-2');
-  if (card1) { card1.style.borderColor = 'var(--accent-cyan)'; card1.style.background = 'rgba(56,189,248,0.07)'; }
-  if (card2) { card2.style.borderColor = 'var(--accent-purple)'; card2.style.background = 'rgba(167,139,250,0.07)'; }
+  if (card1) { card1.style.borderColor = 'var(--accent-cyan)'; card1.style.background = 'rgba(56,189,248,0.07)'; card1.style.opacity = '1'; }
+  if (card2) { card2.style.borderColor = 'var(--accent-purple)'; card2.style.background = 'rgba(167,139,250,0.07)'; card2.style.opacity = '1'; }
 
-  // Show Start button, hide others
+  // Update prev button state
+  const prevBtn = document.getElementById('sym-prev-btn');
+  if (prevBtn) {
+    prevBtn.disabled = SymbolGame.currentRound === 0;
+    prevBtn.style.opacity = SymbolGame.currentRound === 0 ? '0.4' : '1';
+    prevBtn.style.cursor = SymbolGame.currentRound === 0 ? 'not-allowed' : 'pointer';
+  }
+
+  // Show Start & Next buttons, hide answer/timer initially
   const startBtn = document.getElementById('sym-start-btn');
   const answerBtn = document.getElementById('sym-answer-btn');
   const nextBtn = document.getElementById('sym-next-btn');
@@ -224,7 +239,7 @@ function loadSymbolRound() {
   const feedback = document.getElementById('symbol-feedback');
   if (startBtn) startBtn.style.display = 'inline-block';
   if (answerBtn) answerBtn.style.display = 'none';
-  if (nextBtn) nextBtn.style.display = 'none';
+  if (nextBtn) nextBtn.style.display = 'inline-block';
   if (timerDisplay) timerDisplay.style.display = 'none';
   if (feedback) { feedback.style.display = 'none'; feedback.textContent = ''; }
 
@@ -282,8 +297,12 @@ function revealSymbolAnswer() {
 }
 
 function nextSymbolRound() {
-  SymbolGame.currentRound++;
-  loadSymbolRound();
+  if (SymbolGame.currentRound < SymbolGame.rounds.length - 1) {
+    SymbolGame.currentRound++;
+    loadSymbolRound();
+  } else {
+    showSymbolGameResults();
+  }
 }
 
 
