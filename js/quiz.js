@@ -1,5 +1,47 @@
 /* Interactive Evaluation Quiz Module - Maximum 4.8rem Colossal Screen-Filling Fonts */
 
+/* ── Identification Quiz (Part I) ── */
+const idAnswers = [
+  ['AND GATE', 'AND'],            // Q1
+  ['1', 'TRUE', '1 OR TRUE'],     // Q2
+  ['NAND GATE', 'NAND'],          // Q3
+  ['XOR GATE', 'XOR', 'EXOR GATE', 'EXOR'], // Q4
+  ['OR GATE', 'OR']               // Q5
+];
+
+function checkIdentificationAnswers() {
+  let score = 0;
+  for (let i = 1; i <= 5; i++) {
+    const input = document.getElementById(`q${i}-ans`);
+    const result = document.getElementById(`q${i}-result`);
+    if (!input || !result) continue;
+    const val = input.value.trim().toUpperCase();
+    const correct = idAnswers[i - 1].some(a => val === a);
+    if (correct) score++;
+    result.style.display = 'inline';
+    result.textContent = correct ? '✅ Correct!' : `❌ Answer: ${idAnswers[i - 1][0]}`;
+    result.style.color = correct ? '#34d399' : '#f87171';
+    input.style.borderColor = correct ? '#34d399' : '#f87171';
+  }
+  const banner = document.getElementById('id-score-banner');
+  if (banner) {
+    banner.style.display = 'block';
+    banner.textContent = `Score: ${score} / 5`;
+    banner.style.color = score >= 4 ? '#34d399' : score >= 3 ? '#f59e0b' : '#f87171';
+  }
+}
+
+function resetIdentificationQuiz() {
+  for (let i = 1; i <= 5; i++) {
+    const input = document.getElementById(`q${i}-ans`);
+    const result = document.getElementById(`q${i}-result`);
+    if (input) { input.value = ''; input.style.borderColor = 'var(--border)'; }
+    if (result) { result.style.display = 'none'; result.textContent = ''; }
+  }
+  const banner = document.getElementById('id-score-banner');
+  if (banner) { banner.style.display = 'none'; banner.textContent = ''; }
+}
+
 const QuizData = {
   mcQuestions: [
     {
