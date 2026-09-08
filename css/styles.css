@@ -412,7 +412,7 @@ footer.bottom-bar {
 
 .troy-letter {
   font-family: var(--font-heading);
-  font-size: 8.5rem;
+  font-size: 10rem;
   font-weight: 900;
   line-height: 1;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -431,22 +431,22 @@ footer.bottom-bar {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex: 1;
 }
 
-/* Revealed State: Perfectly Sized to Fit Screen Height Without Scrollbars */
+/* Revealed State: Matches Slide 2 Colossal Typography Exactly */
 .troy-card.revealed {
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: flex-start;
   text-align: left;
-  padding: 24px 20px;
+  padding: 36px 28px;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .troy-card.revealed .troy-letter {
-  font-size: 3.2rem;
-  margin-bottom: 2px;
+  font-size: 3.5rem;
+  margin-bottom: 8px;
   line-height: 1;
 }
 
@@ -457,21 +457,18 @@ footer.bottom-bar {
 }
 
 .troy-card h3 {
-  font-size: 3.2rem;
-  line-height: 1.1;
-  margin-bottom: 8px;
+  font-size: 5.6rem;
+  line-height: 1.05;
+  margin-bottom: 12px;
   color: #ffffff;
   font-weight: 900;
 }
 
 .troy-card p {
-  font-size: 2.3rem;
+  font-size: 4.6rem;
   font-weight: 700;
   line-height: 1.35;
   color: #ffffff;
-  flex: 1;
-  display: flex;
-  align-items: center;
 }
 
 /* Gate Simulator Layout - Massive Screen-Occupying Cards & Giant SVG Schematics */
@@ -1015,14 +1012,6 @@ table.truth-table tr.active-row {
   .troy-card, .troy-card.revealed {
     padding: 18px 14px !important;
   }
-
-  .troy-card h3 {
-    font-size: 2.8rem !important;
-  }
-
-  .troy-card p {
-    font-size: 2rem !important;
-  }
 }
 
 @media screen and (max-height: 820px) {
@@ -1075,14 +1064,6 @@ table.truth-table tr.active-row {
 
   .troy-card, .troy-card.revealed {
     padding: 14px 10px !important;
-  }
-
-  .troy-card h3 {
-    font-size: 2.4rem !important;
-  }
-
-  .troy-card p {
-    font-size: 1.8rem !important;
   }
 }
 
