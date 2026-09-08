@@ -558,8 +558,9 @@ footer.bottom-bar {
 .switch-label {
   font-family: var(--font-code);
   font-weight: 900;
-  font-size: 2.8rem;
+  font-size: 4.8rem;
   color: var(--text-main);
+  text-align: center;
 }
 
 /* Output Bulb */
@@ -571,15 +572,15 @@ footer.bottom-bar {
 }
 
 .bulb-icon {
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   border: 5px solid rgba(255, 255, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 6rem;
+  font-size: 8rem;
   transition: all 0.2s ease;
 }
 
