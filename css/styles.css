@@ -784,62 +784,6 @@ table.truth-table tr.active-row {
   box-shadow: 0 0 36px rgba(56, 189, 248, 0.5);
 }
 
-/* Speaker Notes Drawer */
-#teacher-notes-drawer {
-  position: fixed;
-  top: 0;
-  right: -600px;
-  width: 600px;
-  height: 100vh;
-  background: #0b1120;
-  border-left: 3px solid var(--accent-cyan);
-  z-index: 100;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  transition: right 0.3s ease;
-}
-
-#teacher-notes-drawer.open { right: 0; }
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 20px;
-}
-
-.drawer-title {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  color: var(--accent-cyan);
-}
-
-.drawer-body {
-  flex: 1;
-  overflow-y: auto;
-  font-size: 1.5rem;
-  line-height: 1.7;
-  color: #e2e8f0;
-}
-
-.teacher-speech {
-  background: rgba(56, 189, 248, 0.15);
-  border-left: 5px solid var(--accent-cyan);
-  padding: 24px 28px;
-  border-radius: 0 16px 16px 0;
-  margin-bottom: 32px;
-  font-style: italic;
-}
-
-.student-response {
-  background: rgba(52, 211, 153, 0.15);
-  border-left: 5px solid var(--accent-green);
-  padding: 22px 26px;
-  border-radius: 0 16px 16px 0;
-}
 
 /* Grid Modal Overview */
 .modal-overlay {

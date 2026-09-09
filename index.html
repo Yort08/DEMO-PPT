@@ -30,9 +30,6 @@
           <span>⏱</span>
           <span id="timer-display">00:00</span>
         </div>
-        <button class="control-btn" id="btn-notes" onclick="toggleTeacherNotes()" title="Press N">
-          <span>🗣</span> Teacher Script
-        </button>
         <button class="control-btn" onclick="toggleSlideOverview()" title="Press O">
           <span>🎛</span> Grid View
         </button>
@@ -1331,24 +1328,6 @@
 
   </div>
 
-  <!-- Spoken Teacher Script Side Drawer (Press 'N') -->
-  <aside id="teacher-notes-drawer">
-    <div class="drawer-header">
-      <div class="drawer-title">🗣 Spoken Teacher Dialogue Script</div>
-      <button class="control-btn" onclick="toggleTeacherNotes()">✕</button>
-    </div>
-    <div class="drawer-body">
-      <div style="font-size:1.1rem; font-family:var(--font-code); color:var(--accent-cyan); margin-bottom:10px;">TEACHER'S SPOKEN SCRIPT:</div>
-      <div class="teacher-speech" id="drawer-speech-text">
-        "Good afternoon class! I am Troy Lits D. Dancel, and today we will discuss Digital Logic Gates!"
-      </div>
-
-      <div style="font-size:1.1rem; font-family:var(--font-code); color:var(--accent-green); margin-bottom:10px;">EXPECTED STUDENT RESPONSE:</div>
-      <div class="student-response" id="drawer-student-text">
-        "Good afternoon sir!"
-      </div>
-    </div>
-  </aside>
 
   <!-- Slide Overview Grid Modal (Press 'O') -->
   <div class="modal-overlay" id="overview-modal" onclick="toggleSlideOverview()">
