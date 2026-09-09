@@ -391,7 +391,7 @@ footer.bottom-bar {
 /* Classroom Rules (T.R.O.Y.) - Responsive Sizing to Fit Screen Without Scrollbars */
 .troy-card {
   border-left: 10px solid var(--accent-cyan);
-  padding: 24px 20px;
+  padding: clamp(20px, 2.5vh, 32px) clamp(14px, 1.6vw, 22px);
   cursor: pointer;
   position: relative;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -402,6 +402,7 @@ footer.bottom-bar {
   text-align: center;
   background: rgba(255, 255, 255, 0.04);
   height: 100%;
+  overflow: hidden;
 }
 
 .troy-card:hover {
@@ -412,67 +413,152 @@ footer.bottom-bar {
 .troy-card.letter-t { border-color: var(--accent-cyan); }
 .troy-card.letter-r { border-color: var(--accent-green); }
 .troy-card.letter-o { border-color: var(--accent-purple); }
-.troy-card.letter-y { border-color: var(--accent-amber); }
+.troy-card.letter-y { border-color: #facc15; }
+
+.troy-heading {
+  font-family: var(--font-heading);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.troy-first-word {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
 
 .troy-letter {
   font-family: var(--font-heading);
-  font-size: 10rem;
-  font-weight: 900;
+  font-size: clamp(7rem, 11vh, 11rem);
+  font-weight: 1000;
   line-height: 1;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
 }
-.letter-t .troy-letter { color: var(--accent-cyan); }
-.letter-r .troy-letter { color: var(--accent-green); }
-.letter-o .troy-letter { color: var(--accent-purple); }
-.letter-y .troy-letter { color: var(--accent-amber); }
+
+.troy-rest-stem {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 1000;
+  transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  vertical-align: baseline;
+}
+
+.troy-rest-tail {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 1000;
+  transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  vertical-align: baseline;
+}
 
 .troy-content {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transform: translateY(20px);
-  transition: opacity 0.4s ease, max-height 0.5s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease 0.15s, max-height 0.45s ease, transform 0.4s ease 0.15s;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex: 1;
 }
 
-/* Revealed State: Matches Slide 2 Colossal Typography Exactly */
+/* Colors for headings and letters */
+.letter-t .troy-heading,
+.letter-t .troy-letter,
+.letter-t .troy-rest-stem,
+.letter-t .troy-rest-tail {
+  color: var(--accent-cyan);
+}
+
+.letter-r .troy-heading,
+.letter-r .troy-letter,
+.letter-r .troy-rest-stem,
+.letter-r .troy-rest-tail {
+  color: var(--accent-green);
+}
+
+.letter-o .troy-heading,
+.letter-o .troy-letter,
+.letter-o .troy-rest-stem,
+.letter-o .troy-rest-tail {
+  color: var(--accent-purple);
+}
+
+.letter-y .troy-heading,
+.letter-y .troy-letter,
+.letter-y .troy-rest-stem,
+.letter-y .troy-rest-tail {
+  color: #facc15;
+}
+
+/* Revealed State: Seamless Merge from Letter into Phrase */
 .troy-card.revealed {
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
-  padding: 36px 28px;
+  padding: clamp(20px, 2.5vh, 32px) clamp(14px, 1.6vw, 22px);
   background: rgba(255, 255, 255, 0.08);
 }
 
+.troy-card.revealed .troy-heading {
+  justify-content: flex-start;
+  align-items: baseline;
+  margin-bottom: clamp(12px, 1.8vh, 22px);
+  gap: 0 0.28em;
+}
+
 .troy-card.revealed .troy-letter {
-  font-size: 3.5rem;
-  margin-bottom: 8px;
-  line-height: 1;
+  font-size: clamp(2.8rem, 3.4vw, 4.4rem);
+  line-height: 1.1;
+}
+
+.troy-card.revealed .troy-rest-stem {
+  max-width: 250px;
+  opacity: 1;
+  font-size: clamp(2.8rem, 3.4vw, 4.4rem);
+  line-height: 1.1;
+}
+
+.troy-card.revealed .troy-rest-tail {
+  max-width: 500px;
+  opacity: 1;
+  font-size: clamp(2.8rem, 3.4vw, 4.4rem);
+  line-height: 1.1;
+  white-space: normal;
 }
 
 .troy-card.revealed .troy-content {
   opacity: 1;
-  max-height: none;
+  max-height: 500px;
   transform: translateY(0);
 }
 
-.troy-card h3 {
-  font-size: 5.6rem;
-  line-height: 1.05;
-  margin-bottom: 12px;
-  color: #ffffff;
-  font-weight: 900;
-}
-
+.troy-desc,
 .troy-card p {
-  font-size: 4.6rem;
+  font-size: clamp(2.2rem, 2.5vw, 3.8rem);
   font-weight: 700;
   line-height: 1.35;
   color: #ffffff;
+  margin: 0;
 }
 
 /* Gate Simulator Layout - Massive Screen-Occupying Cards & Giant SVG Schematics */
@@ -1093,20 +1179,20 @@ table.truth-table tr.active-row {
     padding: 16px 14px !important;
   }
 
-  .troy-card .troy-letter {
+  .troy-card:not(.revealed) .troy-letter {
     font-size: 7rem !important;
   }
 
-  .troy-card.revealed .troy-letter {
+  .troy-card.revealed .troy-letter,
+  .troy-card.revealed .troy-rest-stem,
+  .troy-card.revealed .troy-rest-tail,
+  .troy-card h3 {
     font-size: 2.6rem !important;
   }
 
-  .troy-card h3 {
-    font-size: 3.4rem !important;
-  }
-
+  .troy-card .troy-desc,
   .troy-card p {
-    font-size: 2.8rem !important;
+    font-size: 2.2rem !important;
   }
 }
 
@@ -1183,12 +1269,20 @@ table.truth-table tr.active-row {
     padding: 12px 8px !important;
   }
 
-  .troy-card h3 {
-    font-size: 2.8rem !important;
+  .troy-card:not(.revealed) .troy-letter {
+    font-size: 5.5rem !important;
   }
 
+  .troy-card.revealed .troy-letter,
+  .troy-card.revealed .troy-rest-stem,
+  .troy-card.revealed .troy-rest-tail,
+  .troy-card h3 {
+    font-size: 2.2rem !important;
+  }
+
+  .troy-card .troy-desc,
   .troy-card p {
-    font-size: 2.4rem !important;
+    font-size: 1.8rem !important;
   }
 
   .feature-card h3 {
