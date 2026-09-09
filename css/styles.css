@@ -532,10 +532,14 @@ footer.bottom-bar {
   gap: 0;
 }
 
-.troy-card.revealed .troy-letter,
+.troy-card.revealed .troy-letter{
+  font-size: 5.5rem;
+  line-height: 1.15;
+}
+
 .troy-card.revealed .troy-rest-stem,
 .troy-card.revealed .troy-rest-tail {
-  font-size: clamp(2.2rem, 2.2vw, 3.2rem);
+  font-size: 4.5rem;
   line-height: 1.15;
 }
 
@@ -558,8 +562,8 @@ footer.bottom-bar {
 
 .troy-desc,
 .troy-card p {
-  font-size: clamp(1.6rem, 1.55vw, 2.3rem);
-  font-weight: 600;
+  font-size: 4.5rem;
+  font-weight: 900;
   line-height: 1.4;
   color: #ffffff;
   margin: 0;
