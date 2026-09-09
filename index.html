@@ -826,26 +826,88 @@
         </div>
       </section>
 
-      <!-- SLIDE 17: Reflection -->
-      <section class="slide" data-slide="17">
+      <!-- SLIDE 18: Quick Reflection (2 Minutes) -->
+      <section class="slide" data-slide="18">
         <div class="slide-header">
           <div>
-            <div class="slide-tag">Elaborate • 1-Minute Reflection</div>
-            <h2 class="slide-title">Impact of Logic Gates in Daily Life</h2>
+            <div class="slide-tag">Elaborate • Quick Reflection (2 Minutes)</div>
+            <h2 class="slide-title">Quick Reflection (2 Minutes)</h2>
           </div>
+          <div class="slide-subtitle">Write a short sentence explaining how basic logic gates impact everyday electronic devices.</div>
         </div>
-        <div class="slide-body">
-          <div class="feature-card" style="padding: 56px; text-align: center; background: rgba(56, 189, 248, 0.05); border-color: var(--accent-cyan);">
-            <h3 style="font-size: 3.5rem; color: var(--accent-cyan); margin-bottom: 28px;">"How do basic logic gates impact the electronic devices you use every day?"</h3>
-            <p style="font-size: 2.4rem; line-height: 1.8; color: #fff; max-width: 1200px; margin: 0 auto;">
-              Logic gates are essential because every single action on our smartphones, laptops, smart TVs, and computers relies on millions of microscopic transistors making ultra-fast binary decisions using these exact gate rules!
-            </p>
+        <div class="slide-body" style="flex-direction: column; justify-content: space-between; align-items: center; height: 100%; gap: clamp(12px, 2vh, 24px); overflow: hidden;">
+          
+          <!-- Main Reflection Card -->
+          <div class="feature-card" style="width: 100%; max-width: 1300px; padding: clamp(20px, 3vh, 40px) clamp(24px, 4vw, 56px); border-color: var(--accent-cyan); text-align: center; display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 1.8vh, 22px); flex-shrink: 0; background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.8)); box-shadow: 0 8px 32px rgba(56, 189, 248, 0.15);">
+            <div style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4vh, 4.2rem); font-weight: 900; color: #ffffff; line-height: 1.35; max-width: 1100px;">
+              “Write a short sentence explaining how basic logic gates impact everyday electronic devices.”
+            </div>
+            <div style="font-size: clamp(1.5rem, 2vh, 2.2rem); color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 12px;">
+              <span>✏️ Write your answer in your notebook or paper</span>
+              <span>•</span>
+              <span>⏱ Time Allotted: 2 Minutes</span>
+            </div>
           </div>
+
+          <!-- Interactive 2-Minute Timer & Guide Row -->
+          <div style="width: 100%; max-width: 1300px; display: grid; grid-template-columns: minmax(300px, 1fr) minmax(300px, 1.3fr); gap: clamp(16px, 2.5vw, 32px); flex: 1; min-height: 0;">
+            
+            <!-- Timer Box -->
+            <div class="feature-card" style="border-color: var(--accent-cyan); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: clamp(16px, 2vh, 28px); gap: clamp(10px, 1.5vh, 18px); background: rgba(15, 23, 42, 0.7);">
+              <div style="font-size: clamp(1.4rem, 1.8vh, 2rem); font-weight: 800; color: var(--accent-cyan); letter-spacing: 0.1em; text-transform: uppercase;">
+                ⏱ 2-Minute Reflection Timer
+              </div>
+              <div id="ref-timer-digits" style="font-family: var(--font-code); font-size: clamp(4.5rem, 7vh, 7.5rem); font-weight: 900; color: #ffffff; line-height: 1; text-shadow: 0 0 30px rgba(56, 189, 248, 0.6);">
+                02:00
+              </div>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+                <button id="btn-ref-toggle" class="nav-btn" onclick="startRefTimer()" style="font-size: clamp(1.4rem, 1.8vh, 1.9rem); padding: clamp(10px, 1.4vh, 16px) clamp(20px, 2vw, 32px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color: #0f172a; border: none; font-weight: 800;">
+                  ▶ Start 2-Min Timer
+                </button>
+                <button class="nav-btn" onclick="resetRefTimer()" style="font-size: clamp(1.4rem, 1.8vh, 1.9rem); padding: clamp(10px, 1.4vh, 16px) clamp(16px, 1.5vw, 24px); opacity: 0.8;">
+                  ↺ Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- Thinking Prompts & Sample Takeaway Box -->
+            <div class="feature-card" style="border-color: var(--accent-purple); display: flex; flex-direction: column; justify-content: space-between; padding: clamp(16px, 2vh, 28px); gap: clamp(10px, 1.5vh, 16px); background: rgba(15, 23, 42, 0.7);">
+              <div>
+                <div style="font-size: clamp(1.4rem, 1.8vh, 2rem); font-weight: 800; color: var(--accent-purple); margin-bottom: clamp(8px, 1vh, 14px); text-transform: uppercase; letter-spacing: 0.08em;">
+                  💡 Guide: Think About Everyday Devices
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: clamp(8px, 1vw, 14px);">
+                  <div style="background: rgba(56, 189, 248, 0.12); border: 1px solid var(--accent-cyan); border-radius: 12px; padding: clamp(6px, 1vh, 10px) clamp(12px, 1.5vw, 18px); font-size: clamp(1.3rem, 1.6vh, 1.8rem); font-weight: 700; color: #fff;">
+                    📱 Smartphones &amp; Touchscreens
+                  </div>
+                  <div style="background: rgba(167, 139, 250, 0.12); border: 1px solid var(--accent-purple); border-radius: 12px; padding: clamp(6px, 1vh, 10px) clamp(12px, 1.5vw, 18px); font-size: clamp(1.3rem, 1.6vh, 1.8rem); font-weight: 700; color: #fff;">
+                    💻 Computers &amp; Processors
+                  </div>
+                  <div style="background: rgba(52, 211, 153, 0.12); border: 1px solid var(--accent-green); border-radius: 12px; padding: clamp(6px, 1vh, 10px) clamp(12px, 1.5vw, 18px); font-size: clamp(1.3rem, 1.6vh, 1.8rem); font-weight: 700; color: #fff;">
+                    🏠 Smart TVs &amp; Appliances
+                  </div>
+                </div>
+              </div>
+
+              <!-- Collapsible Key Takeaway -->
+              <div>
+                <div id="ref-sample-answer" style="display: none; background: rgba(56, 189, 248, 0.12); border-left: 4px solid var(--accent-cyan); padding: clamp(10px, 1.4vh, 16px); border-radius: 8px; margin-bottom: clamp(8px, 1vh, 12px); font-size: clamp(1.3rem, 1.7vh, 1.9rem); line-height: 1.45; color: #ffffff;">
+                  <strong style="color: var(--accent-cyan);">Key Takeaway:</strong> Millions of microscopic transistors act as logic gates to execute lightning-fast binary decisions (1s and 0s) that power every tap, calculation, and screen update!
+                </div>
+                <button id="btn-ref-answer" class="nav-btn" onclick="toggleRefAnswer()" style="width: 100%; font-size: clamp(1.3rem, 1.6vh, 1.8rem); padding: clamp(10px, 1.2vh, 14px); background: rgba(167, 139, 250, 0.15); border: 2px solid var(--accent-purple); color: #ffffff;">
+                  💡 Reveal Key Takeaways
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
       </section>
 
-      <!-- SLIDE 18: Activity - Pick the Gate Symbol -->
-      <section class="slide" data-slide="18">
+      <!-- SLIDE 19: Activity - Pick the Gate Symbol -->
+      <section class="slide" data-slide="19">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Interactive Activity</div>
@@ -917,8 +979,8 @@
 
 
 
-      <!-- SLIDE 19: Q1 -->
-      <section class="slide" data-slide="19">
+      <!-- SLIDE 20: Q1 -->
+      <section class="slide" data-slide="20">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Part I — Question 1 of 5</div>
@@ -931,14 +993,14 @@
           <div style="font-size: clamp(4.5rem, 7.5vh, 9.5rem); font-weight: 900; color: #fff; line-height: 1.2; text-align: center;">
             Which logic gate produces an output of 1 <span style="text-decoration: underline; color: var(--accent-cyan);">only</span> if both inputs are 1?
           </div>
-          <button class="nav-btn" onclick="showSlide(20)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">
+          <button class="nav-btn" onclick="showSlide(21)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">
             Next Question ▶
           </button>
         </div>
       </section>
 
-      <!-- SLIDE 20: Q2 -->
-      <section class="slide" data-slide="20">
+      <!-- SLIDE 21: Q2 -->
+      <section class="slide" data-slide="21">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Part I — Question 2 of 5</div>
@@ -952,14 +1014,14 @@
             The output of a <span style="font-weight: 900; color: var(--accent-red);">NOT</span> gate with an input of 0 is ______.
           </div>
           <div style="display: flex; gap: 32px;">
-            <button class="nav-btn" onclick="showSlide(19)" style="font-size: clamp(1.6rem, 2.2vh, 2.4rem); padding: clamp(12px, 1.8vh, 22px) clamp(28px, 3vw, 56px); opacity: 0.75;">◀ Back</button>
-            <button class="nav-btn" onclick="showSlide(21)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">Next Question ▶</button>
+            <button class="nav-btn" onclick="showSlide(20)" style="font-size: clamp(1.6rem, 2.2vh, 2.4rem); padding: clamp(12px, 1.8vh, 22px) clamp(28px, 3vw, 56px); opacity: 0.75;">◀ Back</button>
+            <button class="nav-btn" onclick="showSlide(22)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">Next Question ▶</button>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 21: Q3 -->
-      <section class="slide" data-slide="21">
+      <!-- SLIDE 22: Q3 -->
+      <section class="slide" data-slide="22">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Part I — Question 3 of 5</div>
@@ -973,14 +1035,14 @@
             Which logic gate acts as the exact opposite (inverter) of an <span style="font-weight: 900; color: var(--accent-cyan);">AND</span> gate?
           </div>
           <div style="display: flex; gap: 32px;">
-            <button class="nav-btn" onclick="showSlide(20)" style="font-size: clamp(1.6rem, 2.2vh, 2.4rem); padding: clamp(12px, 1.8vh, 22px) clamp(28px, 3vw, 56px); opacity: 0.75;">◀ Back</button>
-            <button class="nav-btn" onclick="showSlide(22)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">Next Question ▶</button>
+            <button class="nav-btn" onclick="showSlide(21)" style="font-size: clamp(1.6rem, 2.2vh, 2.4rem); padding: clamp(12px, 1.8vh, 22px) clamp(28px, 3vw, 56px); opacity: 0.75;">◀ Back</button>
+            <button class="nav-btn" onclick="showSlide(23)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">Next Question ▶</button>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 22: Q4 -->
-      <section class="slide" data-slide="22">
+      <!-- SLIDE 23: Q4 -->
+      <section class="slide" data-slide="23">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Part I — Question 4 of 5</div>
@@ -994,14 +1056,14 @@
             Which logic gate gives an output of 1 only when the inputs are <span style="text-decoration: underline; color: var(--accent-purple);">different</span> from each other?
           </div>
           <div style="display: flex; gap: 32px;">
-            <button class="nav-btn" onclick="showSlide(21)" style="font-size: clamp(1.6rem, 2.2vh, 2.4rem); padding: clamp(12px, 1.8vh, 22px) clamp(28px, 3vw, 56px); opacity: 0.75;">◀ Back</button>
-            <button class="nav-btn" onclick="showSlide(23)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">Next Question ▶</button>
+            <button class="nav-btn" onclick="showSlide(22)" style="font-size: clamp(1.6rem, 2.2vh, 2.4rem); padding: clamp(12px, 1.8vh, 22px) clamp(28px, 3vw, 56px); opacity: 0.75;">◀ Back</button>
+            <button class="nav-btn" onclick="showSlide(24)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color:#0f172a; border:none;">Next Question ▶</button>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 23: Q5 -->
-      <section class="slide" data-slide="23">
+      <!-- SLIDE 24: Q5 -->
+      <section class="slide" data-slide="24">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Part I — Question 5 of 5</div>
@@ -1015,16 +1077,16 @@
             Which gate returns 1 if <span style="font-weight: 900; color: var(--accent-green);">at least one</span> input is 1?
           </div>
           <div style="display: flex; gap: 32px;">
-            <button class="nav-btn" onclick="showSlide(22)" style="font-size: clamp(1.6rem, 2.2vh, 2.4rem); padding: clamp(12px, 1.8vh, 22px) clamp(28px, 3vw, 56px); opacity: 0.75;">◀ Back</button>
-            <button class="nav-btn" onclick="showSlide(24)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-green), #059669); color:#0f172a; border:none;">Proceed to Part II ▶</button>
+            <button class="nav-btn" onclick="showSlide(23)" style="font-size: clamp(1.6rem, 2.2vh, 2.4rem); padding: clamp(12px, 1.8vh, 22px) clamp(28px, 3vw, 56px); opacity: 0.75;">◀ Back</button>
+            <button class="nav-btn" onclick="showSlide(25)" style="font-size: clamp(1.8rem, 2.5vh, 2.6rem); padding: clamp(14px, 2vh, 24px) clamp(36px, 4vw, 72px); background: linear-gradient(135deg, var(--accent-green), #059669); color:#0f172a; border:none;">Proceed to Part II ▶</button>
           </div>
         </div>
       </section>
 
 
 
-      <!-- SLIDE 20: DEDICATED PART II - TABLE 1: AND GATE -->
-      <section class="slide" data-slide="24">
+      <!-- SLIDE 25: DEDICATED PART II - TABLE 1: AND GATE -->
+      <section class="slide" data-slide="25">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Part II (Table 1 of 3)</div>
@@ -1064,10 +1126,10 @@
           </div>
 
           <div style="display:flex; justify-content:space-between; width:100%; max-width:1400px;">
-            <button class="nav-btn" onclick="showSlide(19)" style="font-size: 1.8rem; padding: 20px 48px;">
-              ◀ Back to Part I
+            <button class="nav-btn" onclick="showSlide(24)" style="font-size: 1.8rem; padding: 20px 48px;">
+              ◀ Back to Part I (Q5)
             </button>
-            <button class="nav-btn" onclick="showSlide(25)" style="font-size: 2rem; padding: 24px 64px; background: linear-gradient(135deg, var(--accent-purple), #7c3aed); color:#fff; border:none; border-radius:18px;">
+            <button class="nav-btn" onclick="showSlide(26)" style="font-size: 2rem; padding: 24px 64px; background: linear-gradient(135deg, var(--accent-purple), #7c3aed); color:#fff; border:none; border-radius:18px;">
               Proceed to Table 2 (OR Gate) ▶
             </button>
           </div>
@@ -1075,8 +1137,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 21: DEDICATED PART II - TABLE 2: OR GATE -->
-      <section class="slide" data-slide="25">
+      <!-- SLIDE 26: DEDICATED PART II - TABLE 2: OR GATE -->
+      <section class="slide" data-slide="26">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Part II (Table 2 of 3)</div>
@@ -1116,10 +1178,10 @@
           </div>
 
           <div style="display:flex; justify-content:space-between; width:100%; max-width:1400px;">
-            <button class="nav-btn" onclick="showSlide(24)" style="font-size: 1.8rem; padding: 20px 48px;">
+            <button class="nav-btn" onclick="showSlide(25)" style="font-size: 1.8rem; padding: 20px 48px;">
               ◀ Back to Table 1 (AND Gate)
             </button>
-            <button class="nav-btn" onclick="showSlide(26)" style="font-size: 2rem; padding: 24px 64px; background: linear-gradient(135deg, var(--accent-green), #059669); color:#0f172a; border:none; border-radius:18px;">
+            <button class="nav-btn" onclick="showSlide(27)" style="font-size: 2rem; padding: 24px 64px; background: linear-gradient(135deg, var(--accent-green), #059669); color:#0f172a; border:none; border-radius:18px;">
               Proceed to Table 3 (NOT Gate) ▶
             </button>
           </div>
@@ -1127,8 +1189,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 22: DEDICATED PART II - TABLE 3: NOT GATE -->
-      <section class="slide" data-slide="26">
+      <!-- SLIDE 27: DEDICATED PART II - TABLE 3: NOT GATE -->
+      <section class="slide" data-slide="27">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Evaluate • Part II (Table 3 of 3)</div>
@@ -1159,9 +1221,17 @@
           </div>
 
           <div style="display:flex; flex-direction:column; align-items:center; gap:20px; width:100%; max-width:1400px;">
-            <button class="nav-btn" onclick="submitPart2()" style="font-size: 2.4rem; padding: 24px 80px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none; border-radius: 20px;">
-              📝 Submit Complete 13-Item Evaluation Quiz
-            </button>
+            <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; width: 100%;">
+              <button class="nav-btn" onclick="showSlide(26)" style="font-size: 1.8rem; padding: 20px 48px; opacity: 0.85;">
+                ◀ Back to Table 2
+              </button>
+              <button class="nav-btn" onclick="submitPart2()" style="font-size: 2.2rem; padding: 20px 60px; background: linear-gradient(135deg, var(--accent-green), #059669); color: #0f172a; border: none; border-radius: 20px;">
+                📝 Submit Complete Evaluation Quiz
+              </button>
+              <button class="nav-btn" onclick="showSlide(28)" style="font-size: 1.8rem; padding: 20px 48px; background: linear-gradient(135deg, var(--accent-cyan), #0284c7); color: #0f172a; border: none;">
+                Proceed to Assignment ▶
+              </button>
+            </div>
 
             <div id="part2-results-banner" style="display: none; text-align: center; background: rgba(52, 211, 153, 0.15); border: 3px solid var(--accent-green); border-radius: 24px; padding: 32px; width: 100%;"></div>
           </div>
@@ -1169,8 +1239,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 23: Hands-on Activity Materials -->
-      <section class="slide" data-slide="27">
+      <!-- SLIDE 28: Hands-on Activity Materials -->
+      <section class="slide" data-slide="28">
         <div class="slide-header">
           <div>
             <div class="slide-tag">Extend • Next Meeting Assignment</div>
@@ -1219,8 +1289,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 24: DEDICATED FAREWELL SLIDE -->
-      <section class="slide" data-slide="28">
+      <!-- SLIDE 29: DEDICATED FAREWELL SLIDE -->
+      <section class="slide" data-slide="29">
         <div class="title-slide-content" style="padding: 10px 0; justify-content: space-evenly;">
           <div class="title-badge" style="font-size: clamp(2rem, 2.8vh, 3rem); padding: clamp(12px, 1.8vh, 20px) clamp(36px, 4vw, 64px); border-radius: 50px;">
             🎉 Computer Architecture Session Completed
@@ -1251,7 +1321,7 @@
         <div class="progress-bar-bg">
           <div class="progress-bar-fill" id="progress-bar-fill"></div>
         </div>
-        <span class="slide-counter" id="slide-counter">SLIDE 1 / 24</span>
+        <span class="slide-counter" id="slide-counter">SLIDE 1 / 29</span>
       </div>
 
       <div class="nav-buttons">
@@ -1297,24 +1367,27 @@
         <div class="thumb-card" onclick="showSlide(6); toggleSlideOverview();"><div class="thumb-num">SLIDE 6</div><div class="thumb-title">Mystery Box 2</div></div>
         <div class="thumb-card" onclick="showSlide(7); toggleSlideOverview();"><div class="thumb-num">SLIDE 7</div><div class="thumb-title">Mystery Box 3</div></div>
         <div class="thumb-card" onclick="showSlide(8); toggleSlideOverview();"><div class="thumb-num">SLIDE 8</div><div class="thumb-title">Word Challenge (LOG _ _)</div></div>
+        <div class="thumb-card" onclick="showSlide(9); toggleSlideOverview();"><div class="thumb-num">SLIDE 9</div><div class="thumb-title">Transistors &amp; Logic Gates</div></div>
         <div class="thumb-card" onclick="showSlide(10); toggleSlideOverview();"><div class="thumb-num">SLIDE 10</div><div class="thumb-title">7 Logic Gates Overview</div></div>
-        <div class="thumb-card" onclick="showSlide(11); toggleSlideOverview();"><div class="thumb-num">SLIDE 11</div><div class="thumb-title">AND Gate</div></div>
-        <div class="thumb-card" onclick="showSlide(13); toggleSlideOverview();"><div class="thumb-num">SLIDE 13</div><div class="thumb-title">OR Gate</div></div>
-        <div class="thumb-card" onclick="showSlide(14); toggleSlideOverview();"><div class="thumb-num">SLIDE 14</div><div class="thumb-title">NOT Gate</div></div>
-        <div class="thumb-card" onclick="showSlide(15); toggleSlideOverview();"><div class="thumb-num">SLIDE 15</div><div class="thumb-title">NAND Gate</div></div>
-        <div class="thumb-card" onclick="showSlide(16); toggleSlideOverview();"><div class="thumb-num">SLIDE 16</div><div class="thumb-title">NOR Gate</div></div>
-        <div class="thumb-card" onclick="showSlide(17); toggleSlideOverview();"><div class="thumb-num">SLIDE 17</div><div class="thumb-title">EXOR Gate</div></div>
-        <div class="thumb-card" onclick="showSlide(18); toggleSlideOverview();"><div class="thumb-num">SLIDE 18</div><div class="thumb-title">EXNOR Gate</div></div>
-        <div class="thumb-card" onclick="showSlide(19); toggleSlideOverview();"><div class="thumb-num">SLIDE 19</div><div class="thumb-title">Quiz I — Q1</div></div>
-        <div class="thumb-card" onclick="showSlide(20); toggleSlideOverview();"><div class="thumb-num">SLIDE 20</div><div class="thumb-title">Quiz I — Q2</div></div>
-        <div class="thumb-card" onclick="showSlide(21); toggleSlideOverview();"><div class="thumb-num">SLIDE 21</div><div class="thumb-title">Quiz I — Q3</div></div>
-        <div class="thumb-card" onclick="showSlide(22); toggleSlideOverview();"><div class="thumb-num">SLIDE 22</div><div class="thumb-title">Quiz I — Q4</div></div>
-        <div class="thumb-card" onclick="showSlide(23); toggleSlideOverview();"><div class="thumb-num">SLIDE 23</div><div class="thumb-title">Quiz I — Q5</div></div>
-        <div class="thumb-card" onclick="showSlide(24); toggleSlideOverview();"><div class="thumb-num">SLIDE 24</div><div class="thumb-title">Quiz II: AND Gate Table</div></div>
-        <div class="thumb-card" onclick="showSlide(25); toggleSlideOverview();"><div class="thumb-num">SLIDE 25</div><div class="thumb-title">Quiz II: OR Gate Table</div></div>
-        <div class="thumb-card" onclick="showSlide(26); toggleSlideOverview();"><div class="thumb-num">SLIDE 26</div><div class="thumb-title">Quiz II: NOT Gate Table</div></div>
-        <div class="thumb-card" onclick="showSlide(27); toggleSlideOverview();"><div class="thumb-num">SLIDE 27</div><div class="thumb-title">Hands-on Assignment</div></div>
-        <div class="thumb-card" onclick="showSlide(28); toggleSlideOverview();"><div class="thumb-num">SLIDE 28</div><div class="thumb-title">Farewell & Goodbye</div></div>
+        <div class="thumb-card" onclick="showSlide(11); toggleSlideOverview();"><div class="thumb-num">SLIDE 11</div><div class="thumb-title">Gate 1: AND Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(12); toggleSlideOverview();"><div class="thumb-num">SLIDE 12</div><div class="thumb-title">Gate 2: OR Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(13); toggleSlideOverview();"><div class="thumb-num">SLIDE 13</div><div class="thumb-title">Gate 3: NOT Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(14); toggleSlideOverview();"><div class="thumb-num">SLIDE 14</div><div class="thumb-title">Gate 4: NAND Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(15); toggleSlideOverview();"><div class="thumb-num">SLIDE 15</div><div class="thumb-title">Gate 5: NOR Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(16); toggleSlideOverview();"><div class="thumb-num">SLIDE 16</div><div class="thumb-title">Gate 6: EXOR Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(17); toggleSlideOverview();"><div class="thumb-num">SLIDE 17</div><div class="thumb-title">Gate 7: EXNOR Gate</div></div>
+        <div class="thumb-card" onclick="showSlide(18); toggleSlideOverview();"><div class="thumb-num">SLIDE 18</div><div class="thumb-title">Quick Reflection (2 Mins)</div></div>
+        <div class="thumb-card" onclick="showSlide(19); toggleSlideOverview();"><div class="thumb-num">SLIDE 19</div><div class="thumb-title">Pick the Gate Symbol!</div></div>
+        <div class="thumb-card" onclick="showSlide(20); toggleSlideOverview();"><div class="thumb-num">SLIDE 20</div><div class="thumb-title">Quiz I — Q1</div></div>
+        <div class="thumb-card" onclick="showSlide(21); toggleSlideOverview();"><div class="thumb-num">SLIDE 21</div><div class="thumb-title">Quiz I — Q2</div></div>
+        <div class="thumb-card" onclick="showSlide(22); toggleSlideOverview();"><div class="thumb-num">SLIDE 22</div><div class="thumb-title">Quiz I — Q3</div></div>
+        <div class="thumb-card" onclick="showSlide(23); toggleSlideOverview();"><div class="thumb-num">SLIDE 23</div><div class="thumb-title">Quiz I — Q4</div></div>
+        <div class="thumb-card" onclick="showSlide(24); toggleSlideOverview();"><div class="thumb-num">SLIDE 24</div><div class="thumb-title">Quiz I — Q5</div></div>
+        <div class="thumb-card" onclick="showSlide(25); toggleSlideOverview();"><div class="thumb-num">SLIDE 25</div><div class="thumb-title">Quiz II: AND Gate Table</div></div>
+        <div class="thumb-card" onclick="showSlide(26); toggleSlideOverview();"><div class="thumb-num">SLIDE 26</div><div class="thumb-title">Quiz II: OR Gate Table</div></div>
+        <div class="thumb-card" onclick="showSlide(27); toggleSlideOverview();"><div class="thumb-num">SLIDE 27</div><div class="thumb-title">Quiz II: NOT Gate Table</div></div>
+        <div class="thumb-card" onclick="showSlide(28); toggleSlideOverview();"><div class="thumb-num">SLIDE 28</div><div class="thumb-title">Hands-on Assignment</div></div>
+        <div class="thumb-card" onclick="showSlide(29); toggleSlideOverview();"><div class="thumb-num">SLIDE 29</div><div class="thumb-title">Farewell &amp; Goodbye</div></div>
 
       </div>
     </div>

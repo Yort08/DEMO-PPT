@@ -2,7 +2,7 @@
 
 // Slide State
 let currentSlide = 1;
-const totalSlides = 28;
+const totalSlides = 29;
 let timerSeconds = 0;
 let timerInterval = null;
 
@@ -149,62 +149,82 @@ const TeacherNotesDB = {
     student: "“A cellphone, sir!”"
   },
   10: {
+    speech: "“There are 7 basic digital logic gates that form all digital computers: AND, OR, NOT, NAND, NOR, EXOR, and EXNOR. Let's explore each one!”",
+    student: "Students look at the 7 gate categories on screen."
+  },
+  11: {
     speech: "“First is the AND Gate. The output is 1 (true) ONLY if all inputs are 1. If even one input is 0, the output is 0. Notice its flat-left, curved-right 'D' shape!”",
     student: "Students test switches A and B on the live simulator."
   },
-  11: {
+  12: {
     speech: "“Next is the OR Gate. The OR Gate gives an output of 1 if at least one of its inputs is 1. The output will only be 0 when all inputs are 0.”",
     student: "Students observe the output bulb turning ON when either switch is active."
   },
-  12: {
+  13: {
     speech: "“Now let's talk about the NOT Gate, also known as the Inverter. It has only one input and one output, and simply reverses the signal!”",
     student: "“If input is 1, output is 0. If input is 0, output is 1!”"
   },
-  13: {
+  14: {
     speech: "“The NAND Gate means NOT-AND. It gives an output of 0 only when all inputs are 1. In every other case, the output is 1. How does it differ from AND gate, class?”",
     student: "“Sir, AND gives 1 only when both inputs are 1, but NAND gives 0 when both are 1!”"
   },
-  14: {
+  15: {
     speech: "“The NOR Gate means NOT-OR. It gives an output of 1 only when all inputs are 0. If even one input becomes 1, the output turns to 0.”",
     student: "“OR gives 1 if any input is 1, while NOR gives 1 only when both are 0!”"
   },
-  15: {
+  16: {
     speech: "“Moving on to the EXOR (Exclusive OR) Gate! Its output is 1 only when the inputs are different from each other. If inputs are identical, output is 0.”",
     student: "Students check their notes and test 0-1 and 1-0 inputs."
   },
-  16: {
+  17: {
     speech: "“Our 7th gate is EXNOR (Exclusive NOR). It is the opposite of EXOR: output is 1 when inputs are identical (both 0 or both 1), and 0 when different!”",
     student: "“No questions, sir!”"
   },
-  17: {
-    speech: "“Reflection Question: In one minute, how do basic logic gates impact the electronic devices you use every day?”",
-    student: "“Every action on our phones relies on millions of tiny transistors making fast binary decisions using logic gate rules!”"
-  },
   18: {
+    speech: "“Class, let's take two minutes for a quick reflection: Write a short sentence explaining how basic logic gates impact everyday electronic devices.”",
+    student: "Students write down their answers in their notebooks or on paper."
+  },
+  19: {
     speech: "“Activity Time: 'Pick the Gate Symbol!' I will flash two symbols, choose Symbol 1 or Symbol 2 within 10 seconds!”",
     student: "Students participate in the 5-round symbol challenge."
   },
-  19: {
-    speech: "“Part I Quiz: Please answer the 5 multiple choice questions on screen!”",
-    student: "Students select answers for Questions 1 to 5."
-  },
   20: {
-    speech: "“Part II (Table 1): Complete the AND Gate Truth Table!”",
-    student: "Students complete rows 2, 3, and 4."
+    speech: "“Part I Quiz (Question 1): Which logic gate produces an output of 1 only if both inputs are 1? Write your answer in UPPERCASE!”",
+    student: "Students write down their answer for Question 1."
   },
   21: {
-    speech: "“Part II (Table 2): Complete the OR Gate Truth Table!”",
-    student: "Students complete rows 1, 2, and 4."
+    speech: "“Question 2: The output of a NOT gate with an input of 0 is blank.”",
+    student: "Students write down their answer for Question 2."
   },
   22: {
-    speech: "“Part II (Table 3): Complete the NOT Gate Truth Table!”",
-    student: "Students complete rows 1 and 2 and submit their evaluation!"
+    speech: "“Question 3: Which logic gate acts as the exact opposite or inverter of an AND gate?”",
+    student: "Students write down their answer for Question 3."
   },
   23: {
+    speech: "“Question 4: Which logic gate gives an output of 1 only when the inputs are different from each other?”",
+    student: "Students write down their answer for Question 4."
+  },
+  24: {
+    speech: "“Question 5: Which gate returns 1 if at least one input is 1?”",
+    student: "Students complete Part I and prepare for the truth tables."
+  },
+  25: {
+    speech: "“Part II (Table 1): Complete the AND Gate Truth Table! Enter the correct binary outputs.”",
+    student: "Students complete the AND Gate table."
+  },
+  26: {
+    speech: "“Part II (Table 2): Complete the OR Gate Truth Table!”",
+    student: "Students complete the OR Gate table."
+  },
+  27: {
+    speech: "“Part II (Table 3): Complete the NOT Gate Truth Table and submit your 13-item evaluation!”",
+    student: "Students complete the table and submit."
+  },
+  28: {
     speech: "“For our next hands-on activity, please bring a printed picture of your chosen gate symbol, 1/8 illustration board, and a marker.”",
     student: "Students write down assignment requirements."
   },
-  24: {
+  29: {
     speech: "“That's all for today! Thank you for participating, Goodbye Class!”",
     student: "“Goodbye and thank you, sir!”"
   }
@@ -218,6 +238,71 @@ function updateTeacherNotes(slideNum) {
   if (speechElem) speechElem.textContent = noteData.speech;
   if (studentElem) studentElem.textContent = noteData.student;
 }
+
+// Quick Reflection (2-Minute) Timer Logic
+let refTimer = null;
+let refTimeLeft = 120; // 2 minutes (120 seconds)
+
+function updateRefTimerDisplay() {
+  const display = document.getElementById('ref-timer-digits');
+  if (!display) return;
+  const mins = String(Math.floor(refTimeLeft / 60)).padStart(2, '0');
+  const secs = String(refTimeLeft % 60).padStart(2, '0');
+  display.textContent = `${mins}:${secs}`;
+}
+
+function startRefTimer() {
+  if (refTimer) {
+    clearInterval(refTimer);
+    refTimer = null;
+    const btn = document.getElementById('btn-ref-toggle');
+    if (btn) btn.innerHTML = '▶ Resume Timer';
+    return;
+  }
+  
+  if (refTimeLeft <= 0) refTimeLeft = 120;
+  
+  const btn = document.getElementById('btn-ref-toggle');
+  if (btn) btn.innerHTML = '⏸ Pause Timer';
+  
+  refTimer = setInterval(() => {
+    if (refTimeLeft > 0) {
+      refTimeLeft--;
+      updateRefTimerDisplay();
+      if (refTimeLeft === 0) {
+        clearInterval(refTimer);
+        refTimer = null;
+        if (btn) btn.innerHTML = '⏰ Time is Up!';
+        playAudioTone(880, 0.4);
+      }
+    }
+  }, 1000);
+}
+
+function resetRefTimer() {
+  clearInterval(refTimer);
+  refTimer = null;
+  refTimeLeft = 120;
+  updateRefTimerDisplay();
+  const btn = document.getElementById('btn-ref-toggle');
+  if (btn) btn.innerHTML = '▶ Start 2-Min Timer';
+}
+
+function toggleRefAnswer() {
+  const answerBox = document.getElementById('ref-sample-answer');
+  const toggleBtn = document.getElementById('btn-ref-answer');
+  if (!answerBox) return;
+  if (answerBox.style.display === 'none' || answerBox.style.display === '') {
+    answerBox.style.display = 'block';
+    if (toggleBtn) toggleBtn.innerHTML = '💡 Hide Key Takeaways';
+  } else {
+    answerBox.style.display = 'none';
+    if (toggleBtn) toggleBtn.innerHTML = '💡 Reveal Key Takeaways';
+  }
+}
+window.startRefTimer = startRefTimer;
+window.resetRefTimer = resetRefTimer;
+window.toggleRefAnswer = toggleRefAnswer;
 
 // Global Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
