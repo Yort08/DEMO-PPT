@@ -2,7 +2,7 @@
 
 // Slide State
 let currentSlide = 1;
-const totalSlides = 29;
+const totalSlides = 30;
 let timerSeconds = 0;
 let timerInterval = null;
 

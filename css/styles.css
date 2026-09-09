@@ -1024,38 +1024,38 @@ table.truth-table tr.active-row {
     font-size: 4.5rem !important;
   }
 
-  /* Dedicated Truth Table Evaluation Slides (Slides 24, 25, 26) */
-  section.slide[data-slide="24"] .truth-table-card,
-  section.slide[data-slide="25"] .truth-table-card,
-  section.slide[data-slide="26"] .truth-table-card {
+  /* Dedicated Truth Table Evaluation Slides (Slides 26, 27, 28) */
+  section.slide[data-slide="26"] .truth-table-card,
+  section.slide[data-slide="27"] .truth-table-card,
+  section.slide[data-slide="28"] .truth-table-card {
     padding: clamp(12px, 1.8vh, 24px) !important;
   }
 
-  section.slide[data-slide="24"] .truth-table th,
-  section.slide[data-slide="25"] .truth-table th,
-  section.slide[data-slide="26"] .truth-table th {
+  section.slide[data-slide="26"] .truth-table th,
+  section.slide[data-slide="27"] .truth-table th,
+  section.slide[data-slide="28"] .truth-table th {
     font-size: clamp(2rem, 3.2vh, 2.8rem) !important;
     padding: clamp(8px, 1.4vh, 16px) !important;
   }
 
-  section.slide[data-slide="24"] .truth-table td,
-  section.slide[data-slide="25"] .truth-table td,
-  section.slide[data-slide="26"] .truth-table td {
+  section.slide[data-slide="26"] .truth-table td,
+  section.slide[data-slide="27"] .truth-table td,
+  section.slide[data-slide="28"] .truth-table td {
     font-size: clamp(2rem, 3.2vh, 2.8rem) !important;
     padding: clamp(6px, 1.2vh, 14px) !important;
   }
 
-  section.slide[data-slide="24"] input[type="number"],
-  section.slide[data-slide="25"] input[type="number"],
-  section.slide[data-slide="26"] input[type="number"] {
+  section.slide[data-slide="26"] input[type="number"],
+  section.slide[data-slide="27"] input[type="number"],
+  section.slide[data-slide="28"] input[type="number"] {
     width: clamp(70px, 8vw, 95px) !important;
     height: clamp(48px, 6vh, 64px) !important;
     font-size: clamp(2rem, 3vh, 2.8rem) !important;
   }
 
-  section.slide[data-slide="24"] .nav-btn,
-  section.slide[data-slide="25"] .nav-btn,
-  section.slide[data-slide="26"] .nav-btn {
+  section.slide[data-slide="26"] .nav-btn,
+  section.slide[data-slide="27"] .nav-btn,
+  section.slide[data-slide="28"] .nav-btn {
     font-size: clamp(1.4rem, 2vh, 1.8rem) !important;
     padding: clamp(10px, 1.5vh, 16px) clamp(20px, 3vw, 40px) !important;
   }
