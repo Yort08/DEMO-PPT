@@ -480,11 +480,6 @@
               </div>
 
               <div id="placeholder-and" class="truth-table-placeholder">
-                <div class="truth-table-placeholder-icon">📋</div>
-                <div class="truth-table-placeholder-text">
-                  Truth Table is Hidden
-                  <span class="truth-table-placeholder-subtext">Test the switches on the left, then reveal the table!</span>
-                </div>
                 <button class="truth-show-btn" onclick="toggleTruthTable('and')">
                   📊 Show Truth Table
                 </button>
@@ -550,8 +545,20 @@
             </div>
 
             <div class="truth-table-card">
-              <div class="truth-table-title">📊 OR Gate Truth Table</div>
-              <table class="truth-table" id="table-or">
+              <div class="truth-table-header">
+                <div class="truth-table-title">📊 OR Gate Truth Table</div>
+                <button id="btn-toggle-or" class="truth-hide-btn" onclick="toggleTruthTable('or')" style="display: none;">
+                  🙈 Hide Table
+                </button>
+              </div>
+
+              <div id="placeholder-or" class="truth-table-placeholder">
+                <button class="truth-show-btn" onclick="toggleTruthTable('or')">
+                  📊 Show Truth Table
+                </button>
+              </div>
+
+              <table class="truth-table" id="table-or" style="display: none;">
                 <thead>
                   <tr><th>A</th><th>B</th><th>Y (A + B)</th></tr>
                 </thead>
@@ -604,8 +611,20 @@
             </div>
 
             <div class="truth-table-card">
-              <div class="truth-table-title">📊 NOT Gate Truth Table</div>
-              <table class="truth-table" id="table-not">
+              <div class="truth-table-header">
+                <div class="truth-table-title">📊 NOT Gate Truth Table</div>
+                <button id="btn-toggle-not" class="truth-hide-btn" onclick="toggleTruthTable('not')" style="display: none;">
+                  🙈 Hide Table
+                </button>
+              </div>
+
+              <div id="placeholder-not" class="truth-table-placeholder">
+                <button class="truth-show-btn" onclick="toggleTruthTable('not')">
+                  📊 Show Truth Table
+                </button>
+              </div>
+
+              <table class="truth-table" id="table-not" style="display: none;">
                 <thead>
                   <tr><th>A</th><th>Y (A̅)</th></tr>
                 </thead>
@@ -664,8 +683,20 @@
             </div>
 
             <div class="truth-table-card">
-              <div class="truth-table-title">📊 NAND Gate Truth Table</div>
-              <table class="truth-table" id="table-nand">
+              <div class="truth-table-header">
+                <div class="truth-table-title">📊 NAND Gate Truth Table</div>
+                <button id="btn-toggle-nand" class="truth-hide-btn" onclick="toggleTruthTable('nand')" style="display: none;">
+                  🙈 Hide Table
+                </button>
+              </div>
+
+              <div id="placeholder-nand" class="truth-table-placeholder">
+                <button class="truth-show-btn" onclick="toggleTruthTable('nand')">
+                  📊 Show Truth Table
+                </button>
+              </div>
+
+              <table class="truth-table" id="table-nand" style="display: none;">
                 <thead>
                   <tr><th>A</th><th>B</th><th>Y (A · B̅)</th></tr>
                 </thead>
@@ -726,8 +757,20 @@
             </div>
 
             <div class="truth-table-card">
-              <div class="truth-table-title">📊 NOR Gate Truth Table</div>
-              <table class="truth-table" id="table-nor">
+              <div class="truth-table-header">
+                <div class="truth-table-title">📊 NOR Gate Truth Table</div>
+                <button id="btn-toggle-nor" class="truth-hide-btn" onclick="toggleTruthTable('nor')" style="display: none;">
+                  🙈 Hide Table
+                </button>
+              </div>
+
+              <div id="placeholder-nor" class="truth-table-placeholder">
+                <button class="truth-show-btn" onclick="toggleTruthTable('nor')">
+                  📊 Show Truth Table
+                </button>
+              </div>
+
+              <table class="truth-table" id="table-nor" style="display: none;">
                 <thead>
                   <tr><th>A</th><th>B</th><th>Y (A + B̅)</th></tr>
                 </thead>
@@ -788,8 +831,20 @@
             </div>
 
             <div class="truth-table-card">
-              <div class="truth-table-title">📊 EXOR Gate Truth Table</div>
-              <table class="truth-table" id="table-exor">
+              <div class="truth-table-header">
+                <div class="truth-table-title">📊 EXOR Gate Truth Table</div>
+                <button id="btn-toggle-exor" class="truth-hide-btn" onclick="toggleTruthTable('exor')" style="display: none;">
+                  🙈 Hide Table
+                </button>
+              </div>
+
+              <div id="placeholder-exor" class="truth-table-placeholder">
+                <button class="truth-show-btn" onclick="toggleTruthTable('exor')">
+                  📊 Show Truth Table
+                </button>
+              </div>
+
+              <table class="truth-table" id="table-exor" style="display: none;">
                 <thead>
                   <tr><th>A</th><th>B</th><th>Y (A ⊕ B)</th></tr>
                 </thead>
@@ -851,8 +906,20 @@
             </div>
 
             <div class="truth-table-card">
-              <div class="truth-table-title">📊 EXNOR Gate Truth Table</div>
-              <table class="truth-table" id="table-exnor">
+              <div class="truth-table-header">
+                <div class="truth-table-title">📊 EXNOR Gate Truth Table</div>
+                <button id="btn-toggle-exnor" class="truth-hide-btn" onclick="toggleTruthTable('exnor')" style="display: none;">
+                  🙈 Hide Table
+                </button>
+              </div>
+
+              <div id="placeholder-exnor" class="truth-table-placeholder">
+                <button class="truth-show-btn" onclick="toggleTruthTable('exnor')">
+                  📊 Show Truth Table
+                </button>
+              </div>
+
+              <table class="truth-table" id="table-exnor" style="display: none;">
                 <thead>
                   <tr><th>A</th><th>B</th><th>Y (A ⊙ B)</th></tr>
                 </thead>
