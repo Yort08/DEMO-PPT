@@ -125,6 +125,33 @@ function updateTruthTableHighlight(gateType, state) {
   });
 }
 
+// Toggle Truth Table visibility on gate discussion slide
+function toggleTruthTable(gateType) {
+  const table = document.getElementById(`table-${gateType}`);
+  const placeholder = document.getElementById(`placeholder-${gateType}`);
+  const toggleBtn = document.getElementById(`btn-toggle-${gateType}`);
+  if (!table || !placeholder) return;
+
+  const isHidden = table.style.display === 'none' || table.style.display === '';
+  if (isHidden) {
+    table.style.display = 'table';
+    table.classList.add('revealed-table');
+    placeholder.style.display = 'none';
+    if (toggleBtn) toggleBtn.style.display = 'inline-flex';
+    if (window.playAudioTone) window.playAudioTone(880, 0.12);
+    if (window.GateState && window.GateState[gateType]) {
+      updateTruthTableHighlight(gateType, window.GateState[gateType]);
+    }
+  } else {
+    table.style.display = 'none';
+    table.classList.remove('revealed-table');
+    placeholder.style.display = 'flex';
+    if (toggleBtn) toggleBtn.style.display = 'none';
+    if (window.playAudioTone) window.playAudioTone(440, 0.1);
+  }
+}
+window.toggleTruthTable = toggleTruthTable;
+
 // Initialize all gate simulators on slide load
 document.addEventListener('DOMContentLoaded', () => {
   const gates = ['and', 'or', 'not', 'nand', 'nor', 'exor', 'exnor'];

@@ -472,8 +472,25 @@
             </div>
 
             <div class="truth-table-card">
-              <div class="truth-table-title">📊 AND Gate Truth Table</div>
-              <table class="truth-table" id="table-and">
+              <div class="truth-table-header">
+                <div class="truth-table-title">📊 AND Gate Truth Table</div>
+                <button id="btn-toggle-and" class="truth-hide-btn" onclick="toggleTruthTable('and')" style="display: none;">
+                  🙈 Hide Table
+                </button>
+              </div>
+
+              <div id="placeholder-and" class="truth-table-placeholder">
+                <div class="truth-table-placeholder-icon">📋</div>
+                <div class="truth-table-placeholder-text">
+                  Truth Table is Hidden
+                  <span class="truth-table-placeholder-subtext">Test the switches on the left, then reveal the table!</span>
+                </div>
+                <button class="truth-show-btn" onclick="toggleTruthTable('and')">
+                  📊 Show Truth Table
+                </button>
+              </div>
+
+              <table class="truth-table" id="table-and" style="display: none;">
                 <thead>
                   <tr><th>A</th><th>B</th><th>Y (A · B)</th></tr>
                 </thead>
